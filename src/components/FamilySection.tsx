@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Lock, Sparkles, Heart, Shield, CheckCircle2 } from 'lucide-react';
+import { Users, Lock, Heart, Shield, CheckCircle2 } from 'lucide-react';
 
 export const FamilySection: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ export const FamilySection: React.FC = () => {
           <div className="family-card-large group">
             <div className="relative z-10 max-w-md">
               <span className="family-tag-pill">
-                <Sparkles size={14} />
+                <Heart size={14} />
                 <span>Espaço Kids & Animações</span>
               </span>
 

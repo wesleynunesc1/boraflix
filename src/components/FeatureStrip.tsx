@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tv, Sparkles, LayoutGrid, MessageSquareText } from 'lucide-react';
+import { Tv, SlidersHorizontal, LayoutGrid, MessageSquareText } from 'lucide-react';
 
 export const FeatureStrip: React.FC = () => {
   const features = [
@@ -9,7 +9,7 @@ export const FeatureStrip: React.FC = () => {
       desc: 'Assista na TV, celular, tablet, computador ou TV Box.'
     },
     {
-      icon: <Sparkles size={22} className="text-pink-400" />,
+      icon: <SlidersHorizontal size={22} className="text-pink-400" />,
       title: 'Configuração simples',
       desc: 'Comece em menos de 5 minutos com tutorial passo a passo.'
     },

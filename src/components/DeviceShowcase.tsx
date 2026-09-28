@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tv, Radio, Smartphone, Tablet, Laptop, Check, Sparkles, MonitorPlay } from 'lucide-react';
+import { Tv, Radio, Smartphone, Tablet, Laptop, Check, MonitorPlay } from 'lucide-react';
 import { devicesList } from '../data/devicesData';
 import { ImagePlaceholder } from './ImagePlaceholder';
 
@@ -80,7 +80,7 @@ export const DeviceShowcase: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-4">
                     <div>
                       <span className="text-[11px] text-cyan-400 font-bold flex items-center gap-1">
-                        <Sparkles size={12} /> Sincronização em Nuvem
+                        <MonitorPlay size={12} /> Sincronização em Nuvem
                       </span>
                       <h4 className="text-white font-bold text-base mt-0.5">
                         {activeDevice.name} • Compatibilidade Completa

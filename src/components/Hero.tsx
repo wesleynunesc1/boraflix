@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Sparkles, Tv, Zap, Headphones, CheckCircle2, ShieldCheck, ArrowRight, Film, Radio } from 'lucide-react';
+import { Play, Tv, Zap, Headphones, CheckCircle2, ShieldCheck, ArrowRight, Film, Radio } from 'lucide-react';
 import { Button } from './Button';
 import { ImagePlaceholder } from './ImagePlaceholder';
 
@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
               <div className="hero-badge">
                 <span className="pulse-dot" />
                 <span>Sua próxima sessão começa aqui</span>
-                <Sparkles size={14} className="text-pink-400" />
+                <Film size={14} className="text-pink-400" />
               </div>
             </div>
 

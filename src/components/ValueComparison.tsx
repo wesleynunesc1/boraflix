@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, CheckCircle2, XCircle, Sparkles, ArrowRight, Layers, Flame, DollarSign } from 'lucide-react';
+import { ArrowDown, CheckCircle2, XCircle, ArrowRight, Layers, Flame, DollarSign } from 'lucide-react';
 import { Button } from './Button';
 
 export const ValueComparison: React.FC = () => {
@@ -96,7 +96,7 @@ export const ValueComparison: React.FC = () => {
           {/* Right Side: The BoraFlix Unified Solution */}
           <div className="comparison-side new-way group">
             <div className="comparison-side-badge badge-success">
-              <Sparkles size={14} />
+              <CheckCircle2 size={14} className="text-cyan-400" />
               <span>Solução BoraFlix</span>
             </div>
 

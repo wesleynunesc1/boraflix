@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Tv, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Play, Tv, ShieldCheck, Zap } from 'lucide-react';
 import { Button } from './Button';
 
 export const FinalCTA: React.FC = () => {
@@ -28,7 +28,7 @@ export const FinalCTA: React.FC = () => {
       <div className="container relative z-10">
         <div className="final-cta-stage">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider mb-8 shadow-lg">
-            <Sparkles size={14} className="text-pink-400 animate-pulse" />
+            <Play size={12} className="fill-current text-cyan-400" />
             <span>Acesso Liberado Imediatamente</span>
           </div>
 

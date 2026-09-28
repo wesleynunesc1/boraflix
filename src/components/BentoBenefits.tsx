@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Tv, Calendar, Trophy, MessageCircle, MonitorSmartphone, Sparkles, CheckCircle2, ShieldCheck, Activity } from 'lucide-react';
+import { Zap, Tv, Calendar, Trophy, MessageCircle, MonitorSmartphone, Layers, CheckCircle2, ShieldCheck, Activity } from 'lucide-react';
 
 export const BentoBenefits: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const BentoBenefits: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
-            <Sparkles size={14} />
+            <Layers size={14} className="text-cyan-400" />
             <span>Infraestrutura & Vantagens Exclusivas</span>
           </div>
           <h2 className="section-title">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2, Sparkles, Tv, ShieldCheck } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize2, Tv, ShieldCheck } from 'lucide-react';
 import { ImagePlaceholder } from './ImagePlaceholder';
 
 export const VideoDemo: React.FC = () => {

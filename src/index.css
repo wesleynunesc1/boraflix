@@ -55,7 +55,7 @@
 
   /* Typography Tokens */
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 
   /* Layout Spacing */
   --container-max: 1380px;
@@ -134,6 +134,11 @@ button {
   border: none;
   background: none;
   color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
 }
 
 ul, ol {

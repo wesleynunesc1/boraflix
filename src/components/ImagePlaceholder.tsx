@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image as ImageIcon, Sparkles } from 'lucide-react';
+import { Image as ImageIcon, Film } from 'lucide-react';
 
 interface ImagePlaceholderProps {
   id: string;
@@ -53,7 +53,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     >
       <div className="flex items-center gap-2 text-cyan-400 mb-1">
         <ImageIcon size={28} className="text-cyan-400 opacity-90" />
-        <Sparkles size={16} className="text-pink-500 animate-pulse" />
+        <Film size={16} className="text-pink-500" />
       </div>
       <span className="placeholder-tag font-mono">[{id.toUpperCase()}]</span>
       <p className="text-xs uppercase tracking-wider text-slate-300 font-semibold max-w-xs leading-relaxed">

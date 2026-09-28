@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, ShieldCheck, ArrowRight, Sparkles, Zap, Lock, Award, Heart } from 'lucide-react';
+import { Check, ShieldCheck, ArrowRight, Zap, Lock, Award, Heart } from 'lucide-react';
 import { pricingPlans } from '../data/pricingData';
 import { Button } from './Button';
 
@@ -29,7 +29,7 @@ export const Pricing: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
-            <Sparkles size={14} />
+            <ShieldCheck size={14} className="text-cyan-400" />
             <span>Valores Oficiais Transparentes</span>
           </div>
           <h2 className="section-title">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, MessageSquareQuote, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { Star, MessageSquareQuote, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { testimonialsData } from '../data/testimonialsData';
 import { ImagePlaceholder } from './ImagePlaceholder';
 

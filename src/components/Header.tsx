@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight, Film } from 'lucide-react';
 import { Button } from './Button';
 
 export const Header: React.FC = () => {
@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
 
         <div className="mt-auto pt-6 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-xs text-cyan-400 justify-center">
-            <Sparkles size={14} />
+            <Film size={14} />
             <span>Mais de 60.000 conteúdos liberados</span>
           </div>
           <Button

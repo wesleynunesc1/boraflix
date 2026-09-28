@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreditCard, KeyRound, SlidersHorizontal, PlayCircle, Sparkles, Check } from 'lucide-react';
+import { CreditCard, KeyRound, SlidersHorizontal, PlayCircle, Play, Check } from 'lucide-react';
 
 export const StepTimeline: React.FC = () => {
   const steps = [
@@ -41,7 +41,7 @@ export const StepTimeline: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
-            <Sparkles size={14} />
+            <Play size={12} className="fill-current text-cyan-400" />
             <span>Jornada Simples & Transparente</span>
           </div>
           <h2 className="section-title">
