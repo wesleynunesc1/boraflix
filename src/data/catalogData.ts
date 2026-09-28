@@ -1,0 +1,211 @@
+import { PosterItem } from '../types';
+
+export const catalogItems: PosterItem[] = [
+  {
+    id: 'oppenheimer',
+    title: 'Oppenheimer',
+    image: '/assets/capas/Filme-02-1.webp',
+    category: 'cinema',
+    categoryLabel: 'Cinema • Drama Histórico',
+    rating: '8.9',
+    year: '2023',
+    quality: '4K UHD',
+    duration: '3h 00m',
+    badge: 'Vencedor do Oscar',
+    description: 'A história do cientista que chefiou o Projeto Manhattan e a criação da bomba atômica.'
+  },
+  {
+    id: 'top-gun-maverick',
+    title: 'Top Gun: Maverick',
+    image: '/assets/capas/Filme-01-1.webp',
+    category: 'action',
+    categoryLabel: 'Ação • Cinema',
+    rating: '8.6',
+    year: '2022',
+    quality: '4K UHD',
+    duration: '2h 11m',
+    badge: 'Fenômeno de Bilheteria',
+    description: 'Após mais de trinta anos de serviço como um dos melhores aviadores da Marinha, Pete Mitchell enfrenta o passado.'
+  },
+  {
+    id: 'the-boys',
+    title: 'The Boys',
+    image: '/assets/capas/Serie-08-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Ação & Sátira',
+    rating: '8.7',
+    year: '2024',
+    quality: '4K UHD',
+    badge: 'Nova Temporada',
+    description: 'Um olhar divertido e irreverente sobre o que acontece quando super-heróis abusam de seus superpoderes.'
+  },
+  {
+    id: 'dark',
+    title: 'Dark',
+    image: '/assets/capas/Serie-10-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Suspense Sci-Fi',
+    rating: '8.8',
+    year: '2020',
+    quality: '4K UHD',
+    badge: 'Obra-Prima Alemã',
+    description: 'O desaparecimento de duas crianças em uma cidade alemã expõe os relacionamentos fraturados entre quatro famílias.'
+  },
+  {
+    id: 'mufasa',
+    title: 'Mufasa: O Rei Leão',
+    image: '/assets/capas/image2-1.webp',
+    category: 'kids',
+    categoryLabel: 'Família • Aventura',
+    rating: '8.4',
+    year: '2024',
+    quality: '4K UHD',
+    badge: 'Especial Família',
+    description: 'A incrível jornada das origens do lendário rei das terras do reino contada para uma nova geração.'
+  },
+  {
+    id: 'eternals',
+    title: 'Eternos',
+    image: '/assets/capas/Filme-04-1.webp',
+    category: 'action',
+    categoryLabel: 'Ação • Marvel Studios',
+    rating: '7.8',
+    year: '2021',
+    quality: '4K UHD',
+    duration: '2h 36m',
+    badge: 'Marvel 4K HDR',
+    description: 'Uma raça de seres imortais que viveram na Terra durante séculos e moldaram sua história e civilizações.'
+  },
+  {
+    id: '365-dias',
+    title: '365 Dias',
+    image: '/assets/capas/Filme-03-1.webp',
+    category: 'cinema',
+    categoryLabel: 'Romance • Drama',
+    rating: '7.2',
+    year: '2022',
+    quality: '4K UHD',
+    duration: '1h 54m',
+    badge: 'Mais Assistidos',
+    description: 'Um drama apaixonante e controverso que dominou as conversas e tendências do streaming.'
+  },
+  {
+    id: 'filme-06',
+    title: 'Avatar: O Caminho da Água',
+    image: '/assets/capas/Filme-06-1.webp',
+    category: 'action',
+    categoryLabel: 'Sci-Fi • Aventura',
+    rating: '8.2',
+    year: '2023',
+    quality: '4K UHD',
+    duration: '3h 12m',
+    badge: 'Visual Deslumbrante',
+    description: 'Jake Sully e Neytiri formaram uma família e fazem de tudo para ficarem juntos explorando as regiões de Pandora.'
+  },
+  {
+    id: 'serie-07',
+    title: 'Stranger Things',
+    image: '/assets/capas/Serie-07-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Mistério Anos 80',
+    rating: '8.7',
+    year: '2023',
+    quality: '4K UHD',
+    badge: 'Clássico Moderno',
+    description: 'Quando um garoto desaparece, sua mãe, um chefe de polícia e seus amigos precisam enfrentar forças aterrorizantes.'
+  },
+  {
+    id: 'serie-09',
+    title: 'A Casa do Dragão',
+    image: '/assets/capas/Serie-09-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Fantasia Épica',
+    rating: '8.6',
+    year: '2024',
+    quality: '4K UHD',
+    badge: 'Sucesso Absoluto',
+    description: 'A história da Casa Targaryen 200 anos antes dos eventos narrados em Game of Thrones.'
+  },
+  {
+    id: 'filme-10',
+    title: 'Duna: Parte 2',
+    image: '/assets/capas/Filme-10-1.webp',
+    category: 'cinema',
+    categoryLabel: 'Cinema • Ficção Científica',
+    rating: '8.8',
+    year: '2024',
+    quality: '4K UHD',
+    duration: '2h 46m',
+    badge: 'Lançamento Exclusivo',
+    description: 'Paul Atreides se une a Chani e aos Fremen em busca de vingança contra os conspiradores que destruíram sua família.'
+  },
+  {
+    id: 'serie-11',
+    title: 'The Last of Us',
+    image: '/assets/capas/Serie-11-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Drama & Sobrevivência',
+    rating: '8.9',
+    year: '2024',
+    quality: '4K UHD',
+    badge: 'Aclamada pela Crítica',
+    description: 'Joel e Ellie conectam-se pela dureza do mundo em que vivem, forçados a enfrentar circunstâncias brutais.'
+  },
+  {
+    id: 'filme-12',
+    title: 'John Wick 4: Baba Yaga',
+    image: '/assets/capas/Filme-12-1.webp',
+    category: 'action',
+    categoryLabel: 'Ação • Cinema',
+    rating: '8.5',
+    year: '2023',
+    quality: '4K UHD',
+    duration: '2h 49m',
+    badge: 'Adrenalina Pura',
+    description: 'Com o preço por sua cabeça cada vez maior, o lendário assassino John Wick leva sua luta contra a Alta Cúpula.'
+  },
+  {
+    id: 'serie-12',
+    title: 'Succession',
+    image: '/assets/capas/Serie-12-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Drama Corporativo',
+    rating: '8.9',
+    year: '2023',
+    quality: '4K UHD',
+    badge: 'Multi-Premiada',
+    description: 'A família Roy é conhecida por controlar o conglomerado de mídia Waystar RoyCo enquanto os quatro irmãos brigam pelo trono.'
+  },
+  {
+    id: 'serie-13',
+    title: 'Wandinha',
+    image: '/assets/capas/Serie-13-1.webp',
+    category: 'kids',
+    categoryLabel: 'Fantasia • Comédia Sombria',
+    rating: '8.3',
+    year: '2023',
+    quality: '4K UHD',
+    badge: 'Top 10 Global',
+    description: 'Wandinha Addams ingressa na Academia Nunca Mais, tentando dominar suas habilidades psíquicas e desvendar um mistério.'
+  },
+  {
+    id: 'serie-14',
+    title: 'Ruptura (Severance)',
+    image: '/assets/capas/Serie-14-1.webp',
+    category: 'series',
+    categoryLabel: 'Série • Suspense Psicológico',
+    rating: '8.7',
+    year: '2024',
+    quality: '4K UHD',
+    badge: 'Cult Imersivo',
+    description: 'Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre o trabalho e a vida pessoal.'
+  }
+];
+
+export const catalogCategories = [
+  { id: 'all', label: 'Todos os Destaques' },
+  { id: 'cinema', label: 'Cinema & 4K' },
+  { id: 'series', label: 'Séries Consagradas' },
+  { id: 'action', label: 'Ação & Adrenalina' },
+  { id: 'kids', label: 'Família & Infantil' }
+];
