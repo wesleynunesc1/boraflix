@@ -17,9 +17,14 @@ export interface PricingPlan {
   name: string;
   badge?: string;
   isPopular?: boolean;
+  isBestValue?: boolean;
   priceFormatted: string;
+  priceNumber: string;
+  originalPrice?: string;
   period: string;
   monthlyEquivalent?: string;
+  monthlyNumber?: string;
+  totalSavings?: string;
   savingsBadge?: string;
   description: string;
   features: string[];

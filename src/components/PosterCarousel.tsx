@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star, Play, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Play, Sparkles, Film, Info } from 'lucide-react';
 import { catalogItems, catalogCategories } from '../data/catalogData';
 import { PosterItem } from '../types';
 
 export const PosterCarousel: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [hoveredPoster, setHoveredPoster] = useState<PosterItem>(catalogItems[0]);
   const [selectedPoster, setSelectedPoster] = useState<PosterItem | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -14,28 +15,37 @@ export const PosterCarousel: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (trackRef.current) {
-      const scrollAmount = direction === 'left' ? -380 : 380;
+      const scrollAmount = direction === 'left' ? -420 : 420;
       trackRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="section-wrap" id="experiencia">
-      <div className="ambient-glow ambient-magenta" style={{ top: '10%', right: '10%', width: '500px', height: '500px' }} />
+    <section className="section-wrap catalog-cinematic-section" id="experiencia">
+      {/* Dynamic Atmospheric Blurred Backdrop reacting to hovered poster (Section 11) */}
+      <div className="catalog-dynamic-backdrop" aria-hidden="true">
+        <img
+          src={hoveredPoster.image}
+          alt=""
+          className="catalog-backdrop-img"
+        />
+        <div className="catalog-backdrop-overlay" />
+      </div>
 
-      <div className="container">
-        {/* Section Header */}
+      <div className="container relative z-10">
+        {/* Section Header with Editorial Presence */}
         <div className="section-header">
           <div className="section-badge">
-            <Sparkles size={14} />
-            <span>Catálogo Cinematográfico</span>
+            <Film size={14} />
+            <span>Catálogo Cinematográfico em 4K</span>
           </div>
           <h2 className="section-title">
-            Sempre existe algo para <span className="text-gradient">entrar no clima.</span>
+            Sempre existe algo para <br />
+            <span className="text-gradient">entrar no clima.</span>
           </h2>
           <p className="section-subtitle">
-            Uma experiência visual organizada para você encontrar exatamente o que quer assistir,
-            desde lançamentos recém-saídos do cinema até sagas completas.
+            Uma experiência visual desenhada para você encontrar em segundos o que deseja assistir:
+            grandes blockbusters de cinema, séries consagradas, esportes ao vivo e produções aclamadas.
           </p>
         </div>
 
@@ -54,9 +64,9 @@ export const PosterCarousel: React.FC = () => {
           ))}
         </div>
 
-        {/* Carousel Showcase */}
-        <div className="catalog-carousel-container">
-          {/* Navigation Arrows */}
+        {/* Carousel Showcase Container with Edge Fade Masks (Section 10) */}
+        <div className="catalog-carousel-container-cinematic">
+          {/* Navigation Controls */}
           <button
             className="carousel-nav-btn prev"
             onClick={() => scroll('left')}
@@ -75,45 +85,44 @@ export const PosterCarousel: React.FC = () => {
           {/* Cards Track with smooth native touch scroll on mobile & transform support */}
           <div
             ref={trackRef}
-            className="catalog-track overflow-x-auto scrollbar-none pb-4"
-            style={{ scrollSnapType: 'x mandatory' }}
+            className="catalog-track-cinematic"
           >
             {filteredItems.map(item => (
               <div
                 key={item.id}
-                className="poster-card flex-shrink-0"
-                style={{ scrollSnapAlign: 'start' }}
+                className="poster-card-cinematic"
+                onMouseEnter={() => setHoveredPoster(item)}
                 onClick={() => setSelectedPoster(item)}
               >
-                <div className="poster-img-wrap">
+                <div className="poster-img-wrap-cinematic">
                   <img
                     src={item.image}
-                    alt={`Pôster do filme ou série ${item.title}`}
-                    className="poster-img"
+                    alt={`Pôster de ${item.title}`}
+                    className="poster-img-cinematic"
                     loading="lazy"
                   />
                   {item.badge && (
-                    <span className="poster-badge-top">{item.badge}</span>
+                    <span className="poster-badge-top-cinematic">{item.badge}</span>
                   )}
-                  <span className="poster-rating-badge">
+                  <span className="poster-rating-badge-cinematic">
                     <Star size={12} className="fill-current text-amber-400" />
                     <span>{item.rating}</span>
                   </span>
                 </div>
 
-                <div className="poster-info-overlay">
+                <div className="poster-info-overlay-cinematic">
                   <div className="flex items-center justify-between">
                     <span className="text-[11px] text-cyan-400 font-semibold tracking-wide">
                       {item.categoryLabel}
                     </span>
-                    <span className="poster-quality-tag">{item.quality}</span>
+                    <span className="poster-quality-tag-cinematic">{item.quality}</span>
                   </div>
-                  <h3 className="poster-title">{item.title}</h3>
-                  <div className="poster-meta">
+                  <h3 className="poster-title-cinematic">{item.title}</h3>
+                  <div className="poster-meta-cinematic">
                     <span>{item.year}</span>
                     {item.duration && <span>{item.duration}</span>}
-                    <span className="text-slate-400 text-[11px] flex items-center gap-1 group-hover:text-pink-400">
-                      <Play size={10} className="fill-current" /> Assistir
+                    <span className="text-cyan-300 text-[11px] font-semibold flex items-center gap-1 group-hover:text-pink-400">
+                      <Play size={11} className="fill-current" /> Ver Detalhes
                     </span>
                   </div>
                 </div>
@@ -125,45 +134,54 @@ export const PosterCarousel: React.FC = () => {
         {/* Modal Quick View / Preview when card clicked */}
         {selectedPoster && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
             onClick={() => setSelectedPoster(null)}
           >
             <div
-              className="glass-panel max-w-lg w-full p-6 relative border border-white/20 shadow-2xl"
+              className="glass-panel max-w-xl w-full p-6 relative border border-white/20 shadow-2xl"
               onClick={e => e.stopPropagation()}
             >
-              <div className="flex gap-5">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <img
                   src={selectedPoster.image}
                   alt={selectedPoster.title}
-                  className="w-32 h-48 object-cover rounded-lg shadow-lg flex-shrink-0"
+                  className="w-36 h-52 sm:w-44 sm:h-64 object-cover rounded-xl shadow-2xl flex-shrink-0 mx-auto sm:mx-0 border border-white/10"
                 />
-                <div className="flex flex-col justify-between">
+                <div className="flex flex-col justify-between flex-1">
                   <div>
-                    <span className="text-xs text-cyan-400 font-mono font-bold">
-                      {selectedPoster.categoryLabel} • {selectedPoster.quality}
-                    </span>
-                    <h3 className="font-display text-2xl font-bold text-white mt-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-cyan-400 font-mono font-bold">
+                        {selectedPoster.categoryLabel}
+                      </span>
+                      <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded font-mono font-bold">
+                        {selectedPoster.quality}
+                      </span>
+                    </div>
+
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mt-1.5">
                       {selectedPoster.title}
                     </h3>
-                    <div className="flex items-center gap-3 mt-2 text-sm text-slate-300">
+
+                    <div className="flex items-center gap-4 mt-2 text-sm text-slate-300 font-medium">
                       <span className="flex items-center gap-1 text-amber-400 font-bold">
                         <Star size={14} className="fill-current" /> {selectedPoster.rating}
                       </span>
                       <span>{selectedPoster.year}</span>
                       {selectedPoster.duration && <span>{selectedPoster.duration}</span>}
                     </div>
-                    <p className="text-xs text-slate-300 mt-3 line-clamp-3 leading-relaxed">
+
+                    <p className="text-xs md:text-sm text-slate-300 mt-3 leading-relaxed">
                       {selectedPoster.description}
                     </p>
                   </div>
-                  <div className="mt-4 flex gap-2">
+
+                  <div className="mt-6 flex flex-wrap gap-3">
                     <a
                       href="#planos"
                       className="btn btn-primary btn-sm"
                       onClick={() => setSelectedPoster(null)}
                     >
-                      Assista Agora na BoraFlix
+                      Assinar e Assistir Agora
                     </a>
                     <button
                       className="btn btn-secondary btn-sm"

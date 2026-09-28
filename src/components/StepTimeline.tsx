@@ -1,77 +1,91 @@
 import React from 'react';
-import { CreditCard, KeyRound, SlidersHorizontal, PlayCircle, Sparkles } from 'lucide-react';
+import { CreditCard, KeyRound, SlidersHorizontal, PlayCircle, Sparkles, Check } from 'lucide-react';
 
 export const StepTimeline: React.FC = () => {
   const steps = [
     {
       number: '01',
-      icon: <CreditCard size={22} />,
+      icon: <CreditCard size={24} />,
       title: 'Escolha seu plano',
-      desc: 'Selecione o plano ideal para a sua necessidade (Mensal, Trimestral ou Semestral).'
+      desc: 'Selecione a duração ideal para seu perfil (Mensal, Trimestral, Semestral ou Anual).'
     },
     {
       number: '02',
-      icon: <KeyRound size={22} />,
+      icon: <KeyRound size={24} />,
       title: 'Receba seu acesso',
       desc: 'As credenciais e links de ativação chegam no seu WhatsApp e e-mail imediatamente.'
     },
     {
       number: '03',
-      icon: <SlidersHorizontal size={22} />,
+      icon: <SlidersHorizontal size={24} />,
       title: 'Configure em minutos',
-      desc: 'Siga o tutorial simples e ilustrado passo a passo no seu aplicativo preferido.'
+      desc: 'Siga o tutorial passo a passo ilustrado no seu aplicativo ou dispositivo preferido.'
     },
     {
       number: '04',
-      icon: <PlayCircle size={22} />,
+      icon: <PlayCircle size={24} />,
       title: 'Dê o play e aproveite',
-      desc: 'Navegue por mais de 60.000 filmes, séries e canais em qualidade 4K Ultra HD.'
+      desc: 'Acesse mais de 60.000 filmes, séries e canais ao vivo em qualidade 4K Ultra HD.'
     }
   ];
 
   return (
-    <section className="section-wrap" id="como-funciona">
-      <div className="ambient-glow ambient-cyan" style={{ top: '30%', left: '50%', width: '600px', height: '600px', transform: 'translateX(-50%)' }} />
+    <section className="section-wrap journey-section-wrap" id="como-funciona">
+      {/* Precision Ambient Volumetric Glow */}
+      <div
+        className="ambient-glow ambient-cyan"
+        style={{ top: '25%', left: '50%', width: '700px', height: '600px', transform: 'translateX(-50%)', opacity: 0.2 }}
+      />
 
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
             <Sparkles size={14} />
-            <span>Passo a Passo Simples</span>
+            <span>Jornada Simples & Transparente</span>
           </div>
           <h2 className="section-title">
             Do primeiro clique <span className="text-gradient">ao play.</span>
           </h2>
           <p className="section-subtitle">
-            Sem burocracia, sem visitas técnicas e sem contratos complicados.
-            Em apenas 4 etapas você já está assistindo ao melhor do entretenimento.
+            Sem burocracia, sem visitas técnicas e sem cabos extras.
+            Veja como é rápido começar a assistir aos seus conteúdos favoritos.
           </p>
         </div>
 
-        {/* Timeline Grid */}
-        <div className="timeline-grid">
-          <div className="timeline-connector" aria-hidden="true" />
+        {/* Continuous Journey Track (Section 12) */}
+        <div className="journey-track-wrapper">
+          {/* Luminous Connector Beam on Desktop */}
+          <div className="journey-connector-beam" aria-hidden="true">
+            <div className="journey-beam-fill" />
+          </div>
 
-          {steps.map((step, idx) => (
-            <div key={idx} className="step-card group">
-              <div className="step-number-badge font-display">
-                {step.number}
+          <div className="journey-nodes-grid">
+            {steps.map((step, idx) => (
+              <div key={idx} className="journey-node group">
+                {/* Milestone Node Ring */}
+                <div className="journey-milestone-ring">
+                  <span className="journey-number-text">{step.number}</span>
+                  <div className="journey-pulse-ring" />
+                </div>
+
+                {/* Node Content */}
+                <div className="journey-node-body">
+                  <div className="journey-icon-wrap">
+                    {step.icon}
+                  </div>
+
+                  <h3 className="journey-node-title font-display">
+                    {step.title}
+                  </h3>
+
+                  <p className="journey-node-desc">
+                    {step.desc}
+                  </p>
+                </div>
               </div>
-
-              <div className="text-cyan-400 mb-3 group-hover:text-pink-400 transition-colors duration-300">
-                {step.icon}
-              </div>
-
-              <h3 className="font-display text-lg font-bold text-white mb-2">
-                {step.title}
-              </h3>
-
-              <p className="text-sm text-slate-400 leading-relaxed">
-                {step.desc}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

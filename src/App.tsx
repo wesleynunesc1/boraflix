@@ -5,6 +5,7 @@ import { FeatureStrip } from './components/FeatureStrip';
 import { PosterCarousel } from './components/PosterCarousel';
 import { StepTimeline } from './components/StepTimeline';
 import { BentoBenefits } from './components/BentoBenefits';
+import { ValueComparison } from './components/ValueComparison';
 import { Pricing } from './components/Pricing';
 import { TestimonialCarousel } from './components/TestimonialCarousel';
 import { FAQ } from './components/FAQ';
@@ -37,7 +38,10 @@ export const App: React.FC = () => {
         {/* 5. Bento Grid Benefits */}
         <BentoBenefits />
 
-        {/* 6. Pricing & Subscription Plans */}
+        {/* 6. Value Comparison (Fragmented vs Unified) */}
+        <ValueComparison />
+
+        {/* 7. Pricing & Subscription Plans */}
         <Pricing />
 
         {/* 7. Social Proof & Real Experiences */}

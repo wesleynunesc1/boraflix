@@ -1,104 +1,129 @@
 import React, { useState } from 'react';
-import { Check, ShieldCheck, ArrowRight, Sparkles, Zap, Lock } from 'lucide-react';
+import { Check, ShieldCheck, ArrowRight, Sparkles, Zap, Lock, Award, Heart } from 'lucide-react';
 import { pricingPlans } from '../data/pricingData';
 import { Button } from './Button';
 
 export const Pricing: React.FC = () => {
-  const [selectedPlanId, setSelectedPlanId] = useState<string>('trimestral');
+  const [selectedPlanId, setSelectedPlanId] = useState<string>('semestral');
 
   return (
-    <section className="section-wrap" id="planos">
-      {/* Visual Ambient Transition from previous section */}
-      <div className="ambient-glow ambient-magenta" style={{ top: '15%', left: '50%', width: '700px', height: '600px', transform: 'translateX(-50%)' }} />
-      <div className="ambient-glow ambient-cyan" style={{ bottom: '10%', right: '15%', width: '500px', height: '500px' }} />
+    <section className="section-wrap pricing-section-wrap" id="planos">
+      {/* Cinematic Luminous Backdrop */}
+      <div
+        className="ambient-glow ambient-purple"
+        style={{
+          top: '15%',
+          left: '50%',
+          width: '800px',
+          height: '600px',
+          transform: 'translateX(-50%)',
+          opacity: 0.35
+        }}
+      />
+      <div
+        className="ambient-glow ambient-cyan"
+        style={{ bottom: '10%', right: '10%', width: '500px', height: '500px', opacity: 0.25 }}
+      />
 
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
             <Sparkles size={14} />
-            <span>Valores Transparentes</span>
+            <span>Valores Oficiais Transparentes</span>
           </div>
           <h2 className="section-title">
             Mais entretenimento. <br />
             <span className="text-gradient">Do seu jeito.</span>
           </h2>
           <p className="section-subtitle">
-            Planos simples e sem fidelidade. Cancele quando quiser, sem taxas escondidas ou surpresas na fatura.
+            Sem contratos longos ou multas de cancelamento. Escolha a duração ideal
+            e aproveite descontos progressivos nos períodos maiores.
           </p>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="pricing-grid">
+        {/* 4 Plans Pricing Grid */}
+        <div className="pricing-grid-4">
           {pricingPlans.map(plan => {
             const isFeatured = plan.isPopular;
+            const isBestValue = plan.isBestValue;
+            const isSelected = selectedPlanId === plan.id;
 
             return (
               <div
                 key={plan.id}
-                className={`pricing-card ${isFeatured ? 'featured' : ''}`}
+                className={`pricing-card-refined ${isFeatured ? 'featured-semestral' : ''} ${isBestValue ? 'best-value-anual' : ''} ${isSelected ? 'selected' : ''}`}
                 onClick={() => setSelectedPlanId(plan.id)}
               >
-                {/* Popular Highlight Badge */}
+                {/* Floating Highlight Badges */}
                 {plan.badge && (
-                  <div className="pricing-badge-popular">
+                  <div className={`pricing-badge-pill ${isFeatured ? 'badge-featured' : isBestValue ? 'badge-gold' : 'badge-regular'}`}>
                     {plan.badge}
                   </div>
                 )}
 
-                {/* Plan Header */}
-                <div>
-                  <div className="flex items-center justify-between mb-2">
+                {/* Plan Title & Savings Header */}
+                <div className="plan-header-block">
+                  <div className="flex items-center justify-between mb-1">
                     <h3 className="font-display text-xl font-bold text-white">
                       {plan.name}
                     </h3>
-                    {plan.savingsBadge && (
-                      <span className="text-[11px] font-mono font-bold text-cyan-300 bg-cyan-500/20 px-2 py-0.5 rounded border border-cyan-500/30">
-                        {plan.savingsBadge}
+                    {plan.originalPrice && (
+                      <span className="text-xs font-mono text-slate-400 line-through">
+                        {plan.originalPrice}
                       </span>
                     )}
                   </div>
 
-                  <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                  <p className="text-xs text-slate-400 mb-5 leading-relaxed min-h-[34px]">
                     {plan.description}
                   </p>
 
-                  {/* Price Tag */}
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="price-val">{plan.priceFormatted}</span>
-                    <span className="text-slate-400 text-sm font-semibold">{plan.period}</span>
+                  {/* High Hierarchy Main Price Display */}
+                  <div className="price-main-block">
+                    <span className="price-currency">R$</span>
+                    <span className="price-giant-number">{plan.priceNumber}</span>
+                    <span className="price-period-tag">{plan.period}</span>
                   </div>
 
-                  {plan.monthlyEquivalent && (
-                    <span className="text-xs text-cyan-400 font-medium block">
+                  {/* Monthly Equivalent Callout */}
+                  <div className="plan-equivalent-pill">
+                    <span className="text-xs font-medium text-cyan-300">
                       {plan.monthlyEquivalent}
                     </span>
+                  </div>
+
+                  {/* Total Savings Notification */}
+                  {plan.totalSavings && (
+                    <div className="text-[11px] font-mono text-emerald-400 font-bold mt-2">
+                      ✦ {plan.totalSavings}
+                    </div>
                   )}
                 </div>
 
                 {/* Feature Checklist */}
-                <div className="price-features-list">
+                <div className="price-features-list-refined">
                   {plan.features.map((feature, idx) => (
-                    <div key={idx} className="price-feature-item">
-                      <Check className="price-check-icon" />
+                    <div key={idx} className="price-feature-row">
+                      <Check className="price-check-icon-refined" />
                       <span>{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* CTA Action Button */}
-                <div className="mt-auto pt-6 border-t border-white/10">
+                <div className="plan-action-block">
                   <Button
-                    variant={isFeatured ? 'primary' : 'secondary'}
-                    size="lg"
-                    className="w-full justify-center"
-                    icon={<ArrowRight size={18} />}
+                    variant={isFeatured || isBestValue ? 'primary' : 'secondary'}
+                    size="md"
+                    className="w-full justify-center text-sm py-3.5"
+                    icon={<ArrowRight size={16} />}
                   >
                     {plan.ctaText}
                   </Button>
 
                   {plan.ctaSubtext && (
-                    <span className="text-[11px] text-slate-400 text-center block mt-3">
+                    <span className="text-[11px] text-slate-400 text-center block mt-2.5">
                       {plan.ctaSubtext}
                     </span>
                   )}
@@ -108,25 +133,32 @@ export const Pricing: React.FC = () => {
           })}
         </div>
 
-        {/* Guarantee and Security Seal Banner */}
-        <div className="mt-14 max-w-2xl mx-auto glass-panel p-6 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        {/* Security, Warranty & Multi-screen Trust Footer */}
+        <div className="mt-16 max-w-4xl mx-auto glass-panel p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0">
               <ShieldCheck size={26} />
             </div>
             <div>
               <h4 className="font-display text-base font-bold text-white">
-                Garantia Incondicional de Satisfação
+                Garantia Incondicional de 7 Dias
               </h4>
-              <p className="text-xs text-slate-400 mt-0.5">
-                Experimente a BoraFlix sem riscos. Se não ficar satisfeito com a qualidade, nós devolvemos o seu dinheiro.
+              <p className="text-xs text-slate-400 mt-0.5 max-w-md">
+                Acesse todo o catálogo e teste a estabilidade. Se não ficar totalmente satisfeito,
+                solicite o reembolso integral com suporte via WhatsApp.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-300 flex-shrink-0">
-            <Lock size={14} className="text-cyan-400" />
-            <span>Checkout Seguro 256-bit</span>
+          <div className="flex items-center gap-4 text-xs font-mono text-slate-300 flex-shrink-0">
+            <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+              <Zap size={14} className="text-amber-400" />
+              <span>4 Telas 4K Inclusas</span>
+            </div>
+            <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+              <Lock size={14} className="text-cyan-400" />
+              <span>PIX & Cartão em até 12x</span>
+            </div>
           </div>
         </div>
       </div>
