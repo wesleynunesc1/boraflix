@@ -572,36 +572,36 @@ ul, ol {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.4vw, 5.6rem);
+  font-size: clamp(2.8rem, 5.2vw, 5.4rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
   color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 2.25rem;
-  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 2.75rem;
+  max-width: 600px;
 }
 
 .hero-cta-group {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.15rem;
-  margin-bottom: 2.5rem;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
 }
 
 .hero-perks {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 1.5rem;
+  gap: 1.75rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -782,7 +782,7 @@ ul, ol {
   position: relative;
   z-index: 10;
   margin-top: -1.75rem;
-  padding-bottom: 3.5rem;
+  padding-bottom: 5rem;
 }
 
 .feature-strip-bar {
@@ -798,7 +798,7 @@ ul, ol {
 }
 
 .feature-strip-col {
-  padding: 1.5rem 1.6rem;
+  padding: 1.75rem 1.85rem;
   display: flex;
   align-items: center;
   gap: 1.15rem;
@@ -851,13 +851,13 @@ ul, ol {
   font-size: 0.975rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.45rem;
 }
 
 .feature-strip-desc {
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   color: var(--text-secondary);
-  line-height: 1.45;
+  line-height: 1.6;
 }
 
 /* Legacy fallback for cards */
@@ -868,18 +868,18 @@ ul, ol {
 }
 
 /* ==========================================================================
-   SECTIONS GENERAL
+   SECTIONS GENERAL & DISTINCT BACKGROUNDS (BREATHING ROOM & RHYTHM)
    ========================================================================== */
 .section-wrap {
   position: relative;
-  padding: var(--section-spacing) 0;
+  padding: clamp(6rem, 9.5vw, 9.5rem) 0;
   overflow: hidden;
 }
 
 .section-header {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto clamp(2.5rem, 5vw, 4.5rem);
+  max-width: 780px;
+  margin: 0 auto clamp(3.25rem, 6vw, 5.25rem);
   position: relative;
   z-index: 2;
 }
@@ -887,8 +887,8 @@ ul, ol {
 .section-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.95rem;
+  gap: 0.6rem;
+  padding: 0.4rem 1.15rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
@@ -897,32 +897,38 @@ ul, ol {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-cyan);
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.65rem;
 }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  font-size: clamp(2.3rem, 4.4vw, 4rem);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
   color: #ffffff;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.65rem;
 }
 
 .section-subtitle {
-  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 /* ==========================================================================
    EXPERIÊNCIA / CATÁLOGO CINEMATOGRÁFICO
+   Distinct Atmospheric Midnight Navy Background
    ========================================================================== */
 .catalog-cinematic-section {
   position: relative;
   overflow: hidden;
-  padding: var(--section-spacing) 0;
+  padding: clamp(6rem, 9.5vw, 9.5rem) 0;
+  background: linear-gradient(180deg, #06070a 0%, #080c16 25%, #090e1c 50%, #080c16 75%, #06070a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Dynamic Atmospheric Blurred Backdrop (Section 11) */
@@ -1473,15 +1479,18 @@ ul, ol {
    ========================================================================== */
 .journey-section-wrap {
   position: relative;
-  padding: var(--section-spacing) 0;
+  padding: clamp(6.5rem, 10vw, 10rem) 0;
   overflow: hidden;
+  background: linear-gradient(180deg, #06070a 0%, #0a0d18 50%, #06070a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.08);
 }
 
 .journey-track-wrapper {
   position: relative;
   width: 100%;
-  margin-top: 2rem;
-  padding-bottom: 1.5rem;
+  margin-top: 3.5rem;
+  padding-bottom: 2rem;
 }
 
 /* Luminous Linear Connector on Desktop */
@@ -1506,7 +1515,7 @@ ul, ol {
 .journey-nodes-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 2.25rem;
   position: relative;
   z-index: 2;
 }
@@ -1524,8 +1533,8 @@ ul, ol {
 }
 
 .journey-milestone-ring {
-  width: 80px;
-  height: 80px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(20, 28, 48, 0.95), rgba(10, 14, 24, 0.98));
   border: 2px solid rgba(255, 255, 255, 0.15);
@@ -1533,7 +1542,7 @@ ul, ol {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8);
   transition: all var(--transition-smooth);
 }
@@ -1569,12 +1578,12 @@ ul, ol {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.15rem;
 }
 
 .journey-icon-wrap {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
@@ -1596,14 +1605,14 @@ ul, ol {
   font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 .journey-node-desc {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.55;
-  max-width: 250px;
+  line-height: 1.7;
+  max-width: 260px;
 }
 
 /* Fallback legacy timeline styles */
@@ -1736,27 +1745,32 @@ ul, ol {
 }
 
 /* ==========================================================================
+/* ==========================================================================
    BENTO GRID DE BENEFÍCIOS AVANÇADO (SECTION 13)
+   Fundo Temático: Dark Indigo/Cyan com malha de profundidade
    ========================================================================== */
 .bento-section-wrap {
   position: relative;
-  padding: var(--section-spacing) 0;
+  padding: clamp(6.5rem, 10vw, 10.5rem) 0;
   overflow: hidden;
+  background: linear-gradient(180deg, #06070a 0%, #070d1e 30%, #091228 60%, #06070a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.08);
 }
 
 .bento-composition-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.85rem;
 }
 
 .bento-item {
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(16, 22, 38, 0.7), rgba(10, 14, 24, 0.85));
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: linear-gradient(135deg, rgba(16, 23, 40, 0.8), rgba(9, 13, 24, 0.94));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: clamp(2.25rem, 3.2vw, 3rem);
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-card);
@@ -1764,15 +1778,28 @@ ul, ol {
 }
 
 .bento-item:hover {
-  transform: translateY(-5px);
-  border-color: rgba(0, 210, 255, 0.35);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px -10px rgba(0, 210, 255, 0.2);
+  transform: translateY(-6px);
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 35px -10px rgba(0, 210, 255, 0.25);
+}
+
+.bento-item h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin-bottom: 1.15rem;
+}
+
+.bento-item p {
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+  color: #cbd5e1;
 }
 
 .bento-hero-card {
   grid-column: span 2;
-  background: linear-gradient(135deg, rgba(20, 28, 48, 0.85), rgba(10, 14, 24, 0.95));
-  border-color: rgba(0, 210, 255, 0.2);
+  background: linear-gradient(135deg, rgba(20, 28, 52, 0.9), rgba(10, 14, 26, 0.96));
+  border-color: rgba(0, 210, 255, 0.25);
 }
 
 .bento-tall-card {
@@ -1785,19 +1812,19 @@ ul, ol {
 
 .bento-wide-card {
   grid-column: span 2;
-  background: linear-gradient(135deg, rgba(18, 26, 44, 0.85), rgba(10, 14, 24, 0.95));
+  background: linear-gradient(135deg, rgba(18, 26, 48, 0.9), rgba(10, 14, 26, 0.96));
 }
 
 .bento-icon-halo {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.65rem;
   transition: all var(--transition-smooth);
 }
 
@@ -1811,24 +1838,24 @@ ul, ol {
 .bento-tech-specs-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
-  padding-top: 1.25rem;
+  gap: 1.5rem;
+  padding-top: 1.65rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .tech-spec-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.825rem;
+  gap: 0.65rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
 }
 
 .bento-callout-box {
-  padding: 1.5rem 2rem;
+  padding: 1.75rem 2.25rem;
   border-radius: var(--radius-md);
   background: rgba(0, 210, 255, 0.06);
-  border: 1px solid rgba(0, 210, 255, 0.2);
+  border: 1px solid rgba(0, 210, 255, 0.22);
   text-align: center;
   flex-shrink: 0;
 }
@@ -1837,11 +1864,11 @@ ul, ol {
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.85rem;
 }
 
 .bento-card {
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+  padding: clamp(2rem, 3.2vw, 2.75rem);
   border-radius: var(--radius-lg);
   background: var(--bg-card);
   backdrop-filter: blur(16px);
@@ -1860,8 +1887,8 @@ ul, ol {
 }
 
 .bento-icon-pill {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
@@ -1869,30 +1896,32 @@ ul, ol {
   align-items: center;
   justify-content: center;
   color: var(--color-cyan);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ==========================================================================
    NOVA SEÇÃO: COMPARATIVO DE VALOR (SECTIONS 43-46, 51-55)
-   Fragmentado vs BoraFlix Solução Unificada
+   Fundo Temático: Slate Escuro com Contraste Bicolor
    ========================================================================== */
 .value-comparison-section {
   position: relative;
-  padding: var(--section-spacing) 0;
+  padding: clamp(6.5rem, 10vw, 10.5rem) 0;
   overflow: hidden;
+  background: linear-gradient(180deg, #06070a 0%, #0c1020 35%, #0e142a 65%, #06070a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .comparison-board {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: stretch;
-  gap: 2rem;
-  margin-top: 1rem;
+  gap: 2.5rem;
+  margin-top: 2rem;
 }
 
 .comparison-side {
   border-radius: var(--radius-lg);
-  padding: clamp(2rem, 3.5vw, 3rem);
+  padding: clamp(2.5rem, 4vw, 3.5rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1900,23 +1929,36 @@ ul, ol {
   transition: all var(--transition-smooth);
 }
 
+.comparison-side h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin-bottom: 1.15rem;
+}
+
+.comparison-side p {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #94a3b8;
+}
+
 /* Fragmented side: Red/warning accents subtly blended without dominating */
 .comparison-side.old-way {
-  background: linear-gradient(135deg, rgba(22, 14, 20, 0.75), rgba(14, 10, 16, 0.9));
-  border: 1px solid rgba(244, 63, 94, 0.2);
+  background: linear-gradient(135deg, rgba(24, 15, 22, 0.8), rgba(15, 11, 18, 0.94));
+  border: 1px solid rgba(244, 63, 94, 0.22);
   box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8);
 }
 
 .comparison-side.old-way:hover {
-  border-color: rgba(244, 63, 94, 0.4);
+  border-color: rgba(244, 63, 94, 0.45);
 }
 
 /* BoraFlix unified side: Glowing Cyan/Purple/Magenta BoraFlix universe */
 .comparison-side.new-way {
-  background: linear-gradient(135deg, rgba(16, 26, 46, 0.85), rgba(12, 16, 28, 0.98));
+  background: linear-gradient(135deg, rgba(18, 28, 50, 0.9), rgba(12, 17, 30, 0.98));
   border: 2px solid transparent;
   background-clip: padding-box;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(0, 210, 255, 0.25);
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(0, 210, 255, 0.3);
   position: relative;
 }
 
@@ -1927,7 +1969,7 @@ ul, ol {
   border-radius: inherit;
   background: var(--grad-boraflix-full);
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .comparison-side.new-way:hover::before {
@@ -1937,76 +1979,78 @@ ul, ol {
 .comparison-side-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
+  gap: 0.65rem;
+  padding: 0.45rem 1rem;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
   width: fit-content;
 }
 
 .comparison-side-badge.badge-warning {
-  background: rgba(244, 63, 94, 0.12);
-  border: 1px solid rgba(244, 63, 94, 0.3);
+  background: rgba(244, 63, 94, 0.14);
+  border: 1px solid rgba(244, 63, 94, 0.35);
   color: #fb7185;
 }
 
 .comparison-side-badge.badge-success {
-  background: rgba(0, 210, 255, 0.12);
-  border: 1px solid rgba(0, 210, 255, 0.35);
+  background: rgba(0, 210, 255, 0.14);
+  border: 1px solid rgba(0, 210, 255, 0.4);
   color: var(--color-cyan);
 }
 
 .comparison-list {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  margin: 1.75rem 0;
+  gap: 1.1rem;
+  margin: 2rem 0;
 }
 
 .comparison-item {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.85rem 1.15rem;
+  gap: 1rem;
+  padding: 1.1rem 1.35rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .comparison-item.old-item {
-  background: rgba(244, 63, 94, 0.03);
-  border-color: rgba(244, 63, 94, 0.1);
+  background: rgba(244, 63, 94, 0.04);
+  border-color: rgba(244, 63, 94, 0.14);
 }
 
 .comparison-item.new-item {
-  background: rgba(0, 210, 255, 0.04);
-  border-color: rgba(0, 210, 255, 0.15);
+  background: rgba(0, 210, 255, 0.05);
+  border-color: rgba(0, 210, 255, 0.2);
 }
 
 .comparison-footer-tag {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.5rem;
+  padding-top: 1.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .badge-pill-save {
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.15rem;
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #ffffff;
   font-family: var(--font-display);
-  font-size: 0.775rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.45);
 }
 
 /* Central Convergence Bridge */
@@ -2026,8 +2070,8 @@ ul, ol {
 }
 
 .bridge-logo-orb {
-  width: 90px;
-  height: 90px;
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0e1526, #070910);
   border: 2px solid rgba(0, 210, 255, 0.4);
@@ -2036,7 +2080,7 @@ ul, ol {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
+  gap: 0.3rem;
   flex-shrink: 0;
   transition: transform var(--transition-smooth);
 }
@@ -2055,31 +2099,35 @@ ul, ol {
 
 /* ==========================================================================
    PLANOS DE ASSINATURA OFICIAIS BORAFLIX (SECTION 14-17, 47-50)
-   4 Planos: Mensal, Trimestral, Semestral, Anual
+   Fundo Temático: Glow Radial BoraFlix Magenta/Violeta com Halo
    ========================================================================== */
 .pricing-section-wrap {
   position: relative;
-  padding: var(--section-spacing) 0;
+  padding: clamp(7.5rem, 11vw, 11.5rem) 0;
   overflow: hidden;
+  background: radial-gradient(ellipse 90% 60% at 50% 35%, rgba(139, 58, 237, 0.18) 0%, rgba(255, 0, 127, 0.1) 45%, #06070a 85%), #06070a;
+  border-top: 1px solid rgba(0, 210, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .pricing-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
   align-items: stretch;
   position: relative;
   z-index: 2;
+  margin-top: 1.25rem;
 }
 
 .pricing-card-refined {
   position: relative;
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(16, 22, 38, 0.75) 0%, rgba(10, 14, 24, 0.95) 100%);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: clamp(2rem, 2.5vw, 2.75rem) 1.5rem 2rem;
+  background: linear-gradient(180deg, rgba(16, 23, 40, 0.8) 0%, rgba(9, 13, 24, 0.96) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: clamp(2.75rem, 3.2vw, 3.5rem) 1.85rem 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2090,13 +2138,30 @@ ul, ol {
 
 .pricing-card-refined:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 25px -5px rgba(0, 210, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 65px -15px rgba(0, 0, 0, 0.95), 0 0 30px -5px rgba(0, 210, 255, 0.25);
+}
+
+.pricing-card-refined h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+}
+
+.pricing-card-refined .plan-header-block p {
+  line-height: 1.7;
+  margin-bottom: 1.85rem;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  min-height: 48px;
 }
 
 /* Semestral Featured Plan: Recommended (Scale + Glow) */
 .pricing-card-refined.featured-semestral {
-  background: linear-gradient(180deg, rgba(22, 32, 56, 0.9) 0%, rgba(14, 18, 34, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(24, 34, 60, 0.92) 0%, rgba(14, 18, 36, 0.98) 100%);
   border: 2px solid transparent;
   background-clip: padding-box;
   transform: scale(1.04);
@@ -2121,15 +2186,15 @@ ul, ol {
 
 /* Anual Best Value Plan: Gold/Savings */
 .pricing-card-refined.best-value-anual {
-  background: linear-gradient(180deg, rgba(20, 28, 48, 0.85) 0%, rgba(12, 16, 28, 0.95) 100%);
-  border: 1px solid rgba(0, 210, 255, 0.4);
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(0, 210, 255, 0.25);
+  background: linear-gradient(180deg, rgba(20, 30, 52, 0.88) 0%, rgba(12, 17, 30, 0.96) 100%);
+  border: 1px solid rgba(0, 210, 255, 0.45);
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(0, 210, 255, 0.3);
 }
 
 .pricing-card-refined.best-value-anual:hover {
   transform: translateY(-8px);
   border-color: var(--color-cyan);
-  box-shadow: 0 35px 75px -15px rgba(0, 0, 0, 0.95), 0 0 40px -5px rgba(0, 210, 255, 0.45);
+  box-shadow: 0 35px 75px -15px rgba(0, 0, 0, 0.95), 0 0 45px -5px rgba(0, 210, 255, 0.5);
 }
 
 /* Floating Plan Badges */
@@ -2138,7 +2203,7 @@ ul, ol {
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.35rem 1.15rem;
+  padding: 0.4rem 1.25rem;
   border-radius: var(--radius-full);
   font-size: 0.725rem;
   font-weight: 800;
@@ -2156,41 +2221,42 @@ ul, ol {
 .badge-gold {
   background: linear-gradient(135deg, #ffaa00 0%, #ff6b35 100%);
   color: #06070a;
-  box-shadow: 0 5px 20px rgba(255, 170, 0, 0.5);
+  box-shadow: 0 5px 20px rgba(255, 170, 0, 0.55);
 }
 
 .badge-regular {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 /* Giant Dominant Price Typography (Section 17) */
 .price-main-block {
   display: flex;
   align-items: baseline;
-  gap: 0.35rem;
-  margin-bottom: 0.65rem;
+  gap: 0.5rem;
+  margin-bottom: 1.15rem;
 }
 
 .price-currency {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-secondary);
 }
 
 .price-giant-number {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+  font-size: clamp(2.5rem, 3.6vw, 3.4rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .price-period-tag {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   font-weight: 600;
 }
@@ -2198,31 +2264,32 @@ ul, ol {
 .plan-equivalent-pill {
   display: inline-block;
   background: rgba(0, 210, 255, 0.08);
-  border: 1px solid rgba(0, 210, 255, 0.2);
-  padding: 0.25rem 0.65rem;
+  border: 1px solid rgba(0, 210, 255, 0.22);
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
 }
 
 .price-features-list-refined {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  margin: 1.75rem 0;
+  gap: 1.15rem;
+  margin: 2.25rem 0 2rem;
 }
 
 .price-feature-row {
   display: flex;
   align-items: flex-start;
-  gap: 0.65rem;
-  font-size: 0.85rem;
+  gap: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .price-check-icon-refined {
   color: var(--color-cyan);
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -2263,14 +2330,14 @@ ul, ol {
 .price-features-list {
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
-  margin: 2rem 0;
+  gap: 1.1rem;
+  margin: 2.25rem 0;
 }
 
 .price-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: 0.85rem;
   font-size: 0.925rem;
   color: var(--text-secondary);
 }
@@ -2285,46 +2352,66 @@ ul, ol {
 
 /* ==========================================================================
    PROVA SOCIAL / TESTIMONIALS
+   Fundo Temático: Midnight Indigo com respiro ampliado
    ========================================================================== */
+.testimonials-section-wrap {
+  position: relative;
+  padding: clamp(6.5rem, 10vw, 10.5rem) 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #06070a 0%, #090c19 35%, #0b0f20 65%, #06070a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
+  gap: 2.25rem;
 }
 
 .testimonial-card {
-  padding: 2rem;
+  padding: clamp(2.25rem, 3.5vw, 3rem);
   border-radius: var(--radius-lg);
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
+  background: linear-gradient(135deg, rgba(16, 23, 40, 0.85), rgba(9, 13, 24, 0.96));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: 1.75rem;
   transition: all var(--transition-smooth);
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: var(--shadow-card);
+  transform: translateY(-5px);
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px -10px rgba(0, 210, 255, 0.2);
+}
+
+.testimonial-card p {
+  color: #e2e8f0;
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.85;
+  margin-top: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 /* ==========================================================================
    FAQ ACCORDION COM EDITORIAL SPLIT GRID (SECTION 19)
+   Fundo Temático: Obsidian Dark com Gradiente Vertical
    ========================================================================== */
 .faq-section-wrap {
   position: relative;
-  padding: var(--section-spacing) 0;
+  padding: clamp(6.5rem, 10vw, 10.5rem) 0;
   overflow: hidden;
+  background: linear-gradient(180deg, #06070a 0%, #080c1a 30%, #0a1024 60%, #06070a 100%);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.08);
 }
 
 .faq-split-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
-  gap: clamp(2.5rem, 5vw, 5rem);
+  gap: clamp(3.5rem, 6vw, 6.5rem);
   align-items: start;
 }
 
@@ -2334,28 +2421,40 @@ ul, ol {
   align-self: start;
 }
 
+.faq-sidebar-sticky h2 {
+  line-height: 1.22;
+  margin-bottom: 1.5rem;
+}
+
+.faq-sidebar-sticky p {
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  color: #94a3b8;
+}
+
 .faq-support-box {
-  padding: 1.5rem;
+  padding: 1.75rem 2rem;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(16, 22, 38, 0.75), rgba(10, 14, 24, 0.9));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(135deg, rgba(16, 23, 40, 0.85), rgba(9, 13, 24, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8);
 }
 
 .faq-accordion-column {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 1.35rem;
 }
 
 .faq-item-refined {
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(16, 22, 36, 0.75), rgba(10, 14, 24, 0.9));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(16, 23, 40, 0.8), rgba(9, 13, 24, 0.94));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   overflow: hidden;
   transition: all var(--transition-smooth);
 }
@@ -2370,12 +2469,13 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
-  padding: 1.4rem 1.65rem;
+  gap: 1.5rem;
+  padding: 1.6rem 2rem;
   text-align: left;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.075rem;
   font-weight: 700;
+  line-height: 1.45;
   color: #ffffff;
   transition: color var(--transition-fast);
 }
@@ -2385,10 +2485,10 @@ ul, ol {
 }
 
 .faq-chevron-wrap {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -2414,10 +2514,10 @@ ul, ol {
 }
 
 .faq-answer-drawer {
-  padding: 0 1.65rem 1.65rem;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  padding: 0 2rem 2.25rem;
+  color: #94a3b8;
+  font-size: 0.975rem;
+  line-height: 1.85;
 }
 
 /* Fallback legacy FAQ styles */
@@ -2426,7 +2526,7 @@ ul, ol {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .faq-item {
@@ -2444,7 +2544,7 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.35rem 1.65rem;
+  padding: 1.45rem 1.75rem;
   text-align: left;
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -2454,15 +2554,16 @@ ul, ol {
 }
 
 .faq-answer-panel {
-  padding: 0 1.65rem 1.5rem;
+  padding: 0 1.75rem 1.65rem;
   color: var(--text-secondary);
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 /* ==========================================================================
    CTA FINAL — EXPERIÊNCIA CINEMATOGRÁFICA (SECTION 20)
    Min-height 65vh, Monumental 3D BoraFlix Ribbon
+   Fundo Temático: Portal Radial Glow Violeta/Magenta
    ========================================================================== */
 .final-cta-cinema-section {
   position: relative;
@@ -2470,10 +2571,10 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(7rem, 12vw, 11rem) 0;
+  padding: clamp(7.5rem, 12vw, 12rem) 0;
   overflow: hidden;
   text-align: center;
-  background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(139, 58, 237, 0.18) 0%, rgba(255, 0, 127, 0.12) 40%, var(--bg-canvas) 85%);
+  background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(139, 58, 237, 0.22) 0%, rgba(255, 0, 127, 0.14) 40%, #06070a 85%), #06070a;
 }
 
 .final-cta-monument-wrap {
@@ -2521,24 +2622,24 @@ ul, ol {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6.2vw, 5.8rem);
   font-weight: 800;
-  line-height: 1.04;
+  line-height: 1.15;
   letter-spacing: -0.035em;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .final-cta-lead-text {
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  color: var(--text-secondary);
-  line-height: 1.65;
-  max-width: 640px;
-  margin-bottom: 2.5rem;
+  font-size: clamp(1.1rem, 1.35vw, 1.3rem);
+  color: #94a3b8;
+  line-height: 1.85;
+  max-width: 680px;
+  margin-bottom: 3.25rem;
 }
 
 /* Fallback legacy CTA styles */
 .final-cta-section {
   position: relative;
-  padding: clamp(6rem, 10vw, 10rem) 0;
+  padding: clamp(6.5rem, 10vw, 10.5rem) 0;
   overflow: hidden;
   text-align: center;
 }
@@ -2554,10 +2655,10 @@ ul, ol {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5.5vw, 4.6rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.18;
   letter-spacing: -0.03em;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 /* ==========================================================================

@@ -42,8 +42,7 @@ export const Hero: React.FC = () => {
             <h1 className="hero-title">
               TODO O SEU <br />
               <span className="text-gradient">ENTRETENIMENTO.</span> <br />
-              UMA NOVA <br className="hidden md:inline" />
-              EXPERIÊNCIA.
+              UMA NOVA EXPERIÊNCIA.
             </h1>
 
             <p className="hero-subtitle">

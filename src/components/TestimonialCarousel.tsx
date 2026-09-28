@@ -5,7 +5,7 @@ import { ImagePlaceholder } from './ImagePlaceholder';
 
 export const TestimonialCarousel: React.FC = () => {
   return (
-    <section className="section-wrap" id="depoimentos">
+    <section className="section-wrap testimonials-section-wrap" id="depoimentos">
       <div className="ambient-glow ambient-purple" style={{ top: '20%', left: '15%', width: '500px', height: '500px' }} />
 
       <div className="container">
