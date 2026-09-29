@@ -1,7 +1,8 @@
 import React from 'react';
-import { CheckCircle, MessageSquare, ArrowRight, ShieldCheck, Sparkles, Send } from 'lucide-react';
+import { MessageSquare, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { BoraRobot } from './BoraRobot';
 import { BotOrder } from '../types/bot';
-import { WHATSAPP_BOT_NUMBER, buildFinalWhatsAppMessage, maskCpf, getDeviceInstructions } from '../config/botConfig';
+import { WHATSAPP_BOT_NUMBER, buildFinalWhatsAppMessage, getDeviceInstructions } from '../config/botConfig';
 
 interface PaymentSuccessProps {
   order: BotOrder;
@@ -9,6 +10,7 @@ interface PaymentSuccessProps {
 
 export const PaymentSuccess: React.FC<PaymentSuccessProps> = ({ order }) => {
   const instructions = getDeviceInstructions(order.device.category, order.device.detail);
+  const firstName = order.customer.name.trim().split(' ')[0] || 'Cliente';
 
   const handleOpenWhatsApp = () => {
     const message = buildFinalWhatsAppMessage({
@@ -30,33 +32,34 @@ export const PaymentSuccess: React.FC<PaymentSuccessProps> = ({ order }) => {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto my-4 p-6 rounded-3xl bg-gradient-to-b from-[#131b34] to-[#0a0e1c] border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/10 animate-fadeIn text-center">
-      {/* Animated Glowing Checkmark Icon */}
-      <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center mb-4 shadow-[0_0_25px_rgba(52,211,153,0.4)] animate-bounce">
-        <CheckCircle size={36} strokeWidth={2.5} />
+    <div className="w-full max-w-lg mx-auto my-3 p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-[#11182c] to-[#070a14] border-2 border-emerald-500/50 shadow-[0_0_50px_rgba(16,185,129,0.15)] animate-fadeIn text-center">
+      {/* Living Celebrating Robot Character */}
+      <div className="flex justify-center mb-3">
+        <BoraRobot size="lg" state="celebrating" />
       </div>
 
-      <span className="text-[11px] font-extrabold tracking-widest text-emerald-400 uppercase block mb-1">
-        ✓ PAGAMENTO CONFIRMADO
-      </span>
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 text-xs font-black tracking-wide uppercase mb-2">
+        <CheckCircle2 size={14} />
+        <span>Pagamento Confirmado</span>
+      </div>
 
       <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-        Perfeito, {order.customer.name.split(' ')[0]}! 🎉
+        Prontinho, {firstName}! 🎉
       </h3>
 
       <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed max-w-md mx-auto">
-        Seu pagamento foi confirmado e sua configuração está preparada. Agora falta somente nossa equipe liberar seu acesso oficial.
+        Seu cadastro está preparado e seu pagamento foi aprovado com sucesso. Agora vou te encaminhar para nossa equipe liberar seu acesso imediato!
       </p>
 
-      {/* Summary Card */}
-      <div className="mt-5 p-4 rounded-2xl bg-black/40 border border-white/10 text-left space-y-2 text-xs">
-        <div className="flex items-center justify-between pb-2 border-b border-white/10">
-          <span className="text-slate-400">ID do Atendimento:</span>
-          <span className="font-mono font-bold text-cyan-300 text-sm">{order.orderId}</span>
+      {/* Summary Box */}
+      <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-black/40 border border-white/[0.08] text-left space-y-2 text-xs sm:text-[13px]">
+        <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+          <span className="text-slate-400">Protocolo do Pedido:</span>
+          <span className="font-mono font-black text-cyan-300 text-sm">{order.orderId}</span>
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-slate-400">Plano Contratado:</span>
+          <span className="text-slate-400">Plano Ativado:</span>
           <strong className="text-white">{order.planName} ({order.planPrice})</strong>
         </div>
 
@@ -66,33 +69,33 @@ export const PaymentSuccess: React.FC<PaymentSuccessProps> = ({ order }) => {
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-slate-400">WhatsApp do Cliente:</span>
+          <span className="text-slate-400">WhatsApp Informado:</span>
           <span className="text-slate-200 font-mono">{order.customer.phone}</span>
         </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-slate-400">Status do Pagamento:</span>
+        <div className="flex items-center justify-between pt-1">
+          <span className="text-slate-400">Status:</span>
           <span className="text-emerald-400 font-bold flex items-center gap-1">
-            <ShieldCheck size={13} />
-            <span>Aprovado</span>
+            <ShieldCheck size={14} />
+            <span>Pronto para Ativação</span>
           </span>
         </div>
       </div>
 
-      {/* Primary WhatsApp Action Button */}
-      <div className="mt-6">
+      {/* Primary High-Impact CTA Button */}
+      <div className="mt-5 space-y-2">
         <button
           type="button"
           onClick={handleOpenWhatsApp}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-emerald-500/30 transition-all duration-300 active:scale-95 group"
+          className="w-full py-4 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl shadow-emerald-500/30 transition-all duration-200 active:scale-[0.98] group"
         >
           <MessageSquare size={20} className="fill-current text-slate-950" />
-          <span>RECEBER MEU ACESSO</span>
+          <span>RECEBER MEU ACESSO NO WHATSAPP</span>
           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </button>
 
-        <p className="text-[11px] text-slate-400 mt-2.5 leading-relaxed">
-          Você será direcionado ao WhatsApp com os dados do seu atendimento já organizados para ativação imediata.
+        <p className="text-[11px] text-slate-400 leading-relaxed max-w-sm mx-auto">
+          Ao clicar, seu WhatsApp abrirá com a mensagem de ativação e protocolo preenchidos para nossa equipe liberar suas telas.
         </p>
       </div>
     </div>

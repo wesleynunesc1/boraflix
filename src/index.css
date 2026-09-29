@@ -5437,3 +5437,34 @@ ul, ol {
     font-size: 0.68rem;
   }
 }
+
+/* ==========================================================================
+   BORAFLIX DIGITAL ASSISTANT (ROBOT) MICRO-INTERACTIONS
+   ========================================================================== */
+@keyframes robotBlink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 3.8s ease-in-out infinite;
+}
+
+.robot-eye-left,
+.robot-eye-right {
+  transform-origin: 50% 52px;
+  animation: robotBlink 4.5s infinite ease-in-out;
+}

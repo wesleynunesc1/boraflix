@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronRight } from 'lucide-react';
 import { DEVICE_CATEGORIES, DeviceCategoryOption } from '../config/botConfig';
 
 interface DeviceSelectorProps {
@@ -28,60 +28,56 @@ export const DeviceSelector: React.FC<DeviceSelectorProps> = ({
   };
 
   return (
-    <div className="w-full my-4 animate-fadeIn">
+    <div className="w-full my-3 animate-fadeIn">
       {!activeCategory ? (
-        <>
-          <div className="text-center mb-4">
-            <h4 className="text-base sm:text-lg font-bold text-white">
-              Em qual aparelho você vai assistir?
-            </h4>
-            <p className="text-xs text-slate-400 mt-0.5">
-              Selecione seu dispositivo principal para receber a orientação correta:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-w-lg mx-auto">
+        /* STEP 1: CATEGORY SELECTION */
+        <div className="max-w-xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
             {DEVICE_CATEGORIES.map(cat => (
               <button
                 key={cat.id}
                 type="button"
-                className="p-3.5 rounded-xl bg-gradient-to-b from-[#12182b] to-[#0a0e1c] border border-white/10 hover:border-cyan-400/50 hover:bg-white/5 active:scale-95 text-left transition-all duration-200 flex flex-col items-start gap-2 shadow-lg group"
                 onClick={() => handleSelectCategory(cat)}
+                className="p-3 sm:p-3.5 rounded-2xl bg-[#0d1222] border border-white/10 hover:border-cyan-400/60 hover:bg-[#12182c] active:scale-[0.98] text-left transition-all duration-200 flex items-center justify-between group shadow-md"
               >
-                <span className="text-2xl group-hover:scale-110 transition-transform">
-                  {cat.icon}
-                </span>
-                <span className="text-xs sm:text-sm font-bold text-slate-200 group-hover:text-cyan-300 transition-colors">
-                  {cat.label}
-                </span>
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="text-xl sm:text-2xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                    {cat.icon}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-200 group-hover:text-cyan-300 transition-colors truncate">
+                    {cat.label}
+                  </span>
+                </div>
+                <ChevronRight size={14} className="text-slate-500 group-hover:text-cyan-400 flex-shrink-0" />
               </button>
             ))}
           </div>
-        </>
+        </div>
       ) : (
-        <div className="max-w-md mx-auto p-4 rounded-2xl bg-[#0f1424] border border-cyan-500/30 shadow-2xl animate-fadeIn">
-          {/* Header with back arrow */}
-          <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
+        /* STEP 2: BRAND / SYSTEM SUB-OPTION CONDITIONAL */
+        <div className="max-w-lg mx-auto p-4 sm:p-5 rounded-2xl bg-[#0d1222] border border-cyan-500/30 shadow-xl animate-fadeIn">
+          {/* Header with back navigation */}
+          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] mb-3">
             <button
               type="button"
-              className="text-xs text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
               onClick={() => setActiveCategory(null)}
+              className="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors font-medium p-1"
             >
               <ArrowLeft size={14} />
-              <span>Trocar categoria</span>
+              <span>Trocar aparelho</span>
             </button>
-            <span className="text-xs font-bold text-cyan-400 flex items-center gap-1">
+            <span className="text-xs font-bold text-cyan-400 flex items-center gap-1.5">
               <span>{activeCategory.icon}</span>
               <span>{activeCategory.label}</span>
             </span>
           </div>
 
-          <p className="text-xs font-semibold text-slate-300 mb-3 text-center">
+          <p className="text-xs font-semibold text-slate-300 mb-3">
             {activeCategory.id === 'smart_tv'
               ? 'Qual é a marca da sua Smart TV?'
               : activeCategory.id === 'pc'
               ? 'Qual é o sistema do seu computador?'
-              : 'Selecione o modelo ou sistema correspondente:'}
+              : 'Selecione o modelo do seu dispositivo:'}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -92,15 +88,19 @@ export const DeviceSelector: React.FC<DeviceSelectorProps> = ({
                 <button
                   key={sub.id}
                   type="button"
-                  className={`p-3 rounded-xl border text-left text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-between active:scale-95 ${
-                    isSelected
-                      ? 'bg-cyan-500/20 border-cyan-400 text-white'
-                      : 'bg-white/5 border-white/10 text-slate-200 hover:border-cyan-400/50 hover:bg-white/10'
-                  }`}
                   onClick={() => handleSelectSubOption(sub)}
+                  className={`p-3 rounded-xl border text-left text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-between active:scale-[0.98] ${
+                    isSelected
+                      ? 'bg-cyan-500/20 border-cyan-400 text-white shadow-[0_0_15px_rgba(0,207,255,0.2)]'
+                      : 'bg-white/[0.04] border-white/[0.08] text-slate-200 hover:border-cyan-400/50 hover:bg-white/[0.08]'
+                  }`}
                 >
-                  <span>{sub.label}</span>
-                  {isSelected && <CheckCircle2 size={16} className="text-cyan-400" />}
+                  <span className="truncate">{sub.label}</span>
+                  {isSelected ? (
+                    <CheckCircle2 size={16} className="text-cyan-400 flex-shrink-0 ml-1.5" />
+                  ) : (
+                    <ChevronRight size={14} className="text-slate-500 flex-shrink-0 ml-1.5" />
+                  )}
                 </button>
               );
             })}

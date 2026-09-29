@@ -92,7 +92,7 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
               </button>
               <button
                 type="button"
-                onClick={() => onJumpStep('PERSONAL_DATA')}
+                onClick={() => onJumpStep('ASK_EMAIL')}
                 className="py-1 px-2 rounded bg-white/5 hover:bg-white/10 text-[10px] font-mono"
               >
                 Ir p/ Dados

@@ -1,20 +1,31 @@
 import React from 'react';
+import { BoraRobot } from './BoraRobot';
 
 export const TypingIndicator: React.FC = () => {
   return (
-    <div className="flex items-center gap-3 my-2 animate-fadeIn">
-      <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600/30 to-pink-500/30 border border-pink-500/30 flex items-center justify-center p-1 flex-shrink-0">
-        <img
-          src="/assets/logos/boraflix-icon.png"
-          alt="BoraFlix Digitador"
-          className="w-full h-full object-contain"
-        />
+    <div className="flex items-end gap-2.5 my-3 w-full animate-fadeIn">
+      {/* Bot Robot Avatar in typing state */}
+      <div className="flex-shrink-0 mb-1">
+        <BoraRobot size="sm" state="typing" />
       </div>
 
-      <div className="bg-[#121829] border border-white/10 px-4 py-2.5 rounded-2xl rounded-tl-sm flex items-center gap-1.5 shadow-lg">
-        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce" style={{ animationDelay: '0ms' }} />
-        <span className="w-2 h-2 rounded-full bg-pink-400 animate-bounce" style={{ animationDelay: '150ms' }} />
-        <span className="w-2 h-2 rounded-full bg-purple-400 animate-bounce" style={{ animationDelay: '300ms' }} />
+      {/* Bubble with 3 animated pulsing dots */}
+      <div className="px-4 py-3 rounded-2xl rounded-bl-sm bg-[#0e1322] border border-white/[0.08] shadow-lg flex items-center gap-1.5">
+        <span
+          className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce"
+          style={{ animationDelay: '0ms', animationDuration: '900ms' }}
+        />
+        <span
+          className="w-2 h-2 rounded-full bg-purple-400 animate-bounce"
+          style={{ animationDelay: '200ms', animationDuration: '900ms' }}
+        />
+        <span
+          className="w-2 h-2 rounded-full bg-pink-400 animate-bounce"
+          style={{ animationDelay: '400ms', animationDuration: '900ms' }}
+        />
+        <span className="text-[11px] text-slate-400 ml-2 font-medium hidden sm:inline">
+          digitando...
+        </span>
       </div>
     </div>
   );
