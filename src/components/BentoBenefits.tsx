@@ -1,253 +1,183 @@
 import React from 'react';
-import { Zap, Tv, Smartphone, Tablet, Laptop, MessageCircle, Activity, CheckCircle2, ShieldCheck, Flame, Radio } from 'lucide-react';
+import { Zap, Tv, Calendar, Trophy, MessageCircle, MonitorSmartphone, Layers, CheckCircle2, ShieldCheck, Activity } from 'lucide-react';
 
 export const BentoBenefits: React.FC = () => {
   return (
-    <section className="section-wrap bento-editorial-section" id="beneficios">
-      <div className="container relative z-10">
+    <section className="section-wrap bento-section-wrap" id="beneficios">
+      <div className="ambient-glow ambient-cyan" style={{ top: '15%', right: '8%', width: '600px', height: '600px', opacity: 0.2 }} />
+      <div className="ambient-glow ambient-magenta" style={{ bottom: '10%', left: '5%', width: '500px', height: '500px', opacity: 0.18 }} />
+
+      <div className="container">
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
-            <Zap size={13} className="text-cyan-400" />
-            <span>TECNOLOGIA & INFRAESTRUTURA</span>
+            <Layers size={14} className="text-cyan-400" />
+            <span>Infraestrutura & Vantagens Exclusivas</span>
           </div>
-          <h2 className="section-title font-display">
+          <h2 className="section-title">
             Tudo pensado para você <br />
             <span className="text-gradient">aproveitar mais.</span>
           </h2>
           <p className="section-subtitle">
-            Muito além de um catálogo completo: uma estrutura de alta fidelidade visual e servidores de baixa latência
-            desenhados para garantir que seu sinal nunca trave no momento decisivo.
+            Muito além de um catálogo completo: uma engenharia de transmissão robusta projetada
+            para que você nunca mais sofra com travamentos, buffers ou menus confusos.
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="bento-modern-grid">
-          {/* Card 1: REDE CDN / ESTABILIDADE (Hero Bento Card - Spans 2 Cols) */}
-          <div className="bento-card bento-card-cdn">
-            <div className="bento-card-header">
-              <div className="bento-pill-status">
-                <span className="bento-pulse-dot" />
-                <span>● Servidores Operacionais • Latência: 12ms</span>
+        {/* Dynamic Bento Composition with Varied Dimensions (Section 13) */}
+        <div className="bento-composition-grid">
+          {/* Bento Card 1 (Span 2x2 Hero Feature): Ultra-Fast CDN Network */}
+          <div className="bento-item bento-hero-card group">
+            <div className="bento-inner-content">
+              <div className="flex items-center justify-between mb-4">
+                <div className="bento-icon-halo">
+                  <Zap size={24} className="text-cyan-400" />
+                </div>
+                <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/25 px-3 py-1 rounded-full text-emerald-400 font-mono text-xs font-bold">
+                  <Activity size={14} className="animate-pulse" />
+                  <span>LATÊNCIA MÉDIA: 14MS</span>
+                </div>
               </div>
-              <span className="bento-tech-tag font-mono">REDE DISTRIBUÍDA</span>
-            </div>
 
-            <div className="bento-body">
-              <h3 className="bento-card-title font-display">
-                Transmissão estável e otimizada
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">
+                Rede CDN Dedicada com Transmissão Anti-Travamento
               </h3>
-              <p className="bento-card-desc">
-                Nossa rede CDN dedicada roteia os dados automaticamente pelo ponto mais próximo de você,
-                garantindo inicialização instantânea dos vídeos e sinal liso mesmo nos maiores clássicos do futebol.
+
+              <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-xl mb-6">
+                Nossa infraestrutura distribuída roteia os dados automaticamente pelo servidor mais próximo
+                da sua residência. Isso garante reprodução instantânea e estabilidade ininterrupta mesmo durante
+                finais de campeonatos esportivos ou grandes estreias de cinema.
               </p>
 
-              {/* Visual Component: Network Topology & Traffic Flow */}
-              <div className="bento-network-visual">
-                <div className="network-nodes-row">
-                  <div className="network-node active">
-                    <Radio size={16} className="text-cyan-400 animate-pulse" />
-                    <span>Edge SP</span>
-                  </div>
-                  <div className="network-stream-line">
-                    <span className="stream-particle" />
-                  </div>
-                  <div className="network-node active">
-                    <Radio size={16} className="text-pink-400 animate-pulse" />
-                    <span>Edge RJ</span>
-                  </div>
-                  <div className="network-stream-line">
-                    <span className="stream-particle reverse" />
-                  </div>
-                  <div className="network-node destination">
-                    <Tv size={16} className="text-emerald-400" />
-                    <span>Sua Casa</span>
-                  </div>
+              <div className="bento-tech-specs-row">
+                <div className="tech-spec-item">
+                  <CheckCircle2 size={15} className="text-cyan-400 flex-shrink-0" />
+                  <span>Roteamento Inteligente Anti-Quedas</span>
                 </div>
-
-                <div className="network-metrics-bar">
-                  <div className="metric-item">
-                    <span className="metric-label">Uptime Garantido</span>
-                    <span className="metric-val text-emerald-400 font-mono">99.98%</span>
-                  </div>
-                  <div className="metric-item">
-                    <span className="metric-label">Buffer Prevent</span>
-                    <span className="metric-val text-cyan-400 font-mono">Anti-Delay H.265</span>
-                  </div>
-                  <div className="metric-item">
-                    <span className="metric-label">Roteamento</span>
-                    <span className="metric-val text-pink-400 font-mono">Automático</span>
-                  </div>
+                <div className="tech-spec-item">
+                  <CheckCircle2 size={15} className="text-cyan-400 flex-shrink-0" />
+                  <span>Otimizado para conexões padrão</span>
+                </div>
+                <div className="tech-spec-item">
+                  <CheckCircle2 size={15} className="text-cyan-400 flex-shrink-0" />
+                  <span>Codec H.265 de alta fidelidade visual</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Card 2: QUALIDADE (4K, UHD, HDR10) */}
-          <div className="bento-card bento-card-quality">
-            <div className="bento-card-header">
-              <span className="bento-tech-tag font-mono">RESOLUÇÃO NATIVA</span>
-              <span className="bento-badge-live">60 FPS</span>
-            </div>
-
-            <div className="bento-body">
-              <h3 className="bento-card-title font-display">
-                Qualidade Máxima
-              </h3>
-              <p className="bento-card-desc">
-                Nitidez cinematográfica com cores mais vívidas, pretos profundos e som envolvente.
-              </p>
-
-              {/* Visual Component: High-End Badges Display */}
-              <div className="bento-quality-visual">
-                <div className="quality-pill-hero">
-                  <span className="quality-big-badge">4K</span>
-                  <div className="quality-meta">
-                    <span className="quality-label font-bold text-white">ULTRA HD</span>
-                    <span className="quality-sub text-slate-400">3840 × 2160 px</span>
-                  </div>
+          {/* Bento Card 2: 4K Ultra HD & HDR10 */}
+          <div className="bento-item bento-tall-card group">
+            <div className="bento-inner-content flex flex-col justify-between h-full">
+              <div>
+                <div className="bento-icon-halo">
+                  <Tv size={24} className="text-pink-400" />
                 </div>
 
-                <div className="quality-badges-row">
-                  <div className="quality-micro-badge">
-                    <span className="font-bold text-pink-400">HDR10+</span>
-                    <span className="text-[10px] text-slate-400">Contraste Dinâmico</span>
-                  </div>
-                  <div className="quality-micro-badge">
-                    <span className="font-bold text-cyan-400">DOLBY</span>
-                    <span className="text-[10px] text-slate-400">Áudio 5.1 / 7.1</span>
-                  </div>
-                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-2">
+                  Qualidade 4K UHD & HDR10
+                </h3>
+
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Nitidez cristalina com suporte a cores profundas e áudio surround 5.1/7.1 Dolby Atmos.
+                </p>
+              </div>
+
+              <div className="bento-card-badge-footer">
+                <span className="font-mono text-xs text-pink-400 font-bold uppercase tracking-wider">
+                  Dolby Audio & HDR10
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Card 3: DISPOSITIVOS (Smart TV, Celular, Tablet, Notebook) */}
-          <div className="bento-card bento-card-devices">
-            <div className="bento-card-header">
-              <span className="bento-tech-tag font-mono">MULTI-PLATAFORMA</span>
-            </div>
+          {/* Bento Card 3: Esportes Ao Vivo Sem Delay */}
+          <div className="bento-item bento-regular-card group">
+            <div className="bento-inner-content">
+              <div className="bento-icon-halo">
+                <Trophy size={24} className="text-amber-400" />
+              </div>
 
-            <div className="bento-body">
-              <h3 className="bento-card-title font-display">
-                Assista em Qualquer Tela
+              <h3 className="font-display text-xl font-bold text-white mb-2">
+                Esportes Sem Delay
               </h3>
-              <p className="bento-card-desc">
-                Funciona direto no aparelho que você já tem na sua sala ou no bolso.
+
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                Assista aos gols no tempo real da jogada. Campeonatos nacionais, Champions League, UFC e F1 em sinal direto.
               </p>
 
-              {/* Visual Component: 4 Devices Matrix */}
-              <div className="bento-devices-matrix">
-                <div className="device-chip">
-                  <Tv size={22} className="text-cyan-400" />
-                  <span className="device-chip-name">Smart TV</span>
-                  <span className="device-chip-detail">Samsung / LG / Android</span>
+              <span className="font-mono text-xs text-amber-400 font-bold">
+                Taxa de 60 FPS Fluida
+              </span>
+            </div>
+          </div>
+
+          {/* Bento Card 4: Guia EPG Atualizado */}
+          <div className="bento-item bento-regular-card group">
+            <div className="bento-inner-content">
+              <div className="bento-icon-halo">
+                <Calendar size={24} className="text-purple-400" />
+              </div>
+
+              <h3 className="font-display text-xl font-bold text-white mb-2">
+                Guia EPG em Tempo Real
+              </h3>
+
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                Programação completa 24 horas por dia com sinopses, horários e lembretes automáticos.
+              </p>
+
+              <span className="font-mono text-xs text-purple-400 font-bold">
+                Grade 100% Sincronizada
+              </span>
+            </div>
+          </div>
+
+          {/* Bento Card 5 (Span 2 Wide): 4 Telas Simultâneas */}
+          <div className="bento-item bento-wide-card group">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <div className="bento-icon-halo">
+                  <MonitorSmartphone size={24} className="text-cyan-400" />
                 </div>
-                <div className="device-chip">
-                  <Smartphone size={22} className="text-pink-400" />
-                  <span className="device-chip-name">Celular</span>
-                  <span className="device-chip-detail">iOS & Android</span>
-                </div>
-                <div className="device-chip">
-                  <Tablet size={22} className="text-purple-400" />
-                  <span className="device-chip-name">Tablet</span>
-                  <span className="device-chip-detail">iPad & Galaxy</span>
-                </div>
-                <div className="device-chip">
-                  <Laptop size={22} className="text-amber-400" />
-                  <span className="device-chip-name">Notebook</span>
-                  <span className="device-chip-detail">PC / Mac / Web</span>
-                </div>
+
+                <h3 className="font-display text-2xl font-bold text-white mb-2">
+                  Até 4 Telas Simultâneas Sem Custos Extras
+                </h3>
+
+                <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-lg">
+                  Toda a casa assiste ao mesmo tempo. Na Smart TV da sala, celular no transporte,
+                  computador no escritório ou tablet das crianças sem derrubar a conexão de ninguém.
+                </p>
+              </div>
+
+              <div className="bento-callout-box">
+                <span className="font-display text-3xl md:text-4xl font-extrabold text-gradient">
+                  4 TELAS
+                </span>
+                <p className="text-xs text-slate-400 mt-1 font-mono">Inclusas em todos os planos</p>
               </div>
             </div>
           </div>
 
-          {/* Card 4: 4 TELAS SIMULTÂNEAS (Visual representation of 4 screens active) */}
-          <div className="bento-card bento-card-screens">
-            <div className="bento-card-header">
-              <span className="bento-tech-tag font-mono">FAMÍLIA UNIDA</span>
-              <span className="screens-count-pill font-mono font-bold">4 TELAS</span>
-            </div>
+          {/* Bento Card 6: Suporte Humanizado */}
+          <div className="bento-item bento-regular-card group">
+            <div className="bento-inner-content">
+              <div className="bento-icon-halo">
+                <MessageCircle size={24} className="text-emerald-400" />
+              </div>
 
-            <div className="bento-body">
-              <h3 className="bento-card-title font-display">
-                Até 4 Telas ao Mesmo Tempo
+              <h3 className="font-display text-xl font-bold text-white mb-2">
+                Suporte Humanizado 24/7
               </h3>
-              <p className="bento-card-desc">
-                Cada um assiste o que quiser, sem disputas e sem derrubar a conexão de ninguém.
+
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                Atendimento direto pelo WhatsApp com pessoas reais prontas para ajudar sem robôs complicados.
               </p>
 
-              {/* Visual Component: 4 Simultaneous Streams */}
-              <div className="bento-screens-visual">
-                <div className="screen-active-tile">
-                  <div className="screen-tile-top">
-                    <span className="screen-live-dot" />
-                    <span className="screen-location">📺 TV da Sala</span>
-                  </div>
-                  <span className="screen-content-title">Futebol Ao Vivo 4K</span>
-                </div>
-
-                <div className="screen-active-tile">
-                  <div className="screen-tile-top">
-                    <span className="screen-live-dot" />
-                    <span className="screen-location">🎬 Quarto Casal</span>
-                  </div>
-                  <span className="screen-content-title">Séries & Filmes</span>
-                </div>
-
-                <div className="screen-active-tile">
-                  <div className="screen-tile-top">
-                    <span className="screen-live-dot" />
-                    <span className="screen-location">📱 Smartphone</span>
-                  </div>
-                  <span className="screen-content-title">No Transporte</span>
-                </div>
-
-                <div className="screen-active-tile">
-                  <div className="screen-tile-top">
-                    <span className="screen-live-dot" />
-                    <span className="screen-location">💻 Tablet Kids</span>
-                  </div>
-                  <span className="screen-content-title">Desenhos Infantis</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 5: SUPORTE (Visual Chat Interface) */}
-          <div className="bento-card bento-card-support">
-            <div className="bento-card-header">
-              <span className="bento-tech-tag font-mono">SUPORTE DEDICADO</span>
-              <div className="support-status-badge">
-                <span className="support-dot-pulse" />
-                <span>● Atendimento disponível</span>
-              </div>
-            </div>
-
-            <div className="bento-body">
-              <h3 className="bento-card-title font-display">
-                Ajuda Rápida no WhatsApp
-              </h3>
-              <p className="bento-card-desc">
-                Esqueça robôs confusos. Nossa equipe humana te atende na hora para configurar e tirar dúvidas.
-              </p>
-
-              {/* Visual Component: Chat Conversation Mockup */}
-              <div className="bento-chat-bubble-box">
-                <div className="chat-bubble user-bubble">
-                  <span className="bubble-text">"Precisa de ajuda para configurar?"</span>
-                  <span className="bubble-time font-mono">14:02</span>
-                </div>
-
-                <div className="chat-bubble agent-bubble">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="agent-name font-bold text-xs text-cyan-400">BoraFlix Suporte</span>
-                    <span className="text-[10px] text-slate-400 font-mono">Oficial</span>
-                  </div>
-                  <span className="bubble-text">"Claro! Vamos te ajudar 😊"</span>
-                  <span className="bubble-time font-mono">14:02 ✓✓</span>
-                </div>
-              </div>
+              <span className="font-mono text-xs text-emerald-400 font-bold">
+                Atendimento Imediato
+              </span>
             </div>
           </div>
         </div>

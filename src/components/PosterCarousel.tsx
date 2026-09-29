@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star, Play, Sparkles, TrendingUp, Info } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Play, Film, Sparkles } from 'lucide-react';
 import { catalogItems, catalogCategories } from '../data/catalogData';
 import { PosterItem } from '../types';
 
 export const PosterCarousel: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [hoveredPoster, setHoveredPoster] = useState<PosterItem>(catalogItems[0]);
   const [selectedPoster, setSelectedPoster] = useState<PosterItem | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -12,129 +13,133 @@ export const PosterCarousel: React.FC = () => {
     ? catalogItems
     : catalogItems.filter(item => item.category === activeCategory);
 
-  const isRankingMode = activeCategory === 'all';
-
   const scroll = (direction: 'left' | 'right') => {
     if (trackRef.current) {
-      const scrollAmount = direction === 'left' ? -380 : 380;
+      const scrollAmount = direction === 'left' ? -420 : 420;
       trackRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="section-wrap catalog-streaming-section" id="experiencia">
+    <section className="section-wrap catalog-cinematic-section" id="experiencia">
+      {/* Dynamic Atmospheric Blurred Backdrop reacting to hovered poster (Section 11) */}
+      <div className="catalog-dynamic-backdrop" aria-hidden="true">
+        <img
+          src={hoveredPoster.image}
+          alt=""
+          className="catalog-backdrop-img"
+        />
+        <div className="catalog-backdrop-overlay" />
+      </div>
+
       <div className="container relative z-10">
-        {/* Section Header */}
-        <div className="catalog-header-row">
-          <div>
-            <div className="section-badge mb-2.5">
-              <TrendingUp size={13} className="text-cyan-400" />
-              <span>CATÁLOGO ATUALIZADO DIARIAMENTE</span>
-            </div>
-            <h2 className="catalog-main-title font-display">
-              Em alta na <span className="text-gradient">BoraFlix</span>
-            </h2>
+        {/* Section Header with Editorial Presence */}
+        <div className="section-header">
+          <div className="section-badge">
+            <Film size={14} />
+            <span>Catálogo Cinematográfico em 4K</span>
           </div>
-
-          {/* Desktop Navigation Arrows */}
-          <div className="catalog-nav-arrows hidden sm:flex">
-            <button
-              className="catalog-arrow-btn"
-              onClick={() => scroll('left')}
-              aria-label="Anterior"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              className="catalog-arrow-btn"
-              onClick={() => scroll('right')}
-              aria-label="Próximo"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
+          <h2 className="section-title">
+            Sempre existe algo para <br />
+            <span className="text-gradient">entrar no clima.</span>
+          </h2>
+          <p className="section-subtitle">
+            Uma experiência visual desenhada para você encontrar em segundos o que deseja assistir:
+            grandes blockbusters de cinema, séries consagradas, esportes ao vivo e produções aclamadas.
+          </p>
         </div>
 
-        {/* Category Chips: Todos, Filmes, Séries, Animes, Esportes, Infantil */}
-        <div className="catalog-chips-bar" role="tablist" aria-label="Categorias de Conteúdo">
-          {catalogCategories.map(cat => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                role="tab"
-                aria-selected={isActive}
-                className={`catalog-chip ${isActive ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                <span>{cat.label}</span>
-              </button>
-            );
-          })}
+        {/* Category Filter Tabs */}
+        <div className="catalog-tabs" role="tablist">
+          {catalogCategories.map(cat => (
+            <button
+              key={cat.id}
+              role="tab"
+              aria-selected={activeCategory === cat.id}
+              className={`catalog-tab ${activeCategory === cat.id ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat.id)}
+            >
+              {cat.label}
+            </button>
+          ))}
         </div>
 
-        {/* Horizontal Carousel Track */}
-        <div className="catalog-carousel-wrapper">
+        {/* Carousel Showcase Container with Edge Fade Masks (Section 10) */}
+        <div className="catalog-carousel-container-cinematic">
+          {/* Navigation Controls */}
+          <button
+            className="carousel-nav-btn prev"
+            onClick={() => scroll('left')}
+            aria-label="Rolar para a esquerda"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            className="carousel-nav-btn next"
+            onClick={() => scroll('right')}
+            aria-label="Rolar para a direita"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Cards Track with smooth native touch scroll on mobile & transform support */}
           <div
             ref={trackRef}
-            className="catalog-snap-track"
+            className="catalog-track-cinematic"
           >
-            {filteredItems.map((item, index) => {
-              const rankNumber = index + 1;
-              const isTopRanked = isRankingMode && rankNumber <= 10;
+            {filteredItems.map(item => {
+              const primaryCategory = item.categoryLabel.split('•')[0].trim();
+              const metaDetail = item.duration || item.quality;
 
               return (
                 <div
                   key={item.id}
-                  className={`catalog-card-item group ${isTopRanked ? 'has-rank' : ''}`}
+                  className="poster-card-cinematic group"
+                  onMouseEnter={() => setHoveredPoster(item)}
                   onClick={() => setSelectedPoster(item)}
                 >
-                  {/* Big Typographic Ranking Number (Netflix Style) */}
-                  {isTopRanked && (
-                    <div className="catalog-rank-numeral" aria-label={`Posição ${rankNumber}`}>
-                      <span className="rank-stroke">{rankNumber}</span>
-                      <span className="rank-fill">{rankNumber}</span>
-                    </div>
-                  )}
-
-                  {/* Poster Shell */}
-                  <div className="catalog-poster-shell">
+                  <div className="poster-img-wrap-cinematic">
                     <img
                       src={item.image}
-                      alt={item.title}
-                      className="catalog-poster-img"
+                      alt={`Pôster de ${item.title}`}
+                      className="poster-img-cinematic"
                       loading="lazy"
                     />
 
-                    {/* Quality & Rating Tags */}
-                    <div className="catalog-poster-tags">
-                      <span className="poster-pill-quality">
-                        {item.quality}
-                      </span>
-                      <span className="poster-pill-rating">
-                        <Star size={10} className="fill-amber-400 text-amber-400" />
-                        <span>{item.rating}</span>
-                      </span>
+                    {/* Interactive Play Badge on Hover (Desktop) */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[2px] z-10 pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-pink-500/30 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                        <Play size={18} className="fill-current ml-0.5" />
+                      </div>
                     </div>
 
-                    {/* Hover Overlay with Action Button */}
-                    <div className="catalog-poster-overlay">
-                      <div className="poster-play-circle">
-                        <Play size={16} className="fill-current ml-0.5" />
-                      </div>
-                      <span className="poster-click-hint">Clique para detalhes</span>
-                    </div>
+                    {/* Subtle Top Quality Pill */}
+                    <span className="poster-quality-top-cinematic">
+                      {item.quality}
+                    </span>
+
+                    {/* Sleek Top Rating Badge */}
+                    <span className="poster-rating-badge-cinematic">
+                      <Star size={11} className="fill-current text-amber-400" />
+                      <span>{item.rating}</span>
+                    </span>
                   </div>
 
-                  {/* Poster Title & Meta */}
-                  <div className="catalog-card-info">
-                    <h3 className="catalog-item-title" title={item.title}>
+                  {/* Clean Bottom Overlay with legible title & concise meta */}
+                  <div className="poster-info-overlay-cinematic">
+                    <h3 className="poster-title-cinematic" title={item.title}>
                       {item.title}
                     </h3>
-                    <div className="catalog-item-meta">
+                    <div className="poster-meta-cinematic">
                       <span>{item.year}</span>
-                      <span className="meta-separator">•</span>
-                      <span>{item.categoryLabel.split('•')[0].trim()}</span>
+                      <span className="poster-meta-dot">•</span>
+                      <span>{primaryCategory}</span>
+                      {metaDetail && (
+                        <>
+                          <span className="poster-meta-dot">•</span>
+                          <span>{metaDetail}</span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
