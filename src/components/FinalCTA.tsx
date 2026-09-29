@@ -21,7 +21,7 @@ export const FinalCTA: React.FC = () => {
       {/* Floating 3D BoraFlix Ribbon Logo Monument Accent */}
       <div className="final-cta-monument-wrap" aria-hidden="true">
         <img
-          src="/assets/logos/boraflix-logo.png"
+          src="/assets/logos/boraflix-icon.png"
           alt="BoraFlix Monumental"
           className="final-cta-monument-symbol"
         />

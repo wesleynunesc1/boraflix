@@ -180,7 +180,7 @@ export const Hero: React.FC = () => {
               }}
             >
               <img
-                src="/assets/logos/boraflix-logo.png"
+                src="/assets/logos/boraflix-icon.png"
                 alt="BoraFlix Oficial"
                 className="card-logo-mini"
               />
