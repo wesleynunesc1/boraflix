@@ -161,52 +161,78 @@ export const Pricing: React.FC = () => {
 
         {/* Security, Warranty & Multi-screen Trust Card */}
         <div className="pricing-guarantee-card">
+          {/* Ambient Lighting Spots */}
+          <div className="guarantee-ambient-spot light-emerald" />
+          <div className="guarantee-ambient-spot light-cyan" />
+
           <div className="guarantee-left-col">
-            <div className="guarantee-icon-orb">
-              <ShieldCheck size={38} className="text-emerald-400" />
+            <div className="guarantee-icon-orb-wrap">
+              <div className="guarantee-icon-orb">
+                <ShieldCheck size={42} className="text-emerald-400" />
+              </div>
+              <div className="guarantee-seal-badge">
+                <span>7 DIAS</span>
+              </div>
             </div>
+
             <div className="guarantee-text-block">
               <div className="guarantee-badge">
                 <span className="guarantee-pulse-dot" />
                 <span>RISCO ZERO • COMPRA 100% PROTEGIDA</span>
               </div>
               <h3 className="guarantee-title">
-                Garantia Incondicional de 7 Dias
+                Garantia Incondicional de <span className="guarantee-title-gradient">7 Dias</span>
               </h3>
               <p className="guarantee-desc">
-                Acesse todo o catálogo, teste a estabilidade de sinal em 4K HDR e aproveite em até 4 telas ao mesmo tempo. Se você não ficar 100% satisfeito, basta nos chamar no WhatsApp dentro do período e devolvemos seu dinheiro integralmente na hora, sem perguntas nem letras miúdas.
+                Acesse todo o catálogo, teste a estabilidade de sinal em <strong>4K HDR</strong> e aproveite em até <strong>4 telas simultâneas</strong>. Se você não ficar 100% satisfeito por qualquer motivo, basta nos mandar uma mensagem no WhatsApp dentro dos 7 dias e devolvemos seu dinheiro integralmente, de imediato e sem perguntas.
               </p>
+
+              {/* Micro Trust Tags */}
+              <div className="guarantee-trust-tags">
+                <div className="trust-tag-item">
+                  <Check size={14} className="text-emerald-400" />
+                  <span>Sem multas ou burocracia</span>
+                </div>
+                <div className="trust-tag-item">
+                  <Check size={14} className="text-emerald-400" />
+                  <span>Reembolso direto no PIX</span>
+                </div>
+                <div className="trust-tag-item">
+                  <Check size={14} className="text-emerald-400" />
+                  <span>Suporte 24h no WhatsApp</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="guarantee-perks-col">
             <div className="guarantee-perk-badge">
-              <div className="guarantee-perk-icon-wrap amber">
-                <Zap size={20} />
+              <div className="guarantee-perk-icon-wrap emerald">
+                <Award size={22} />
               </div>
               <div className="guarantee-perk-text">
-                <span className="guarantee-perk-title">4 Telas 4K Inclusas</span>
+                <span className="guarantee-perk-title">100% Dinheiro de Volta</span>
+                <span className="guarantee-perk-sub">Compromisso total de satisfação</span>
+              </div>
+            </div>
+
+            <div className="guarantee-perk-badge">
+              <div className="guarantee-perk-icon-wrap amber">
+                <Zap size={22} />
+              </div>
+              <div className="guarantee-perk-text">
+                <span className="guarantee-perk-title">4 Telas 4K UHD Inclusas</span>
                 <span className="guarantee-perk-sub">Smart TV, Celular, PC e TV Box</span>
               </div>
             </div>
 
             <div className="guarantee-perk-badge">
               <div className="guarantee-perk-icon-wrap cyan">
-                <Lock size={20} />
+                <Lock size={22} />
               </div>
               <div className="guarantee-perk-text">
-                <span className="guarantee-perk-title">PIX & Cartão em até 12x</span>
-                <span className="guarantee-perk-sub">Liberação imediata do acesso</span>
-              </div>
-            </div>
-
-            <div className="guarantee-perk-badge">
-              <div className="guarantee-perk-icon-wrap emerald">
-                <Award size={20} />
-              </div>
-              <div className="guarantee-perk-text">
-                <span className="guarantee-perk-title">Satisfação Garantida</span>
-                <span className="guarantee-perk-sub">Suporte humanizado no WhatsApp</span>
+                <span className="guarantee-perk-title">Ativação Imediata</span>
+                <span className="guarantee-perk-sub">PIX ou Cartão em até 12x seguro</span>
               </div>
             </div>
           </div>
