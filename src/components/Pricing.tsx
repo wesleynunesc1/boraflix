@@ -20,15 +20,15 @@ export const Pricing: React.FC = () => {
         style={{
           top: '15%',
           left: '50%',
-          width: '800px',
-          height: '600px',
+          width: 'min(800px, 90vw)',
+          height: 'min(600px, 70vw)',
           transform: 'translateX(-50%)',
           opacity: 0.35
         }}
       />
       <div
         className="ambient-glow ambient-cyan"
-        style={{ bottom: '10%', right: '10%', width: '500px', height: '500px', opacity: 0.25 }}
+        style={{ bottom: '10%', right: '5%', width: 'min(500px, 70vw)', height: 'min(500px, 70vw)', opacity: 0.25 }}
       />
 
       <div className="container">
