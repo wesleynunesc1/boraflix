@@ -28,6 +28,8 @@ export const PosterCarousel: React.FC = () => {
           src={hoveredPoster.image}
           alt=""
           className="catalog-backdrop-img"
+          loading="lazy"
+          decoding="async"
         />
         <div className="catalog-backdrop-overlay" />
       </div>
@@ -103,7 +105,10 @@ export const PosterCarousel: React.FC = () => {
                       src={item.image}
                       alt={`Pôster de ${item.title}`}
                       className="poster-img-cinematic"
+                      width={180}
+                      height={270}
                       loading="lazy"
+                      decoding="async"
                     />
 
                     {/* Interactive Play Badge on Hover (Desktop) */}

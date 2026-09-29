@@ -1,9 +1,8 @@
 import React from 'react';
-import { Play, ArrowRight, Check, ShieldCheck, Tv, Zap, Headphones, Film } from 'lucide-react';
-import { Button } from './Button';
+import { Play } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  // Curated list of high-impact covers from CAPAS for the backdrop collage
+  // Optimized high-impact covers from CAPAS for the backdrop collage
   const backdropPosters = [
     '/assets/capas/Filme-02-1.webp', // Oppenheimer
     '/assets/capas/Filme-01-1.webp', // Top Gun Maverick
@@ -13,14 +12,6 @@ export const Hero: React.FC = () => {
     '/assets/capas/Serie-11-1.webp', // The Last of Us
     '/assets/capas/Filme-06-1.webp', // Avatar
     '/assets/capas/Serie-07-1.webp', // Stranger Things
-    '/assets/capas/Filme-12-1.webp', // John Wick 4
-    '/assets/capas/Serie-10-1.webp', // Dark
-    '/assets/capas/Serie-13-1.webp', // Wandinha
-    '/assets/capas/image2-1.webp',   // Mufasa
-    '/assets/capas/Serie-12-1.webp', // Succession
-    '/assets/capas/Filme-04-1.webp', // Eternos
-    '/assets/capas/Serie-14-1.webp', // Ruptura
-    '/assets/capas/Filme-03-1.webp', // 365 Dias
   ];
 
   return (
@@ -34,7 +25,10 @@ export const Hero: React.FC = () => {
                 src={posterSrc}
                 alt=""
                 className="hero-mosaic-img"
-                loading={index < 8 ? 'eager' : 'lazy'}
+                width={220}
+                height={330}
+                loading={index < 2 ? 'eager' : 'lazy'}
+                decoding="async"
               />
             </div>
           ))}

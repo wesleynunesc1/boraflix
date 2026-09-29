@@ -5183,7 +5183,6 @@ ul, ol {
 .hero-ambient-spot {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
   pointer-events: none;
 }
 
@@ -5192,8 +5191,7 @@ ul, ol {
   left: 12%;
   width: 480px;
   height: 480px;
-  background: #00cfff;
-  opacity: 0.12;
+  background: radial-gradient(circle, rgba(0, 207, 255, 0.16) 0%, transparent 70%);
 }
 
 .hero-ambient-spot.spot-magenta {
@@ -5201,8 +5199,7 @@ ul, ol {
   right: 15%;
   width: 520px;
   height: 520px;
-  background: #ff008c;
-  opacity: 0.12;
+  background: radial-gradient(circle, rgba(255, 0, 140, 0.15) 0%, transparent 70%);
 }
 
 .hero-ambient-spot.spot-purple {
@@ -5210,8 +5207,7 @@ ul, ol {
   left: 35%;
   width: 450px;
   height: 450px;
-  background: #6c2bff;
-  opacity: 0.10;
+  background: radial-gradient(circle, rgba(108, 43, 255, 0.14) 0%, transparent 70%);
 }
 
 .hero-container {

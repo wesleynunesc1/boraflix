@@ -11,7 +11,11 @@ import { TestimonialCarousel } from './components/TestimonialCarousel';
 import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
-import { BotPage } from './bot/BotPage';
+
+// Code-split: BotPage is lazy-loaded so regular visitors download zero bot/checkout JS overhead
+const BotPage = React.lazy(() =>
+  import('./bot/BotPage').then(module => ({ default: module.BotPage }))
+);
 
 export const App: React.FC = () => {
   const [isBotRoute, setIsBotRoute] = useState<boolean>(() => {
@@ -47,7 +51,20 @@ export const App: React.FC = () => {
   };
 
   if (isBotRoute) {
-    return <BotPage onBackToSite={navigateToSite} />;
+    return (
+      <React.Suspense
+        fallback={
+          <div className="min-h-screen bg-[#03050a] flex items-center justify-center text-white">
+            <div className="flex items-center gap-3">
+              <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+              <span className="text-sm font-medium text-slate-300">Carregando assistente...</span>
+            </div>
+          </div>
+        }
+      >
+        <BotPage onBackToSite={navigateToSite} />
+      </React.Suspense>
+    );
   }
 
   return (
