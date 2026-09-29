@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Lock, Heart } from 'lucide-react';
+import { ShieldCheck, Lock, Heart, MessageCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -7,30 +7,30 @@ export const Footer: React.FC = () => {
       <div className="container">
         <div className="footer-top-grid">
           {/* Col 1: Brand & Presentation */}
-          <div>
+          <div className="footer-brand-col">
             <img
               src="/assets/logos/8.png"
               alt="BoraFlix Logo Oficial"
               className="footer-logo-img"
             />
-            <p className="text-slate-400 text-sm max-w-sm leading-relaxed mb-4">
-              A nova era do entretenimento digital. Filmes, séries, esportes e canais ao vivo
-              em uma plataforma moderna, fluida e com máxima estabilidade.
+            <p className="footer-brand-desc">
+              A nova era do entretenimento digital. Mais de 60.000 filmes, séries, esportes e canais ao vivo transmitidos com máxima estabilidade, qualidade 4K HDR e servidores dedicados anti-travamento.
             </p>
-            <div className="flex items-center gap-3 text-xs text-slate-400">
-              <span className="flex items-center gap-1">
-                <Lock size={12} className="text-cyan-400" /> Criptografia SSL 256-bit
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <ShieldCheck size={12} className="text-emerald-400" /> Servidores 99.9% Uptime
-              </span>
+            <div className="footer-trust-badges">
+              <div className="footer-trust-badge">
+                <Lock size={14} className="text-cyan-400" />
+                <span>Criptografia SSL 256-bit</span>
+              </div>
+              <div className="footer-trust-badge">
+                <ShieldCheck size={14} className="text-emerald-400" />
+                <span>Servidores 99.9% Uptime</span>
+              </div>
             </div>
           </div>
 
           {/* Col 2: Navigation Links */}
-          <div>
-            <h4 className="font-display text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
+          <div className="footer-nav-col">
+            <h4 className="footer-col-title">
               Navegação
             </h4>
             <ul className="footer-links-list">
@@ -44,40 +44,34 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: Legal & Corporate Editable Area (Rule 21) */}
-          <div>
-            <h4 className="font-display text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
-              Informações Legais & Contato
+          {/* Col 3: Official Support & Contact */}
+          <div className="footer-contact-col">
+            <h4 className="footer-col-title">
+              Atendimento Oficial
             </h4>
-            <ul className="footer-links-list mb-6">
-              <li>
-                <a href="#faq" className="footer-link">
-                  Termos de Uso
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="footer-link">
-                  Política de Privacidade
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/558594480239" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  Suporte Oficial no WhatsApp
-                </a>
-              </li>
-            </ul>
+            <p className="footer-contact-desc">
+              Dúvidas sobre planos, suporte técnico ou ativação imediata de acesso? Fale agora mesmo com nossa equipe de suporte:
+            </p>
 
-            {/* Explicit Rule 21 Editable Area */}
-            <div className="p-3.5 rounded-lg bg-white/[0.02] border border-white/10 text-xs text-slate-400">
-              <span className="font-mono text-cyan-400 text-[11px] block font-bold mb-1">
-                [DADOS EMPRESARIAIS / CNPJ / CONTATO]
-              </span>
-              <p className="text-[12px] leading-relaxed">
-                BoraFlix Entretenimento Digital Ltda.<br />
-                CNPJ: 00.000.000/0001-00<br />
-                E-mail: contato@boraflix.com.br<br />
-                Atendimento: Segunda a Domingo, 24 horas
-              </p>
+            <a
+              href="https://wa.me/558594480239"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-whatsapp-card group"
+            >
+              <div className="footer-wa-icon-box">
+                <MessageCircle size={22} className="text-emerald-400" />
+              </div>
+              <div className="footer-wa-text">
+                <span className="footer-wa-label">Suporte WhatsApp 24h</span>
+                <span className="footer-wa-number">+55 85 9448-0239</span>
+              </div>
+              <ArrowRight size={16} className="text-emerald-400 transition-transform group-hover:translate-x-1" />
+            </a>
+
+            <div className="footer-security-note">
+              <CheckCircle2 size={15} className="text-cyan-400 flex-shrink-0" />
+              <span>Garantia de 7 dias com devolução 100% integral</span>
             </div>
           </div>
         </div>
@@ -85,10 +79,13 @@ export const Footer: React.FC = () => {
         {/* Footer Bottom Bar */}
         <div className="footer-bottom-bar">
           <p>© {new Date().getFullYear()} BoraFlix. Todos os direitos reservados.</p>
-          <p className="flex items-center gap-1">
-            Desenvolvido com tecnologia de ponta e paixão por cinema
-            <Heart size={12} className="text-pink-500 fill-current inline ml-1" />
+          <p className="footer-disclaimer">
+            Plataforma digital de entretenimento desenvolvida para alta performance e transmissão familiar.
           </p>
+          <div className="flex items-center gap-1 text-slate-400 text-xs">
+            <span>Paixão por cinema e tecnologia</span>
+            <Heart size={12} className="text-pink-500 fill-current ml-1" />
+          </div>
         </div>
       </div>
     </footer>

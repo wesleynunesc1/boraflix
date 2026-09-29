@@ -142,31 +142,55 @@ export const Pricing: React.FC = () => {
           })}
         </div>
 
-        {/* Security, Warranty & Multi-screen Trust Footer */}
-        <div className="mt-16 max-w-4xl mx-auto glass-panel p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0">
-              <ShieldCheck size={26} />
+        {/* Security, Warranty & Multi-screen Trust Card */}
+        <div className="pricing-guarantee-card">
+          <div className="guarantee-left-col">
+            <div className="guarantee-icon-orb">
+              <ShieldCheck size={38} className="text-emerald-400" />
             </div>
-            <div>
-              <h4 className="font-display text-base font-bold text-white">
+            <div className="guarantee-text-block">
+              <div className="guarantee-badge">
+                <span className="guarantee-pulse-dot" />
+                <span>RISCO ZERO • COMPRA 100% PROTEGIDA</span>
+              </div>
+              <h3 className="guarantee-title">
                 Garantia Incondicional de 7 Dias
-              </h4>
-              <p className="text-xs text-slate-400 mt-0.5 max-w-md">
-                Acesse todo o catálogo e teste a estabilidade. Se não ficar totalmente satisfeito,
-                solicite o reembolso integral com suporte via WhatsApp.
+              </h3>
+              <p className="guarantee-desc">
+                Acesse todo o catálogo, teste a estabilidade de sinal em 4K HDR e aproveite em até 4 telas ao mesmo tempo. Se você não ficar 100% satisfeito, basta nos chamar no WhatsApp dentro do período e devolvemos seu dinheiro integralmente na hora, sem perguntas nem letras miúdas.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-slate-300 flex-shrink-0">
-            <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-              <Zap size={14} className="text-amber-400" />
-              <span>4 Telas 4K Inclusas</span>
+          <div className="guarantee-perks-col">
+            <div className="guarantee-perk-badge">
+              <div className="guarantee-perk-icon-wrap amber">
+                <Zap size={20} />
+              </div>
+              <div className="guarantee-perk-text">
+                <span className="guarantee-perk-title">4 Telas 4K Inclusas</span>
+                <span className="guarantee-perk-sub">Smart TV, Celular, PC e TV Box</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-              <Lock size={14} className="text-cyan-400" />
-              <span>PIX & Cartão em até 12x</span>
+
+            <div className="guarantee-perk-badge">
+              <div className="guarantee-perk-icon-wrap cyan">
+                <Lock size={20} />
+              </div>
+              <div className="guarantee-perk-text">
+                <span className="guarantee-perk-title">PIX & Cartão em até 12x</span>
+                <span className="guarantee-perk-sub">Liberação imediata do acesso</span>
+              </div>
+            </div>
+
+            <div className="guarantee-perk-badge">
+              <div className="guarantee-perk-icon-wrap emerald">
+                <Award size={20} />
+              </div>
+              <div className="guarantee-perk-text">
+                <span className="guarantee-perk-title">Satisfação Garantida</span>
+                <span className="guarantee-perk-sub">Suporte humanizado no WhatsApp</span>
+              </div>
             </div>
           </div>
         </div>
