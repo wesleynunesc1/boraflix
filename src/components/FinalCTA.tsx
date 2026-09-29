@@ -8,8 +8,8 @@ export const FinalCTA: React.FC = () => {
       {/* Giant 3D BoraFlix Ribbon Symbol Glowing in Background (Section 20) */}
       <div className="final-cta-monument-wrap" aria-hidden="true">
         <img
-          src="/assets/logos/6.png"
-          alt="BoraFlix Monumental 3D"
+          src="/assets/logos/boraflix-logo.png"
+          alt="BoraFlix Monumental"
           className="final-cta-monument-symbol"
         />
         <div className="final-cta-monument-vignette" />

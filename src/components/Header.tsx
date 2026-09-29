@@ -15,15 +15,27 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is active
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        {/* Brand Logo */}
+        {/* Brand Logo - Transparent BoraFlix */}
         <a href="#" className="nav-brand" aria-label="BoraFlix Página Inicial">
           <img
-            src="/assets/logos/8.png"
+            src="/assets/logos/boraflix-logo.png"
             alt="BoraFlix Logo Oficial"
             className="nav-logo-img"
           />
@@ -59,6 +71,7 @@ export const Header: React.FC = () => {
             href="#planos"
             variant="primary"
             size="sm"
+            className="nav-cta-desktop"
             icon={<ArrowRight size={16} />}
           >
             VER PLANOS
@@ -76,33 +89,33 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Nav Drawer */}
       <div
         className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}
         aria-hidden={!mobileMenuOpen}
       >
-        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+        <div className="mobile-drawer-top">
           <img
-            src="/assets/logos/8.png"
+            src="/assets/logos/boraflix-logo.png"
             alt="BoraFlix Logo"
-            className="h-8 object-contain"
+            className="mobile-drawer-logo"
           />
           <button
             onClick={closeMenu}
-            className="p-2 text-slate-400 hover:text-white"
+            className="mobile-drawer-close"
             aria-label="Fechar menu"
           >
-            <X size={24} />
+            <X size={22} />
           </button>
         </div>
 
-        <nav className="flex flex-col gap-2 mt-4" aria-label="Menu Mobile">
+        <nav className="mobile-drawer-links" aria-label="Menu Mobile">
           <a
             href="#experiencia"
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Experiência</span>
+            <span>Catálogo & Experiência</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -110,7 +123,7 @@ export const Header: React.FC = () => {
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Como funciona</span>
+            <span>Como Funciona</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -122,11 +135,27 @@ export const Header: React.FC = () => {
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
+            href="#comparativo"
+            className="mobile-nav-link"
+            onClick={closeMenu}
+          >
+            <span>Comparativo de Valor</span>
+            <ArrowRight size={18} className="text-cyan-400" />
+          </a>
+          <a
             href="#planos"
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Planos & Ofertas</span>
+            <span>Planos & Assinaturas</span>
+            <ArrowRight size={18} className="text-cyan-400" />
+          </a>
+          <a
+            href="#depoimentos"
+            className="mobile-nav-link"
+            onClick={closeMenu}
+          >
+            <span>Depoimentos Reais</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -139,20 +168,20 @@ export const Header: React.FC = () => {
           </a>
         </nav>
 
-        <div className="mt-auto pt-6 flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-xs text-cyan-400 justify-center">
-            <Film size={14} />
+        <div className="mobile-drawer-footer">
+          <div className="mobile-drawer-perk">
+            <Film size={14} className="text-cyan-400" />
             <span>Mais de 60.000 conteúdos liberados</span>
           </div>
           <Button
             href="#planos"
             variant="primary"
             size="lg"
-            className="w-full justify-center"
+            className="w-full justify-center text-sm py-3.5"
             onClick={closeMenu}
             icon={<ArrowRight size={18} />}
           >
-            CONHECER PLANOS
+            VER PLANOS E ASSINAR
           </Button>
         </div>
       </div>

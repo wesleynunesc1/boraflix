@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Presentation */}
           <div className="footer-brand-col">
             <img
-              src="/assets/logos/8.png"
+              src="/assets/logos/boraflix-logo.png"
               alt="BoraFlix Logo Oficial"
               className="footer-logo-img"
             />

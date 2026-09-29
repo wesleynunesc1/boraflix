@@ -31,7 +31,7 @@ export const VideoDemo: React.FC = () => {
           {/* Top Player Header */}
           <div className="player-header-bar">
             <div className="flex items-center gap-3">
-              <img src="/assets/logos/8.png" alt="BoraFlix Logo" className="h-5 object-contain" />
+              <img src="/assets/logos/boraflix-logo.png" alt="BoraFlix Logo" className="h-5 object-contain" />
               <div className="h-4 w-px bg-white/20" />
               <span className="text-xs text-slate-300 font-medium hidden sm:inline">
                 Reproduzindo em 4K HDR • 60 FPS

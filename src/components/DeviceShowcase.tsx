@@ -62,7 +62,7 @@ export const DeviceShowcase: React.FC = () => {
                 {/* Simulated Screen Top Status */}
                 <div className="px-4 py-2.5 bg-black/60 backdrop-blur-md flex items-center justify-between border-b border-white/10 z-10">
                   <div className="flex items-center gap-2">
-                    <img src="/assets/logos/8.png" alt="BoraFlix" className="h-4 object-contain" />
+                    <img src="/assets/logos/boraflix-logo.png" alt="BoraFlix" className="h-4 object-contain" />
                     <span className="text-[10px] text-cyan-400 font-mono font-bold">• 4K HDR</span>
                   </div>
                   <span className="text-[10px] bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded font-mono font-bold">

@@ -84,9 +84,9 @@ export const ValueComparison: React.FC = () => {
             <div className="bridge-line" />
             <div className="bridge-logo-orb">
               <img
-                src="/assets/logos/6.png"
-                alt="BoraFlix Ícone 3D"
-                className="w-12 h-12 object-contain animate-pulse"
+                src="/assets/logos/boraflix-logo.png"
+                alt="BoraFlix Oficial"
+                className="w-16 h-8 object-contain"
               />
               <span className="bridge-text">TUDO UNIFICADO</span>
             </div>
