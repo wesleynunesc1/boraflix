@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, CheckCircle2, XCircle, ArrowRight, Layers, Flame, DollarSign } from 'lucide-react';
+import { ArrowDown, CheckCircle2, XCircle, ArrowRight, Layers, Flame, DollarSign, Sparkles } from 'lucide-react';
 import { Button } from './Button';
 
 export const ValueComparison: React.FC = () => {
@@ -136,19 +136,36 @@ export const ValueComparison: React.FC = () => {
           </div>
         </div>
 
-        {/* Direct Narrative Transition to Plans */}
-        <div className="mt-12 text-center flex flex-col items-center gap-4">
-          <p className="text-sm md:text-base text-slate-300 max-w-lg leading-relaxed">
-            Economize de verdade e tenha acesso ilimitado sem burocracia ou taxas de cancelamento.
-          </p>
-          <Button
-            href="#planos"
-            variant="primary"
-            size="lg"
-            icon={<ArrowRight size={18} />}
-          >
-            ESCOLHER MEU PLANO
-          </Button>
+        {/* Transformation Value Conclusion Banner */}
+        <div className="comparison-cta-card">
+          <div className="comparison-cta-content">
+            <div className="comparison-cta-badge">
+              <Sparkles size={14} className="text-cyan-400" />
+              <span>Economia Real Comprovada</span>
+            </div>
+            <h3 className="comparison-cta-title">
+              Economize mais de 70% todos os meses
+            </h3>
+            <p className="comparison-cta-desc">
+              Tenha acesso ilimitado a mais de 60.000 títulos e canais em 4K HDR.
+              Sem contratos de fidelidade, sem burocracia e sem taxas de cancelamento.
+            </p>
+          </div>
+
+          <div className="comparison-cta-actions">
+            <Button
+              href="#planos"
+              variant="primary"
+              size="lg"
+              className="btn-glow-master"
+              icon={<ArrowRight size={18} />}
+            >
+              ESCOLHER MEU PLANO
+            </Button>
+            <span className="comparison-cta-micro">
+              ⚡ Ativação imediata • 🔒 7 dias de garantia
+            </span>
+          </div>
         </div>
       </div>
     </section>
