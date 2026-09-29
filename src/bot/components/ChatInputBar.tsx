@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Send, AlertCircle, ArrowUp } from 'lucide-react';
+import { Send, AlertCircle, Smile } from 'lucide-react';
 import { formatCpfInput, formatPhoneInput } from '../config/botConfig';
 
 export type InputKind = 'text' | 'email' | 'tel' | 'cpf';
@@ -25,7 +25,7 @@ export const ChatInputBar: React.FC<ChatInputBarProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-focus input when it appears
+  // Auto-focus input when it mounts/changes
   useEffect(() => {
     const timer = setTimeout(() => {
       inputRef.current?.focus();
@@ -64,21 +64,26 @@ export const ChatInputBar: React.FC<ChatInputBarProps> = ({
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto my-3 animate-fadeIn">
+    <div className="w-full max-w-2xl mx-auto px-2 sm:px-4 py-2 bg-[#090e1a]/95 backdrop-blur-md border-t border-white/[0.08] shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+      {/* Error Badge */}
+      {error && (
+        <div className="flex items-center gap-1.5 text-xs text-rose-300 font-medium mb-1.5 px-3 py-1 rounded-lg bg-rose-500/15 border border-rose-500/30 animate-fadeIn max-w-fit mx-auto">
+          <AlertCircle size={13} className="text-rose-400 flex-shrink-0" />
+          <span>{error}</span>
+        </div>
+      )}
+
       <form
         onSubmit={e => {
           e.preventDefault();
           onSubmit();
         }}
-        className="relative"
+        className="flex items-center gap-2"
       >
-        <div
-          className={`flex items-center gap-2 p-1.5 sm:p-2 rounded-2xl bg-[#0d1222] border transition-all duration-200 shadow-xl ${
-            error
-              ? 'border-rose-500/80 ring-2 ring-rose-500/20'
-              : 'border-cyan-500/40 focus-within:border-cyan-400 focus-within:ring-2 focus-within:ring-cyan-500/30'
-          }`}
-        >
+        {/* WhatsApp Pill Input Container */}
+        <div className="flex-1 flex items-center gap-2 py-1.5 px-3.5 sm:px-4 rounded-full bg-[#182334] border border-white/[0.1] focus-within:border-cyan-400 focus-within:ring-1 focus-within:ring-cyan-400/40 transition-all duration-200">
+          <Smile size={18} className="text-[#8696a0] flex-shrink-0 hidden sm:block" />
+
           <input
             ref={inputRef}
             type={getType()}
@@ -88,27 +93,23 @@ export const ChatInputBar: React.FC<ChatInputBarProps> = ({
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
             disabled={disabled}
-            className="flex-1 bg-transparent px-3 py-2 text-white placeholder:text-slate-500 text-sm sm:text-base outline-none min-w-0 font-normal"
+            style={{ fontSize: '16px' }} // HARD RULE: 16px explicitly stops iOS auto-zoom
+            className="flex-1 bg-transparent py-1.5 text-[#f0f2f5] placeholder:text-[#8696a0] outline-none min-w-0 font-normal leading-normal"
             autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           />
-
-          <button
-            type="submit"
-            disabled={disabled || !value.trim()}
-            className="w-10 h-10 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 disabled:opacity-30 disabled:pointer-events-none text-white flex items-center justify-center transition-all active:scale-90 flex-shrink-0 shadow-md shadow-pink-500/20"
-            aria-label="Enviar resposta"
-          >
-            <ArrowUp size={18} strokeWidth={2.5} />
-          </button>
         </div>
 
-        {/* Validation Error Banner */}
-        {error && (
-          <div className="flex items-center gap-1.5 text-xs text-rose-400 font-medium mt-1.5 px-2 animate-fadeIn">
-            <AlertCircle size={13} className="flex-shrink-0" />
-            <span>{error}</span>
-          </div>
-        )}
+        {/* WhatsApp Circular Send Button with BoraFlix Glow */}
+        <button
+          type="submit"
+          disabled={disabled || !value.trim()}
+          className="w-11 h-11 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:opacity-95 disabled:opacity-30 disabled:pointer-events-none text-white flex items-center justify-center transition-all duration-150 active:scale-90 flex-shrink-0 shadow-lg shadow-pink-500/25"
+          aria-label="Enviar mensagem"
+        >
+          <Send size={18} className="translate-x-0.5 fill-current" />
+        </button>
       </form>
     </div>
   );

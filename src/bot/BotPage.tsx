@@ -15,7 +15,7 @@ import { BotStep, BotOrder, ChatMessageItem, CustomerData, DeviceInfo, PaymentSt
 import { PricingPlan } from '../types';
 import { generateOrderId, maskCpf } from './config/botConfig';
 import { saveBotSession, loadBotSession, clearBotSession } from './services/sessionService';
-import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Lock } from 'lucide-react';
 
 interface BotPageProps {
   onBackToSite: () => void;
@@ -76,7 +76,7 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
   const scrollToBottom = () => {
     setTimeout(() => {
       chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }, 120);
+    }, 100);
   };
 
   useEffect(() => {
@@ -357,19 +357,53 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
     createdAt: new Date().toISOString(),
   };
 
-  return (
-    <div className="h-[100dvh] bg-[#03050a] text-slate-100 flex flex-col justify-between selection:bg-pink-500 selection:text-white relative overflow-hidden">
-      {/* Subtle Background Lighting Orbs */}
-      <div
-        className="ambient-glow ambient-purple fixed pointer-events-none"
-        style={{ top: '5%', left: '50%', width: 'min(500px, 70vw)', height: '350px', transform: 'translateX(-50%)', opacity: 0.18 }}
-      />
-      <div
-        className="ambient-glow ambient-cyan fixed pointer-events-none"
-        style={{ bottom: '10%', right: '5%', width: 'min(380px, 50vw)', height: '300px', opacity: 0.15 }}
-      />
+  // Check if current step requires the text composer
+  const isInputStep =
+    currentStep === 'ASK_NAME' ||
+    currentStep === 'ASK_EMAIL' ||
+    currentStep === 'ASK_PHONE' ||
+    currentStep === 'ASK_CPF';
 
-      {/* Sticky Compact Header */}
+  const getInputConfig = (): { kind: InputKind; placeholder: string; onSubmit: () => void } => {
+    switch (currentStep) {
+      case 'ASK_NAME':
+        return {
+          kind: 'text',
+          placeholder: 'Mensagem (Digite seu nome)...',
+          onSubmit: handleConfirmName,
+        };
+      case 'ASK_EMAIL':
+        return {
+          kind: 'email',
+          placeholder: 'Mensagem (Digite seu e-mail)...',
+          onSubmit: handleConfirmEmail,
+        };
+      case 'ASK_PHONE':
+        return {
+          kind: 'tel',
+          placeholder: 'Mensagem (Seu WhatsApp com DDD)...',
+          onSubmit: handleConfirmPhone,
+        };
+      case 'ASK_CPF':
+        return {
+          kind: 'cpf',
+          placeholder: 'Mensagem (Seu CPF 000.000.000-00)...',
+          onSubmit: handleConfirmCpf,
+        };
+      default:
+        return {
+          kind: 'text',
+          placeholder: 'Mensagem...',
+          onSubmit: () => {},
+        };
+    }
+  };
+
+  const inputConfig = getInputConfig();
+
+  return (
+    <div className="h-[100dvh] whatsapp-chat-bg text-slate-100 flex flex-col justify-between selection:bg-pink-500 selection:text-white relative overflow-hidden">
+      {/* WhatsApp Chat Sticky Header */}
       <BotHeader
         currentStep={currentStep}
         orderId={orderId}
@@ -377,62 +411,72 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
         onBackToSite={onBackToSite}
       />
 
-      {/* Main Conversational Workspace */}
+      {/* Main WhatsApp Message Container */}
       <main
         ref={chatScrollContainerRef}
-        className="flex-1 w-full max-w-3xl mx-auto px-3 sm:px-6 py-4 flex flex-col justify-start overflow-y-auto z-10"
+        className="flex-1 w-full max-w-2xl mx-auto px-3 sm:px-4 py-3 flex flex-col justify-start overflow-y-auto z-10"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        {/* STEP 1: WELCOME SCREEN WITH LIVING HERO ROBOT */}
+        {/* STEP 1: WELCOME SCREEN (WhatsApp Welcoming Greeting) */}
         {currentStep === 'WELCOME' && (
-          <div className="my-auto py-6 sm:py-10 text-center animate-fadeIn max-w-md mx-auto flex flex-col items-center">
-            {/* Big Living BoraRobot Character */}
-            <div className="mb-5 sm:mb-6">
+          <div className="my-auto py-6 sm:py-8 text-center animate-fadeIn max-w-sm mx-auto flex flex-col items-center">
+            {/* Living Character in WhatsApp Greeting */}
+            <div className="mb-4">
               <BoraRobot size="hero" state="idle" />
             </div>
 
-            {/* Micro Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold mb-3 tracking-wide">
-              <Sparkles size={13} className="text-cyan-400" />
-              <span>Assistente Oficial BoraFlix</span>
+            {/* Verified Badge */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#182334] border border-cyan-500/30 text-cyan-300 text-xs font-bold mb-2.5 shadow-sm">
+              <Sparkles size={12} className="text-cyan-400" />
+              <span>Atendimento Oficial BoraFlix</span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
-              Olá! 👋 <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-400">
-                Eu sou o assistente BoraFlix.
-              </span>
+            <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Olá! Vamos preparar seu acesso?
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed max-w-sm">
-              Vou te ajudar a escolher seu plano, preparar seu aparelho e deixar tudo pronto para você começar a assistir.
+            <p className="text-xs sm:text-sm text-[#8696a0] mt-2 leading-relaxed">
+              Vou te ajudar a escolher seu plano, preparar seu aparelho e liberar suas telas em poucos minutos.
             </p>
 
-            {/* Action CTA */}
-            <div className="mt-7 w-full max-w-xs space-y-3">
+            {/* WhatsApp Style Start Button */}
+            <div className="mt-6 w-full space-y-2.5">
               <button
                 type="button"
                 onClick={handleStartOnboarding}
-                className="w-full py-3.5 sm:py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-600 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 shadow-xl shadow-pink-500/30 transition-all active:scale-95 group"
+                className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:opacity-95 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-pink-500/25 transition-all duration-200 active:scale-95 group"
               >
-                <span>COMEÇAR ATENDIMENTO</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <span>COMEÇAR CONVERSA</span>
+                <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400">
-                <ShieldCheck size={13} className="text-emerald-400" />
-                <span>Rápido • Sem burocracia • 4 Telas 4K</span>
+              <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#8696a0]">
+                <ShieldCheck size={13} className="text-[#25d366]" />
+                <span>Atendimento seguro • Sem fidelidade</span>
               </div>
             </div>
           </div>
         )}
 
-        {/* STEP 2+: CONVERSATIONAL FEED */}
+        {/* STEP 2+: ACTIVE WHATSAPP CONVERSATION */}
         {currentStep !== 'WELCOME' && (
-          <div className="space-y-3 w-full pb-4">
-            {/* Historical Messages */}
+          <div className="space-y-2 w-full pb-2">
+            {/* WhatsApp Centered Date Pill */}
+            <div className="flex justify-center my-1 select-none">
+              <span className="text-[10.5px] font-sans font-medium px-3 py-0.5 rounded-lg bg-[#182232] text-[#8696a0] shadow-sm uppercase tracking-wider">
+                Hoje
+              </span>
+            </div>
+
+            {/* WhatsApp End-to-End Encryption Security Notice */}
+            <div className="flex justify-center my-2 px-2 text-center select-none">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#182334]/80 border border-white/[0.05] text-[11px] text-[#ffd279] max-w-sm leading-tight shadow-sm">
+                <Lock size={12} className="flex-shrink-0 text-[#ffd279]" />
+                <span>As mensagens e dados deste atendimento são protegidos com segurança pela BoraFlix.</span>
+              </div>
+            </div>
+
+            {/* Messages Feed */}
             {messages.map((msg, index) => (
               <ChatMessage
                 key={msg.id}
@@ -443,25 +487,12 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
               />
             ))}
 
-            {/* Typing Indicator */}
+            {/* WhatsApp Typing Indicator */}
             {isTyping && <TypingIndicator />}
 
-            {/* 1. NAME QUESTION COMPOSER */}
-            {currentStep === 'ASK_NAME' && !isTyping && (
-              <ChatInputBar
-                kind="text"
-                placeholder="Digite como podemos te chamar..."
-                value={currentInputValue}
-                error={inputError}
-                onChange={val => {
-                  setCurrentInputValue(val);
-                  if (inputError) setInputError('');
-                }}
-                onSubmit={handleConfirmName}
-              />
-            )}
+            {/* INTERACTIVE CARDS (WhatsApp Template Interactive Messages) */}
 
-            {/* 2. PLAN SELECTOR CARDS */}
+            {/* Plan Selector */}
             {currentStep === 'PLAN_SELECTION' && !isTyping && (
               <PlanSelector
                 onSelectPlan={handleSelectPlan}
@@ -469,7 +500,7 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
               />
             )}
 
-            {/* 3. DEVICE SELECTOR CHIPS */}
+            {/* Device Selector */}
             {currentStep === 'DEVICE_SELECTION' && !isTyping && (
               <DeviceSelector
                 onConfirmDevice={handleConfirmDevice}
@@ -478,7 +509,7 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
               />
             )}
 
-            {/* 4. APP INSTRUCTIONS CARD */}
+            {/* App Instructions */}
             {currentStep === 'APP_INSTRUCTIONS' && !isTyping && (
               <DeviceInstructions
                 device={device}
@@ -487,52 +518,7 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
               />
             )}
 
-            {/* 5. EMAIL QUESTION COMPOSER */}
-            {currentStep === 'ASK_EMAIL' && !isTyping && (
-              <ChatInputBar
-                kind="email"
-                placeholder="Digite seu e-mail principal..."
-                value={currentInputValue}
-                error={inputError}
-                onChange={val => {
-                  setCurrentInputValue(val);
-                  if (inputError) setInputError('');
-                }}
-                onSubmit={handleConfirmEmail}
-              />
-            )}
-
-            {/* 6. PHONE QUESTION COMPOSER */}
-            {currentStep === 'ASK_PHONE' && !isTyping && (
-              <ChatInputBar
-                kind="tel"
-                placeholder="Seu WhatsApp com DDD: (00) 00000-0000"
-                value={currentInputValue}
-                error={inputError}
-                onChange={val => {
-                  setCurrentInputValue(val);
-                  if (inputError) setInputError('');
-                }}
-                onSubmit={handleConfirmPhone}
-              />
-            )}
-
-            {/* 7. CPF QUESTION COMPOSER */}
-            {currentStep === 'ASK_CPF' && !isTyping && (
-              <ChatInputBar
-                kind="cpf"
-                placeholder="Seu CPF: 000.000.000-00"
-                value={currentInputValue}
-                error={inputError}
-                onChange={val => {
-                  setCurrentInputValue(val);
-                  if (inputError) setInputError('');
-                }}
-                onSubmit={handleConfirmCpf}
-              />
-            )}
-
-            {/* 8. ORDER REVIEW SUMMARY */}
+            {/* Order Review */}
             {currentStep === 'REVIEW' && !isTyping && (
               <OrderReview
                 order={currentOrder}
@@ -546,7 +532,7 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
               />
             )}
 
-            {/* 9. PAYMENT STEP */}
+            {/* Payment Step */}
             {currentStep === 'PAYMENT' && !isTyping && (
               <PaymentStep
                 order={currentOrder}
@@ -555,7 +541,7 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
               />
             )}
 
-            {/* 10. PAYMENT CONFIRMED / WHATSAPP HANDOFF */}
+            {/* Payment Confirmed */}
             {currentStep === 'PAYMENT_CONFIRMED' && !isTyping && (
               <PaymentSuccess order={currentOrder} />
             )}
@@ -564,6 +550,21 @@ export const BotPage: React.FC<BotPageProps> = ({ onBackToSite }) => {
           </div>
         )}
       </main>
+
+      {/* WhatsApp Fixed Bottom Message Composer */}
+      {currentStep !== 'WELCOME' && isInputStep && !isTyping && (
+        <ChatInputBar
+          kind={inputConfig.kind}
+          placeholder={inputConfig.placeholder}
+          value={currentInputValue}
+          error={inputError}
+          onChange={val => {
+            setCurrentInputValue(val);
+            if (inputError) setInputError('');
+          }}
+          onSubmit={inputConfig.onSubmit}
+        />
+      )}
 
       {/* Floating Developer Debug Panel */}
       <DebugPanel

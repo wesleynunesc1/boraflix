@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, RotateCcw, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowLeft, RotateCcw, ShieldCheck, Check } from 'lucide-react';
 import { BoraRobot } from './BoraRobot';
 import { BotStep } from '../types/bot';
 
@@ -42,83 +42,77 @@ export const BotHeader: React.FC<BotHeaderProps> = ({
   const progressPercent = Math.min(100, Math.round((currentStepMeta.index / totalSteps) * 100));
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#05070d]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
-      <div className="max-w-4xl mx-auto px-3.5 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-3">
-        {/* Left: Back Link & Living Robot Brand Identity */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+    <header className="sticky top-0 z-40 w-full bg-[#0b141a]/95 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+      <div className="max-w-4xl mx-auto px-3 sm:px-5 h-15 sm:h-16 flex items-center justify-between gap-2.5">
+        {/* Left: WhatsApp Contact Header Bar */}
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          {/* Back Arrow */}
           <button
             type="button"
             onClick={onBackToSite}
-            className="p-1.5 -ml-1 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors flex items-center gap-1 text-xs"
-            title="Voltar para a página principal"
-            aria-label="Voltar para o site"
+            className="p-1.5 -ml-1 rounded-full text-[#8696a0] hover:text-white hover:bg-white/[0.08] transition-colors flex items-center justify-center"
+            title="Voltar ao site"
+            aria-label="Voltar para a página principal"
           >
-            <ArrowLeft size={16} />
-            <span className="hidden md:inline font-semibold">Site</span>
+            <ArrowLeft size={19} />
           </button>
 
-          {/* Living Mini Avatar */}
-          <div className="flex-shrink-0 cursor-pointer" onClick={onBackToSite}>
+          {/* Contact Avatar (BoraRobot) */}
+          <div className="relative flex-shrink-0 cursor-pointer" onClick={onBackToSite}>
             <BoraRobot size="sm" state={currentStep === 'PAYMENT_CONFIRMED' ? 'celebrating' : 'idle'} />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#25d366] border-2 border-[#0b141a]" />
           </div>
 
-          {/* Identity & Status */}
+          {/* Contact Name & Status (WhatsApp Typography) */}
           <div className="flex flex-col min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-white text-xs sm:text-sm tracking-tight truncate">
-                Assistente <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">BoraFlix</span>
+            <div className="flex items-center gap-1.5">
+              <span className="font-bold text-white text-[14px] sm:text-[15px] tracking-tight truncate">
+                Assistente BoraFlix
+              </span>
+              {/* Verified Blue Badge */}
+              <span
+                className="w-3.5 h-3.5 rounded-full bg-[#00cfff] text-slate-950 flex items-center justify-center flex-shrink-0"
+                title="Assistente Oficial Verificado"
+              >
+                <Check size={9} strokeWidth={4} />
               </span>
             </div>
 
             <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" />
-              <span className="text-[10px] text-emerald-400 font-semibold tracking-wide">
-                Online
+              <span className="text-[11px] text-[#25d366] font-medium leading-none">
+                online
               </span>
-              <span className="hidden sm:inline text-slate-600">•</span>
-              <span className="hidden sm:inline text-[10px] font-mono text-slate-400">
+              <span className="text-slate-600 text-[10px]">•</span>
+              <span className="text-[10px] font-mono text-[#8696a0] truncate">
                 {orderId}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Center / Right: Discrete Step Progress Indicator */}
-        <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+        {/* Right: Step Indicator & Actions */}
+        <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
           <div className="flex flex-col items-end">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[11px] font-bold text-cyan-400 tracking-wide font-mono">
-                {currentStepMeta.index} de {totalSteps}
-              </span>
-              <span className="hidden sm:inline text-xs font-semibold text-slate-300">
-                • {currentStepMeta.label}
-              </span>
-            </div>
-
-            {/* Micro Segmented Progress Track */}
-            <div className="w-18 sm:w-28 h-1 rounded-full bg-white/10 mt-1 overflow-hidden">
+            <span className="text-[10px] sm:text-[11px] font-bold text-cyan-400 font-mono tracking-wide">
+              {currentStepMeta.index} de {totalSteps}
+            </span>
+            <div className="w-16 sm:w-24 h-1 rounded-full bg-white/10 mt-1 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 transition-all duration-500 ease-out"
+                className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
           </div>
 
-          {/* Secure Reassurance Tag (Desktop) */}
-          <div className="hidden lg:flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-medium">
-            <ShieldCheck size={13} />
-            <span>Atendimento Seguro</span>
-          </div>
-
-          {/* Reset Conversation Button */}
+          {/* Restart Session Icon Button */}
           <button
             type="button"
             onClick={onReset}
-            className="p-1.5 sm:p-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-slate-400 hover:text-pink-400 transition-all active:scale-95"
-            title="Recomeçar atendimento"
-            aria-label="Reiniciar conversa"
+            className="p-2 rounded-full text-[#8696a0] hover:text-white hover:bg-white/[0.08] transition-colors"
+            title="Reiniciar conversa"
+            aria-label="Recomeçar atendimento"
           >
-            <RotateCcw size={14} />
+            <RotateCcw size={16} />
           </button>
         </div>
       </div>

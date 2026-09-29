@@ -5468,3 +5468,22 @@ ul, ol {
   transform-origin: 50% 52px;
   animation: robotBlink 4.5s infinite ease-in-out;
 }
+
+/* ==========================================================================
+   MOBILE AUTO-ZOOM PREVENTION (RULE: 16px minimum on touch devices)
+   ========================================================================== */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* WhatsApp-Inspired BoraFlix Chat Environment */
+.whatsapp-chat-bg {
+  background-color: #070913;
+  background-image: 
+    radial-gradient(rgba(0, 207, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(rgba(255, 0, 140, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
