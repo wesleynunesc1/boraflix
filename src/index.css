@@ -3758,19 +3758,56 @@ ul, ol {
 
 /* ==========================================================================
    CTA FINAL — EXPERIÊNCIA CINEMATOGRÁFICA (SECTION 20)
-   Min-height 65vh, Monumental 3D BoraFlix Ribbon
-   Fundo Temático: Portal Radial Glow Violeta/Magenta
+   Aesthetic: IMAX Cinema Portal Stage, Futuristic Ring Backdrop, 40px Curvature
    ========================================================================== */
 .final-cta-cinema-section {
   position: relative;
-  min-height: 65vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(7.5rem, 12vw, 12rem) 0;
+  padding: clamp(6.5rem, 11vw, 10.5rem) 0;
   overflow: hidden;
   text-align: center;
-  background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(139, 58, 237, 0.22) 0%, rgba(255, 0, 127, 0.14) 40%, #06070a 85%), #06070a;
+  background: #06070a;
+  border-top: 1px solid rgba(0, 210, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Cinematic Futuristic Portal Art Backdrop */
+.final-cta-backdrop-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-cta-backdrop-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.28;
+  filter: saturate(1.2) brightness(0.85);
+  transform: scale(1.04);
+  animation: breatheBackdrop 14s infinite ease-in-out;
+}
+
+@keyframes breatheBackdrop {
+  0%, 100% { transform: scale(1.04); }
+  50% { transform: scale(1.08); }
+}
+
+.final-cta-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 90% 75% at 50% 50%, rgba(6, 7, 10, 0.45) 0%, rgba(6, 7, 10, 0.88) 65%, #06070a 100%),
+    linear-gradient(180deg, #06070a 0%, transparent 20%, transparent 80%, #06070a 100%);
 }
 
 .final-cta-monument-wrap {
@@ -3780,15 +3817,15 @@ ul, ol {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
 }
 
 .final-cta-monument-symbol {
-  width: clamp(480px, 65vw, 920px);
+  width: clamp(380px, 45vw, 680px);
   height: auto;
-  opacity: 0.09;
-  filter: blur(3px) drop-shadow(0 0 80px rgba(0, 210, 255, 0.5));
+  opacity: 0.08;
+  filter: blur(2px) drop-shadow(0 0 60px rgba(0, 210, 255, 0.4));
   transform: scale(1.05);
   animation: floatMonument 10s infinite ease-in-out;
 }
@@ -3798,63 +3835,190 @@ ul, ol {
   50% { transform: scale(1.08) translateY(-12px); }
 }
 
-.final-cta-monument-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 30%, var(--bg-canvas) 85%);
-}
-
-.final-cta-stage {
+/* ==========================================================================
+   IMAX CINEMA PORTAL CARD SHELL (40px Curvature)
+   ========================================================================== */
+.final-cta-card-shell {
   position: relative;
-  z-index: 2;
-  max-width: 900px;
+  z-index: 3;
+  max-width: 1040px;
   margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.75rem, 5vw, 4.5rem);
+  border-radius: 40px;
+  background: linear-gradient(180deg, rgba(16, 23, 46, 0.88) 0%, rgba(8, 12, 25, 0.96) 100%);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    0 40px 100px -25px rgba(0, 0, 0, 0.95),
+    0 0 70px -15px rgba(139, 58, 237, 0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  overflow: hidden;
 }
 
+/* Top Light Beam on Card Rim */
+.final-cta-top-glow-line {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.8) 35%, rgba(255, 0, 127, 0.8) 65%, transparent);
+  pointer-events: none;
+}
+
+/* Cinema Header Badge */
+.final-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  color: var(--color-cyan);
+  font-family: var(--font-display);
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.final-cta-pulse-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d2ff;
+  box-shadow: 0 0 10px #00d2ff;
+  animation: pulseBeacon 2s infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.35); }
+}
+
+/* Monumental Headline */
 .final-cta-giant-headline {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6.2vw, 5.8rem);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(2.75rem, 5.2vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.14;
   letter-spacing: -0.035em;
   color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
 }
 
 .final-cta-lead-text {
-  font-size: clamp(1.1rem, 1.35vw, 1.3rem);
-  color: #94a3b8;
-  line-height: 1.85;
-  max-width: 680px;
-  margin-bottom: 3.25rem;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  color: #cbd5e1;
+  line-height: 1.8;
+  max-width: 720px;
+  margin-bottom: 2.5rem;
 }
 
-/* Fallback legacy CTA styles */
-.final-cta-section {
-  position: relative;
-  padding: clamp(6.5rem, 10vw, 10.5rem) 0;
-  overflow: hidden;
-  text-align: center;
-}
-
-.final-cta-content {
-  position: relative;
-  z-index: 2;
-  max-width: 820px;
-  margin: 0 auto;
-}
-
-.final-cta-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
+.final-cta-lead-text strong {
   color: #ffffff;
-  margin-bottom: 1.75rem;
+  font-weight: 700;
+}
+
+/* Premium Value Chips Row */
+.final-cta-features-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 3rem;
+}
+
+.cta-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  transition: all var(--transition-fast);
+}
+
+.cta-feature-chip:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(0, 210, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Action CTAs */
+.final-cta-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+  width: 100%;
+}
+
+.final-cta-primary-btn {
+  font-size: 1rem !important;
+  padding: 1.15rem 2.85rem !important;
+  border-radius: var(--radius-full) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  box-shadow: 
+    0 12px 35px -5px rgba(255, 0, 127, 0.65),
+    0 0 25px -2px rgba(139, 58, 237, 0.5) !important;
+}
+
+.final-cta-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.final-cta-whatsapp-btn:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(52, 211, 153, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Security & Reassurance Micro Footer */
+.final-cta-reassurance-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.785rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.reassurance-dot {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 /* ==========================================================================
@@ -4605,6 +4769,11 @@ ul, ol {
     padding: 4.5rem 0 3.5rem;
   }
 
+  .final-cta-card-shell {
+    border-radius: 28px;
+    padding: 3rem 1.35rem 2.25rem;
+  }
+
   .final-cta-giant-headline {
     font-size: clamp(2rem, 7.5vw, 3.2rem);
     line-height: 1.18;
@@ -4615,6 +4784,31 @@ ul, ol {
     font-size: 0.925rem;
     line-height: 1.65;
     margin-bottom: 2rem;
+  }
+
+  .final-cta-features-strip {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-feature-chip {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.775rem;
+  }
+
+  .final-cta-buttons-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .final-cta-primary-btn,
+  .final-cta-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Footer Mobile */
