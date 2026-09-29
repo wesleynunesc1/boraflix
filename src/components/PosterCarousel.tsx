@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star, Play, Film, Info } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Play, Film, Sparkles } from 'lucide-react';
 import { catalogItems, catalogCategories } from '../data/catalogData';
 import { PosterItem } from '../types';
 
@@ -87,54 +87,64 @@ export const PosterCarousel: React.FC = () => {
             ref={trackRef}
             className="catalog-track-cinematic"
           >
-            {filteredItems.map(item => (
-              <div
-                key={item.id}
-                className="poster-card-cinematic group"
-                onMouseEnter={() => setHoveredPoster(item)}
-                onClick={() => setSelectedPoster(item)}
-              >
-                <div className="poster-img-wrap-cinematic">
-                  <img
-                    src={item.image}
-                    alt={`Pôster de ${item.title}`}
-                    className="poster-img-cinematic"
-                    loading="lazy"
-                  />
-                  {/* Interactive Play Badge on Hover */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[2px] z-1">
-                    <div className="w-12 h-12 rounded-full bg-pink-500/90 text-white flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
-                      <Play size={18} className="fill-current ml-0.5" />
+            {filteredItems.map(item => {
+              const primaryCategory = item.categoryLabel.split('•')[0].trim();
+              const metaDetail = item.duration || item.quality;
+
+              return (
+                <div
+                  key={item.id}
+                  className="poster-card-cinematic group"
+                  onMouseEnter={() => setHoveredPoster(item)}
+                  onClick={() => setSelectedPoster(item)}
+                >
+                  <div className="poster-img-wrap-cinematic">
+                    <img
+                      src={item.image}
+                      alt={`Pôster de ${item.title}`}
+                      className="poster-img-cinematic"
+                      loading="lazy"
+                    />
+
+                    {/* Interactive Play Badge on Hover (Desktop) */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[2px] z-10 pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-pink-500/30 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                        <Play size={18} className="fill-current ml-0.5" />
+                      </div>
+                    </div>
+
+                    {/* Subtle Top Quality Pill */}
+                    <span className="poster-quality-top-cinematic">
+                      {item.quality}
+                    </span>
+
+                    {/* Sleek Top Rating Badge */}
+                    <span className="poster-rating-badge-cinematic">
+                      <Star size={11} className="fill-current text-amber-400" />
+                      <span>{item.rating}</span>
+                    </span>
+                  </div>
+
+                  {/* Clean Bottom Overlay with legible title & concise meta */}
+                  <div className="poster-info-overlay-cinematic">
+                    <h3 className="poster-title-cinematic" title={item.title}>
+                      {item.title}
+                    </h3>
+                    <div className="poster-meta-cinematic">
+                      <span>{item.year}</span>
+                      <span className="poster-meta-dot">•</span>
+                      <span>{primaryCategory}</span>
+                      {metaDetail && (
+                        <>
+                          <span className="poster-meta-dot">•</span>
+                          <span>{metaDetail}</span>
+                        </>
+                      )}
                     </div>
                   </div>
-
-                  {item.badge && (
-                    <span className="poster-badge-top-cinematic">{item.badge}</span>
-                  )}
-                  <span className="poster-rating-badge-cinematic">
-                    <Star size={12} className="fill-current text-amber-400" />
-                    <span>{item.rating}</span>
-                  </span>
                 </div>
-
-                <div className="poster-info-overlay-cinematic">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] text-cyan-400 font-semibold tracking-wide">
-                      {item.categoryLabel}
-                    </span>
-                    <span className="poster-quality-tag-cinematic">{item.quality}</span>
-                  </div>
-                  <h3 className="poster-title-cinematic">{item.title}</h3>
-                  <div className="poster-meta-cinematic">
-                    <span>{item.year}</span>
-                    {item.duration && <span>{item.duration}</span>}
-                    <span className="text-cyan-300 text-[11px] font-semibold flex items-center gap-1 group-hover:text-pink-400">
-                      <Play size={11} className="fill-current" /> Ver Detalhes
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -145,7 +155,7 @@ export const PosterCarousel: React.FC = () => {
             onClick={() => setSelectedPoster(null)}
           >
             <div
-              className="glass-panel max-w-xl w-full p-6 relative border border-white/20 shadow-2xl"
+              className="glass-panel max-w-xl w-full p-6 relative border border-white/20 shadow-2xl rounded-2xl overflow-hidden"
               onClick={e => e.stopPropagation()}
             >
               <div className="flex flex-col sm:flex-row gap-6">
@@ -156,6 +166,14 @@ export const PosterCarousel: React.FC = () => {
                 />
                 <div className="flex flex-col justify-between flex-1">
                   <div>
+                    {selectedPoster.badge && (
+                      <div className="mb-2">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-500/40 text-pink-300">
+                          <Sparkles size={12} className="text-pink-400" />
+                          {selectedPoster.badge}
+                        </span>
+                      </div>
+                    )}
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-cyan-400 font-mono font-bold">
                         {selectedPoster.categoryLabel}
@@ -169,12 +187,18 @@ export const PosterCarousel: React.FC = () => {
                       {selectedPoster.title}
                     </h3>
 
-                    <div className="flex items-center gap-4 mt-2 text-sm text-slate-300 font-medium">
+                    <div className="flex items-center gap-3 mt-2 text-sm text-slate-300 font-medium">
                       <span className="flex items-center gap-1 text-amber-400 font-bold">
                         <Star size={14} className="fill-current" /> {selectedPoster.rating}
                       </span>
+                      <span>•</span>
                       <span>{selectedPoster.year}</span>
-                      {selectedPoster.duration && <span>{selectedPoster.duration}</span>}
+                      {selectedPoster.duration && (
+                        <>
+                          <span>•</span>
+                          <span>{selectedPoster.duration}</span>
+                        </>
+                      )}
                     </div>
 
                     <p className="text-xs md:text-sm text-slate-300 mt-3 leading-relaxed">
