@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, ShieldCheck, ArrowRight, Zap, Lock, Award, Heart } from 'lucide-react';
+import { Check, ShieldCheck, ArrowRight, Zap, Lock, Award, Heart, Flame, Crown, Sparkles } from 'lucide-react';
 import { pricingPlans } from '../data/pricingData';
 import { Button } from './Button';
 
@@ -58,32 +58,37 @@ export const Pricing: React.FC = () => {
             return (
               <div
                 key={plan.id}
-                className={`pricing-card-refined ${isFeatured ? 'featured-semestral' : ''} ${isBestValue ? 'best-value-anual' : ''} ${isSelected ? 'selected' : ''}`}
+                className={`pricing-card-refined ${isFeatured ? 'featured-semestral' : ''} ${isBestValue ? 'best-value-anual' : ''} ${isSelected ? 'selected' : ''} plan-tier-${plan.id}`}
                 onClick={() => setSelectedPlanId(plan.id)}
               >
                 {/* Floating Highlight Badges */}
                 {plan.badge && (
-                  <div className={`pricing-badge-pill ${isFeatured ? 'badge-featured' : isBestValue ? 'badge-gold' : 'badge-regular'}`}>
-                    {plan.badge}
+                  <div className={`pricing-badge-pill ${isFeatured ? 'badge-featured' : isBestValue ? 'badge-gold' : plan.id === 'trimestral' ? 'badge-cyan' : 'badge-regular'}`}>
+                    {isFeatured && <Flame size={13} className="badge-icon-left" />}
+                    {isBestValue && <Crown size={13} className="badge-icon-left" />}
+                    {plan.id === 'trimestral' && <Sparkles size={13} className="badge-icon-left" />}
+                    {plan.id === 'mensal' && <Zap size={13} className="badge-icon-left" />}
+                    <span>{plan.badge}</span>
                   </div>
                 )}
 
-                {/* Plan Title & Savings Header */}
+                {/* Plan Header Block */}
                 <div className="plan-header-block">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="font-display text-xl font-bold text-white">
-                      {plan.name}
-                    </h3>
-                    {plan.originalPrice && (
-                      <span className="text-xs font-mono text-slate-400 line-through">
-                        {plan.originalPrice}
-                      </span>
+                  <div className="plan-tier-meta">
+                    <div className="plan-title-wrapper">
+                      <span className={`plan-glow-dot dot-${plan.id}`} />
+                      <span className="plan-name-title">{plan.name}</span>
+                    </div>
+
+                    {plan.originalPrice ? (
+                      <div className="plan-original-price-pill">
+                        <span className="de-label">De</span>
+                        <span className="old-price-num">{plan.originalPrice}</span>
+                      </div>
+                    ) : (
+                      <span className="plan-tier-tag">Flexível</span>
                     )}
                   </div>
-
-                  <p className="text-xs text-slate-400 mb-5 leading-relaxed min-h-[34px]">
-                    {plan.description}
-                  </p>
 
                   {/* High Hierarchy Main Price Display */}
                   <div className="price-main-block">
@@ -92,29 +97,42 @@ export const Pricing: React.FC = () => {
                     <span className="price-period-tag">{plan.period}</span>
                   </div>
 
-                  {/* Monthly Equivalent Callout */}
-                  <div className="plan-equivalent-pill">
-                    <span className="text-xs font-medium text-cyan-300">
-                      {plan.monthlyEquivalent}
-                    </span>
+                  {/* Monthly Equivalent Callout Box */}
+                  <div className="plan-monthly-highlight">
+                    <div className="plan-monthly-info">
+                      <Sparkles size={13} className="monthly-spark-icon" />
+                      <span className="plan-monthly-text">
+                        {plan.monthlyEquivalent}
+                      </span>
+                    </div>
+                    {plan.totalSavings && (
+                      <span className="plan-savings-pill">
+                        ✦ {plan.totalSavings}
+                      </span>
+                    )}
                   </div>
 
-                  {/* Total Savings Notification */}
-                  {plan.totalSavings && (
-                    <div className="text-[11px] font-mono text-emerald-400 font-bold mt-2">
-                      ✦ {plan.totalSavings}
-                    </div>
-                  )}
+                  <p className="plan-desc-text">
+                    {plan.description}
+                  </p>
                 </div>
 
-                {/* Feature Checklist */}
+                <div className="plan-card-divider" />
+
+                {/* Feature Checklist with Custom Glowing Check Orbs */}
                 <div className="price-features-list-refined">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="price-feature-row">
-                      <Check className="price-check-icon-refined" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
+                  <span className="features-list-caption">Recursos Inclusos:</span>
+                  {plan.features.map((feature, idx) => {
+                    const isHighlight = feature.includes('4 telas') || feature.includes('Economia') || feature.includes('Metade') || feature.includes('Preço congelado') || feature.includes('VIP');
+                    return (
+                      <div key={idx} className={`price-feature-row ${isHighlight ? 'feature-highlighted' : ''}`}>
+                        <span className={`feature-check-orb ${isFeatured ? 'featured' : isBestValue ? 'gold' : plan.id === 'trimestral' ? 'cyan' : ''}`}>
+                          <Check size={11} strokeWidth={3} />
+                        </span>
+                        <span className="feature-text">{feature}</span>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* CTA Action Button */}
@@ -123,19 +141,18 @@ export const Pricing: React.FC = () => {
                     href={getPlanWhatsAppLink(plan.name, plan.priceFormatted)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    variant={isFeatured || isBestValue ? 'primary' : 'secondary'}
+                    variant={isFeatured ? 'primary' : isBestValue ? 'primary' : 'secondary'}
                     size="md"
-                    className="w-full justify-center text-sm py-3.5"
+                    className={`w-full justify-center text-sm py-3.5 font-bold ${isFeatured ? 'btn-glow-master' : isBestValue ? 'btn-gold-luxury' : plan.id === 'trimestral' ? 'btn-cyan-gradient' : 'btn-glass-neon'}`}
                     icon={<ArrowRight size={16} />}
                   >
                     {plan.ctaText}
                   </Button>
 
-                  {plan.ctaSubtext && (
-                    <span className="text-[11px] text-slate-400 text-center block mt-2.5">
-                      {plan.ctaSubtext}
-                    </span>
-                  )}
+                  <div className="plan-reassurance-sub">
+                    <Zap size={12} className={isFeatured ? 'text-pink-400' : isBestValue ? 'text-amber-400' : 'text-cyan-400'} />
+                    <span>{plan.ctaSubtext || 'Ativação imediata no WhatsApp'}</span>
+                  </div>
                 </div>
               </div>
             );

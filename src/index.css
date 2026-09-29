@@ -2554,7 +2554,7 @@ ul, ol {
 
 /* ==========================================================================
    PLANOS DE ASSINATURA OFICIAIS BORAFLIX (SECTION 14-17, 47-50)
-   Fundo Temático: Glow Radial BoraFlix Magenta/Violeta com Halo
+   Aesthetic: Ultra-Luxury Streaming Tiers, Ambient Depth, Polished Metallic Badges
    ========================================================================== */
 .pricing-section-wrap {
   position: relative;
@@ -2568,185 +2568,637 @@ ul, ol {
 .pricing-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
+  gap: 1.65rem;
   align-items: stretch;
   position: relative;
   z-index: 2;
-  margin-top: 1.25rem;
+  margin-top: 2rem;
 }
 
+/* ==========================================================================
+   BASE PRICING CARD: Ultra-Luxury Dark Frosted Glass
+   ========================================================================== */
 .pricing-card-refined {
   position: relative;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(16, 23, 40, 0.8) 0%, rgba(9, 13, 24, 0.96) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(16, 23, 44, 0.88) 0%, rgba(8, 12, 24, 0.98) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  padding: clamp(2.75rem, 3.2vw, 3.5rem) 1.85rem 2.25rem;
+  padding: clamp(2.75rem, 3.2vw, 3.5rem) 1.75rem 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: var(--shadow-card);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4),
+    0 24px 50px -15px rgba(0, 0, 0, 0.85);
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
   cursor: pointer;
+  overflow: visible;
+}
+
+/* Inner Top Light Cone Spotlight */
+.pricing-card-refined::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pricing-card-refined::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  border-radius: 24px 24px 0 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity var(--transition-smooth);
+}
+
+/* Tier Spotlights */
+.plan-tier-mensal::after {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 210, 255, 0.1) 0%, transparent 80%);
+}
+
+.plan-tier-trimestral::after {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37, 99, 235, 0.16) 0%, rgba(0, 210, 255, 0.08) 50%, transparent 80%);
+}
+
+.plan-tier-semestral::after {
+  background: radial-gradient(ellipse 85% 65% at 50% 0%, rgba(255, 0, 127, 0.28) 0%, rgba(139, 58, 237, 0.18) 50%, transparent 85%);
+}
+
+.plan-tier-anual::after {
+  background: radial-gradient(ellipse 85% 65% at 50% 0%, rgba(255, 170, 0, 0.25) 0%, rgba(255, 107, 53, 0.14) 50%, transparent 85%);
 }
 
 .pricing-card-refined:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 30px 65px -15px rgba(0, 0, 0, 0.95), 0 0 30px -5px rgba(0, 210, 255, 0.25);
+  border-color: rgba(0, 210, 255, 0.45);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 35px 75px -15px rgba(0, 0, 0, 0.95),
+    0 0 40px -5px rgba(0, 210, 255, 0.25);
 }
 
-.pricing-card-refined h3 {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.65rem;
+.pricing-card-refined.selected {
+  border-color: rgba(0, 210, 255, 0.6);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 30px 70px -15px rgba(0, 0, 0, 0.95),
+    0 0 35px -5px rgba(0, 210, 255, 0.3);
 }
 
-.pricing-card-refined .plan-header-block p {
-  line-height: 1.7;
-  margin-bottom: 1.85rem;
-  color: #94a3b8;
-  font-size: 0.875rem;
-  min-height: 48px;
-}
-
-/* Semestral Featured Plan: Recommended (Scale + Glow) */
+/* ==========================================================================
+   FEATURED SEMESTRAL PLAN (MAIS ESCOLHIDO): Flagship Neon Halo Card
+   ========================================================================== */
 .pricing-card-refined.featured-semestral {
-  background: linear-gradient(180deg, rgba(24, 34, 60, 0.92) 0%, rgba(14, 18, 36, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(28, 20, 52, 0.96) 0%, rgba(12, 13, 32, 0.98) 100%);
   border: 2px solid transparent;
   background-clip: padding-box;
-  transform: scale(1.04);
-  box-shadow: 0 35px 85px -20px rgba(0, 0, 0, 0.95), 0 0 45px -10px rgba(255, 0, 127, 0.45);
+  transform: scale(1.045);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    0 40px 90px -20px rgba(0, 0, 0, 0.95),
+    0 0 55px -8px rgba(255, 0, 127, 0.55);
   z-index: 5;
 }
 
-.pricing-card-refined.featured-semestral::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: var(--grad-boraflix-full);
-  z-index: -1;
-  opacity: 0.95;
+.pricing-card-refined.featured-semestral > .plan-header-block,
+.pricing-card-refined.featured-semestral > .plan-card-divider,
+.pricing-card-refined.featured-semestral > .price-features-list-refined,
+.pricing-card-refined.featured-semestral > .plan-action-block {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-card-refined.featured-semestral {
+  border: 2px solid rgba(255, 0, 127, 0.45);
 }
 
 .pricing-card-refined.featured-semestral:hover {
-  transform: scale(1.06) translateY(-6px);
-  box-shadow: 0 40px 95px -20px rgba(0, 0, 0, 0.95), 0 0 55px -5px rgba(255, 0, 127, 0.6);
+  transform: scale(1.065) translateY(-6px);
+  border-color: rgba(255, 0, 127, 0.8);
+  box-shadow: 
+    inset 0 1px 3px rgba(255, 255, 255, 0.5),
+    0 50px 110px -20px rgba(0, 0, 0, 0.98),
+    0 0 70px 0px rgba(255, 0, 127, 0.7);
 }
 
-/* Anual Best Value Plan: Gold/Savings */
+/* ==========================================================================
+   BEST VALUE ANUAL PLAN (MÁXIMA ECONOMIA): Luxury Champagne Gold Card
+   ========================================================================== */
 .pricing-card-refined.best-value-anual {
-  background: linear-gradient(180deg, rgba(20, 30, 52, 0.88) 0%, rgba(12, 17, 30, 0.96) 100%);
-  border: 1px solid rgba(0, 210, 255, 0.45);
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(0, 210, 255, 0.3);
+  background: linear-gradient(180deg, rgba(30, 24, 46, 0.95) 0%, rgba(12, 12, 26, 0.98) 100%);
+  border: 2px solid rgba(255, 170, 0, 0.45);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 32px 80px -15px rgba(0, 0, 0, 0.95),
+    0 0 45px -8px rgba(255, 170, 0, 0.45);
+  z-index: 3;
 }
 
 .pricing-card-refined.best-value-anual:hover {
   transform: translateY(-8px);
-  border-color: var(--color-cyan);
-  box-shadow: 0 35px 75px -15px rgba(0, 0, 0, 0.95), 0 0 45px -5px rgba(0, 210, 255, 0.5);
+  border-color: rgba(255, 170, 0, 0.85);
+  box-shadow: 
+    inset 0 1px 3px rgba(255, 255, 255, 0.45),
+    0 42px 95px -15px rgba(0, 0, 0, 0.95),
+    0 0 65px -5px rgba(255, 170, 0, 0.65);
 }
 
-/* Floating Plan Badges */
+/* Trimestral Card Subtle Outline */
+.plan-tier-trimestral {
+  border-color: rgba(0, 210, 255, 0.22);
+}
+
+.plan-tier-trimestral:hover {
+  border-color: rgba(0, 210, 255, 0.6);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 35px 80px -15px rgba(0, 0, 0, 0.95),
+    0 0 45px -5px rgba(0, 210, 255, 0.35);
+}
+
+/* ==========================================================================
+   FLOATING PLAN BADGES (METALLIC & NEON PILLS)
+   ========================================================================== */
 .pricing-badge-pill {
   position: absolute;
-  top: -14px;
+  top: -15px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 0.4rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.25rem;
   border-radius: var(--radius-full);
   font-size: 0.725rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.75);
+  z-index: 10;
 }
 
+.badge-icon-left {
+  flex-shrink: 0;
+}
+
+/* Semestral Badge */
 .badge-featured {
   background: var(--grad-boraflix-cta);
   color: #ffffff;
-  box-shadow: 0 5px 20px rgba(255, 0, 127, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 25px rgba(255, 0, 127, 0.7),
+    0 0 15px rgba(139, 58, 237, 0.5);
+  animation: pulse-featured-badge 3s ease-in-out infinite;
 }
 
+@keyframes pulse-featured-badge {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.7), 0 0 15px rgba(139, 58, 237, 0.5);
+  }
+  50% {
+    box-shadow: 0 10px 32px rgba(255, 0, 127, 0.9), 0 0 25px rgba(255, 0, 127, 0.7);
+  }
+}
+
+/* Anual Badge (Pure Gold Metallic) */
 .badge-gold {
-  background: linear-gradient(135deg, #ffaa00 0%, #ff6b35 100%);
-  color: #06070a;
-  box-shadow: 0 5px 20px rgba(255, 170, 0, 0.55);
+  background: linear-gradient(135deg, #ffe066 0%, #ffaa00 50%, #e68a00 100%);
+  color: #080a0f;
+  font-weight: 900;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 25px rgba(255, 170, 0, 0.75),
+    0 0 15px rgba(255, 220, 100, 0.5);
 }
 
-.badge-regular {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
+/* Trimestral Badge */
+.badge-cyan {
+  background: linear-gradient(135deg, #00d2ff 0%, #2563eb 100%);
   color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 210, 255, 0.55);
+}
+
+/* Mensal Badge */
+.badge-regular {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #e2e8f0;
   border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
-/* Giant Dominant Price Typography (Section 17) */
+/* ==========================================================================
+   PLAN HEADER & PRICE HIERARCHY
+   ========================================================================== */
+.plan-header-block {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+}
+
+.plan-tier-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.95rem;
+}
+
+.plan-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.plan-glow-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-mensal {
+  background: #00d2ff;
+  box-shadow: 0 0 10px #00d2ff;
+}
+
+.dot-trimestral {
+  background: #3b82f6;
+  box-shadow: 0 0 10px #3b82f6;
+}
+
+.dot-semestral {
+  background: #ff007f;
+  box-shadow: 0 0 14px #ff007f;
+}
+
+.dot-anual {
+  background: #ffaa00;
+  box-shadow: 0 0 14px #ffaa00;
+}
+
+.plan-name-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+/* Original Price Pill ("De R$ 180") */
+.plan-original-price-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.de-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.old-price-num {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #f87171;
+  text-decoration: line-through;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.plan-tier-tag {
+  font-size: 0.725rem;
+  color: var(--color-cyan);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.22);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   GIANT MAIN PRICE BLOCK
+   ========================================================================== */
 .price-main-block {
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 1.15rem;
+  gap: 0.25rem;
+  margin-bottom: 0.95rem;
 }
 
 .price-currency {
   font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-secondary);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: -0.02em;
+}
+
+.plan-tier-semestral .price-currency {
+  color: #ff007f;
+}
+
+.plan-tier-anual .price-currency {
+  color: #ffaa00;
 }
 
 .price-giant-number {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 3.6vw, 3.4rem);
-  font-weight: 800;
+  font-size: clamp(2.75rem, 3.8vw, 3.65rem);
+  font-weight: 900;
   color: #ffffff;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
 }
 
 .price-period-tag {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   font-weight: 600;
+  margin-left: 0.25rem;
 }
 
-.plan-equivalent-pill {
-  display: inline-block;
-  background: rgba(0, 210, 255, 0.08);
-  border: 1px solid rgba(0, 210, 255, 0.22);
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-sm);
-  margin-bottom: 0.75rem;
+/* ==========================================================================
+   MONTHLY EQUIVALENT CALLOUT PILL
+   ========================================================================== */
+.plan-monthly-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(0, 210, 255, 0.06);
+  border: 1px solid rgba(0, 210, 255, 0.24);
+  margin-bottom: 0.95rem;
 }
 
+.plan-monthly-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.monthly-spark-icon {
+  flex-shrink: 0;
+  color: var(--color-cyan);
+}
+
+.featured-semestral .plan-monthly-highlight {
+  background: rgba(255, 0, 127, 0.09);
+  border-color: rgba(255, 0, 127, 0.35);
+}
+
+.featured-semestral .monthly-spark-icon {
+  color: #ff007f;
+}
+
+.best-value-anual .plan-monthly-highlight {
+  background: rgba(255, 170, 0, 0.09);
+  border-color: rgba(255, 170, 0, 0.4);
+}
+
+.best-value-anual .monthly-spark-icon {
+  color: #ffaa00;
+}
+
+.plan-monthly-text {
+  font-size: 0.775rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.featured-semestral .plan-monthly-text {
+  color: #f472b6;
+}
+
+.best-value-anual .plan-monthly-text {
+  color: #fcd34d;
+}
+
+.plan-savings-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #34d399;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
+}
+
+.plan-desc-text {
+  font-size: 0.825rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  min-height: 44px;
+}
+
+.plan-card-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  margin: 1.35rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   FEATURE CHECKLIST WITH ILLUMINATED ORBS
+   ========================================================================== */
 .price-features-list-refined {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  margin: 2.25rem 0 2rem;
+  gap: 0.95rem;
+  margin-bottom: 2rem;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.features-list-caption {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  margin-bottom: 0.35rem;
 }
 
 .price-feature-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  transition: transform var(--transition-fast);
 }
 
-.price-check-icon-refined {
+.price-feature-row:hover {
+  transform: translateX(3px);
+}
+
+.feature-check-orb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 210, 255, 0.12);
+  border: 1px solid rgba(0, 210, 255, 0.35);
   color: var(--color-cyan);
-  width: 17px;
-  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
+  transition: all var(--transition-fast);
+}
+
+.feature-check-orb.cyan {
+  background: rgba(0, 210, 255, 0.16);
+  border-color: rgba(0, 210, 255, 0.45);
+  color: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.feature-check-orb.featured {
+  background: rgba(255, 0, 127, 0.18);
+  border-color: rgba(255, 0, 127, 0.55);
+  color: #ff007f;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
+}
+
+.feature-check-orb.gold {
+  background: rgba(255, 170, 0, 0.18);
+  border-color: rgba(255, 170, 0, 0.55);
+  color: #ffaa00;
+  box-shadow: 0 0 12px rgba(255, 170, 0, 0.4);
+}
+
+.feature-text {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.feature-highlighted .feature-text {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   BUTTONS & REASSURANCE FOOTER
+   ========================================================================== */
+.plan-action-block {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Semestral Hero Button */
+.btn-glow-master {
+  background: var(--grad-boraflix-cta) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 
+    0 10px 30px -5px rgba(255, 0, 127, 0.6),
+    0 0 20px -2px rgba(139, 58, 237, 0.45) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.btn-glow-master:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 
+    0 14px 40px -5px rgba(255, 0, 127, 0.8),
+    0 0 30px 0px rgba(139, 58, 237, 0.6) !important;
+}
+
+/* Anual Gold Luxury Button */
+.btn-gold-luxury {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 45%, #ff6b35 100%) !important;
+  color: #06070a !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 
+    0 10px 30px -5px rgba(255, 170, 0, 0.65),
+    0 0 20px -2px rgba(255, 107, 53, 0.45) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.btn-gold-luxury:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 
+    0 14px 40px -5px rgba(255, 170, 0, 0.85),
+    0 0 30px 0px rgba(255, 107, 53, 0.6) !important;
+}
+
+/* Trimestral Cyan Gradient Button */
+.btn-cyan-gradient {
+  background: linear-gradient(135deg, #00d2ff 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 210, 255, 0.45) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.btn-cyan-gradient:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 14px 35px -5px rgba(0, 210, 255, 0.65) !important;
+}
+
+/* Mensal Glass Neon Button */
+.btn-glass-neon {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.btn-glass-neon:hover {
+  background: rgba(0, 210, 255, 0.16) !important;
+  border-color: rgba(0, 210, 255, 0.45) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.25) !important;
+  transform: translateY(-2px) !important;
+}
+
+.plan-reassurance-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  margin-top: 0.85rem;
+  font-weight: 500;
 }
 
 /* Fallback legacy pricing classes */
@@ -3578,19 +4030,27 @@ ul, ol {
     position: static;
   }
 
+  .pricing-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2.5rem 1.75rem;
+  }
+
+  .pricing-card-refined.featured-semestral {
+    transform: none;
+  }
+
+  .pricing-card-refined.featured-semestral:hover {
+    transform: translateY(-6px);
+  }
+
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .pricing-card.featured {
-    transform: none;
-  }
-
-  .pricing-card.featured:hover {
-    transform: translateY(-4px);
   }
 
   .pricing-guarantee-card {
@@ -3899,13 +4359,13 @@ ul, ol {
   .pricing-grid-4 {
     grid-template-columns: 1fr;
     max-width: 440px;
-    gap: 1.5rem;
+    gap: 2.35rem;
     margin-left: auto;
     margin-right: auto;
   }
 
   .pricing-card-refined {
-    padding: 2.25rem 1.35rem;
+    padding: 2.85rem 1.45rem 2.15rem;
   }
 
   .pricing-card-refined.featured-semestral {

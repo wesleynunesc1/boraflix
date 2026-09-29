@@ -4,23 +4,24 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'mensal',
     name: 'Mensal',
+    badge: 'SEM FIDELIDADE',
     priceFormatted: 'R$ 30,00',
     priceNumber: '30,00',
     period: '/mês',
     monthlyEquivalent: 'Cobrado mensalmente',
     monthlyNumber: '30,00',
-    description: 'A flexibilidade ideal para experimentar o entretenimento premium sem compromisso.',
+    description: 'A flexibilidade ideal para experimentar o entretenimento premium com total liberdade.',
     features: [
       'Acesso ilimitado a +60.000 títulos',
       'Canais ao vivo em Full HD e 4K HDR',
       'Guia de programação EPG em tempo real',
       'Até 4 telas simultâneas liberadas',
-      'Compatível com Smart TV, Celular e PC',
+      'Smart TV, TV Box, Celular e PC',
       'Suporte técnico via WhatsApp',
-      'Sem fidelidade ou taxa de cancelamento'
+      'Cancele a qualquer momento sem taxas'
     ],
-    ctaText: 'ESCOLHER MENSAL',
-    ctaSubtext: 'Ativação imediata após confirmação'
+    ctaText: 'ASSINAR MENSAL',
+    ctaSubtext: 'Ativação imediata • Sem fidelidade'
   },
   {
     id: 'trimestral',
@@ -32,25 +33,25 @@ export const pricingPlans: PricingPlan[] = [
     period: '/trimestre',
     monthlyEquivalent: 'Equivale a R$ 25,00/mês',
     monthlyNumber: '25,00',
-    totalSavings: 'Economize R$ 15 no trimestre',
+    totalSavings: 'Economize R$ 15',
     savingsBadge: 'Economia de R$ 15',
-    description: 'Acesso contínuo com sua primeira economia garantida para seu entretenimento.',
+    description: 'Acesso contínuo com sua primeira economia garantida para curtir com a família toda.',
     features: [
       'Tudo do Plano Mensal incluído',
-      'Economia de R$ 15 em relação ao mensal',
+      'Economia de R$ 15 no trimestre',
       'Prioridade de tráfego em servidores CDN',
-      'Configuração assistida via WhatsApp VIP',
       'Até 4 telas simultâneas em 4K HDR',
+      'Configuração assistida no WhatsApp VIP',
       'Ativação automática instantânea',
-      'Garantia incondicional de satisfação'
+      'Garantia incondicional de 7 dias'
     ],
-    ctaText: 'ESCOLHER TRIMESTRAL',
+    ctaText: 'ASSINAR TRIMESTRAL',
     ctaSubtext: 'Melhor custo para começar • Acesso imediato'
   },
   {
     id: 'semestral',
     name: 'Semestral',
-    badge: 'MAIS ESCOLHIDO',
+    badge: 'MAIS ESCOLHIDO • POPULAR',
     isPopular: true,
     accentGlow: true,
     originalPrice: 'R$ 180',
@@ -59,20 +60,20 @@ export const pricingPlans: PricingPlan[] = [
     period: '/semestre',
     monthlyEquivalent: 'Equivale a R$ 20,00/mês',
     monthlyNumber: '20,00',
-    totalSavings: 'Economize R$ 60 em 6 meses',
+    totalSavings: 'Economize R$ 60 (33% OFF)',
     savingsBadge: 'Economia de R$ 60',
-    description: 'O equilíbrio perfeito entre valor e período: 6 meses completos com alta economia comprovada.',
+    description: 'O equilíbrio perfeito entre valor e duração: 6 meses completos com alta economia comprovada.',
     features: [
       'Tudo do Plano Trimestral incluído',
       'Economia de R$ 60 em relação ao mensal',
       'Servidor VIP de ultra-baixa latência',
-      'Canal prioritário sem filas no WhatsApp',
+      'Atendimento prioritário sem filas no WhatsApp',
       '4 telas simultâneas com qualidade 4K UHD',
       'Backup de servidores anti-quedas',
-      'Garantia incondicional de satisfação'
+      'Garantia incondicional de 7 dias'
     ],
-    ctaText: 'ESCOLHER SEMESTRAL',
-    ctaSubtext: 'Destaque mais aprovado pelos clientes'
+    ctaText: 'ASSINAR SEMESTRAL',
+    ctaSubtext: '🔥 Plano campeão de escolhas dos clientes'
   },
   {
     id: 'anual',
@@ -85,19 +86,20 @@ export const pricingPlans: PricingPlan[] = [
     period: '/ano',
     monthlyEquivalent: 'Equivale a apenas R$ 15,00/mês',
     monthlyNumber: '15,00',
-    totalSavings: 'Economize R$ 180 em 1 ano',
+    totalSavings: 'Economize R$ 180 (Pague 6, Leve 12)',
     savingsBadge: 'Metade do Preço',
-    description: '12 meses inteiros de cinema, séries e esportes pagando apenas metade do valor mensal.',
+    description: '12 meses inteiros de cinema, séries e esportes pagando apenas a metade do valor mensal.',
     features: [
       'Tudo do Plano Semestral incluído',
-      'Economia de R$ 180 (Pague 6 meses, ganhe 12)',
+      'Economia de R$ 180 (Metade do Preço)',
       'Apenas R$ 15,00 por mês equivalente',
-      'Atendimento VIP 24h prioritário vitalício',
+      'Atendimento VIP prioritário vitalício 24h',
       '4 telas simultâneas em 4K HDR liberadas',
       'Congelamento do valor por 1 ano inteiro',
-      'Máxima economia garantida'
+      'Garantia incondicional de 7 dias'
     ],
-    ctaText: 'ESCOLHER ANUAL',
-    ctaSubtext: '1 ano de entretenimento completo'
+    ctaText: 'ASSINAR ANUAL',
+    ctaSubtext: '👑 Metade do preço • Máxima economia'
   }
 ];
+
