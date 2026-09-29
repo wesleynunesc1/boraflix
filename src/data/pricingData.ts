@@ -1,5 +1,11 @@
 import { PricingPlan } from '../types';
 
+export const WHATSAPP_OFFICIAL_NUMBER = '558594480239';
+
+export const getPlanWhatsAppUrl = (message: string): string => {
+  return `https://wa.me/${WHATSAPP_OFFICIAL_NUMBER}?text=${encodeURIComponent(message)}`;
+};
+
 export const pricingPlans: PricingPlan[] = [
   {
     id: 'mensal',
@@ -21,7 +27,8 @@ export const pricingPlans: PricingPlan[] = [
       'Cancele a qualquer momento sem taxas'
     ],
     ctaText: 'ASSINAR MENSAL',
-    ctaSubtext: 'Ativação imediata • Sem fidelidade'
+    ctaSubtext: 'Ativação imediata • Sem fidelidade',
+    whatsappMessage: 'Olá! 👋 Vim pelo site do BoraFlix e quero assinar o Plano Mensal de R$ 30,00. 🍿\n\nQuero começar agora. Como faço para ativar meu acesso?'
   },
   {
     id: 'trimestral',
@@ -46,7 +53,8 @@ export const pricingPlans: PricingPlan[] = [
       'Garantia incondicional de 7 dias'
     ],
     ctaText: 'ASSINAR TRIMESTRAL',
-    ctaSubtext: 'Melhor custo para começar • Acesso imediato'
+    ctaSubtext: 'Melhor custo para começar • Acesso imediato',
+    whatsappMessage: 'Olá! 👋 Vim pelo site do BoraFlix e escolhi o Plano Trimestral de R$ 75,00. 🍿\n\nQuero aproveitar o plano trimestral. Como faço para ativar meu acesso?'
   },
   {
     id: 'semestral',
@@ -73,7 +81,8 @@ export const pricingPlans: PricingPlan[] = [
       'Garantia incondicional de 7 dias'
     ],
     ctaText: 'ASSINAR SEMESTRAL',
-    ctaSubtext: '🔥 Plano campeão de escolhas dos clientes'
+    ctaSubtext: '🔥 Plano campeão de escolhas dos clientes',
+    whatsappMessage: 'Olá! 👋 Vim pelo site do BoraFlix e quero assinar o Plano Semestral de R$ 120,00. 🔥🍿\n\nQuero garantir meu acesso. Como fazemos a ativação?'
   },
   {
     id: 'anual',
@@ -99,7 +108,8 @@ export const pricingPlans: PricingPlan[] = [
       'Garantia incondicional de 7 dias'
     ],
     ctaText: 'ASSINAR ANUAL',
-    ctaSubtext: '👑 Metade do preço • Máxima economia'
+    ctaSubtext: '👑 Metade do preço • Máxima economia',
+    whatsappMessage: 'Olá! 👋 Vim pelo site do BoraFlix e escolhi o Plano Anual de R$ 180,00. 👑🍿\n\nQuero garantir o plano anual. Como faço para ativar meu acesso?'
   }
 ];
 

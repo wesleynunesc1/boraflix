@@ -31,6 +31,7 @@ export interface PricingPlan {
   ctaText: string;
   ctaSubtext?: string;
   accentGlow?: boolean;
+  whatsappMessage: string;
 }
 
 export interface FAQItem {
