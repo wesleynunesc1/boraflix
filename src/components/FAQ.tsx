@@ -50,7 +50,7 @@ export const FAQ: React.FC = () => {
               </div>
 
               <a
-                href="https://wa.me/5500000000000?text=Olá,%20tenho%20uma%20dúvida%20sobre%20a%20BoraFlix"
+                href="https://wa.me/558594480239?text=Olá,%20tenho%20uma%20dúvida%20sobre%20a%20BoraFlix"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-sm w-full justify-center text-xs py-2.5 hover:border-emerald-400/40"

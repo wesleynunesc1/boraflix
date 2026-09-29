@@ -4,6 +4,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'glow-border' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
+  target?: string;
+  rel?: string;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   className?: string;
@@ -14,6 +16,8 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   href,
+  target,
+  rel,
   icon,
   iconPosition = 'right',
   className = '',
@@ -49,6 +53,8 @@ export const Button: React.FC<ButtonProps> = ({
     return (
       <a
         href={href}
+        target={target}
+        rel={rel}
         className={`btn ${variantClass} ${sizeClass} group ${className}`}
       >
         {content}

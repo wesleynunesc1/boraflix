@@ -5,6 +5,12 @@ import { Button } from './Button';
 
 export const Pricing: React.FC = () => {
   const [selectedPlanId, setSelectedPlanId] = useState<string>('semestral');
+  const WHATSAPP_NUMBER = '558594480239';
+
+  const getPlanWhatsAppLink = (planName: string, price: string) => {
+    const message = `Olá! Gostaria de assinar o Plano ${planName} da BoraFlix (${price}). Poderia me enviar os dados para ativação imediata?`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  };
 
   return (
     <section className="section-wrap pricing-section-wrap" id="planos">
@@ -114,6 +120,9 @@ export const Pricing: React.FC = () => {
                 {/* CTA Action Button */}
                 <div className="plan-action-block">
                   <Button
+                    href={getPlanWhatsAppLink(plan.name, plan.priceFormatted)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant={isFeatured || isBestValue ? 'primary' : 'secondary'}
                     size="md"
                     className="w-full justify-center text-sm py-3.5"
