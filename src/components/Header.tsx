@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Film } from 'lucide-react';
+import { Menu, X, ArrowRight, UserCheck } from 'lucide-react';
 import { Button } from './Button';
 
 export const Header: React.FC = () => {
@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -32,25 +32,25 @@ export const Header: React.FC = () => {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        {/* Brand Logo - Transparent BoraFlix */}
+        {/* Brand Logo */}
         <a href="#" className="nav-brand" aria-label="BoraFlix Página Inicial">
           <img
             src="/assets/logos/boraflix-logo.png"
-            alt="BoraFlix Logo Oficial"
+            alt="BoraFlix"
             className="nav-logo-img"
           />
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Central Discrete Links */}
         <nav className="nav-links" aria-label="Navegação Principal">
           <a href="#experiencia" className="nav-link">
-            Experiência
+            Conteúdo
+          </a>
+          <a href="#beneficios" className="nav-link">
+            Vantagens
           </a>
           <a href="#como-funciona" className="nav-link">
             Como funciona
-          </a>
-          <a href="#beneficios" className="nav-link">
-            Diferenciais
           </a>
           <a href="#planos" className="nav-link">
             Planos
@@ -60,31 +60,46 @@ export const Header: React.FC = () => {
           </a>
         </nav>
 
-        {/* Desktop Actions */}
+        {/* Desktop Actions: Secondary "Já sou cliente" + Primary CTA "ASSINAR AGORA" */}
         <div className="nav-actions">
-          <div className="status-pill" title="Servidores Online">
-            <span className="pulse-dot" />
-            <span>Sinal 4K Online</span>
-          </div>
+          <a
+            href="https://wa.me/558594480239?text=Ol%C3%A1!%20J%C3%A1%20sou%20cliente%20BoraFlix%20e%20preciso%20de%20suporte."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-client-btn hidden lg:inline-flex"
+            title="Acesso exclusivo para quem já é cliente"
+          >
+            <UserCheck size={15} className="text-cyan-400" />
+            <span>Já sou cliente</span>
+          </a>
 
           <Button
             href="#planos"
             variant="primary"
             size="sm"
             className="nav-cta-desktop"
-            icon={<ArrowRight size={16} />}
+            icon={<ArrowRight size={15} />}
           >
-            VER PLANOS
+            ASSINAR AGORA
           </Button>
+
+          {/* Mobile Direct CTA */}
+          <a
+            href="#planos"
+            className="mobile-quick-cta lg:hidden"
+            onClick={closeMenu}
+          >
+            Assinar
+          </a>
 
           {/* Mobile Hamburger Toggle */}
           <button
-            className="mobile-toggle"
+            className="mobile-toggle lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -115,7 +130,15 @@ export const Header: React.FC = () => {
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Catálogo & Experiência</span>
+            <span>Conteúdo & Catálogo</span>
+            <ArrowRight size={18} className="text-cyan-400" />
+          </a>
+          <a
+            href="#beneficios"
+            className="mobile-nav-link"
+            onClick={closeMenu}
+          >
+            <span>Vantagens & Qualidade</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -124,14 +147,6 @@ export const Header: React.FC = () => {
             onClick={closeMenu}
           >
             <span>Como Funciona</span>
-            <ArrowRight size={18} className="text-cyan-400" />
-          </a>
-          <a
-            href="#beneficios"
-            className="mobile-nav-link"
-            onClick={closeMenu}
-          >
-            <span>Diferenciais</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -147,7 +162,7 @@ export const Header: React.FC = () => {
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Planos & Assinaturas</span>
+            <span>Planos de Assinatura</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -155,7 +170,7 @@ export const Header: React.FC = () => {
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Depoimentos Reais</span>
+            <span>Experiências Reais</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
           <a
@@ -163,16 +178,23 @@ export const Header: React.FC = () => {
             className="mobile-nav-link"
             onClick={closeMenu}
           >
-            <span>Dúvidas Frequentes</span>
+            <span>Perguntas Frequentes</span>
             <ArrowRight size={18} className="text-cyan-400" />
           </a>
         </nav>
 
         <div className="mobile-drawer-footer">
-          <div className="mobile-drawer-perk">
-            <Film size={14} className="text-cyan-400" />
-            <span>Mais de 60.000 conteúdos liberados</span>
-          </div>
+          <a
+            href="https://wa.me/558594480239?text=Ol%C3%A1!%20J%C3%A1%20sou%20cliente%20BoraFlix%20e%20preciso%20de%20suporte."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-drawer-client-link"
+            onClick={closeMenu}
+          >
+            <UserCheck size={16} className="text-cyan-400" />
+            <span>Já sou cliente • Acessar Suporte</span>
+          </a>
+
           <Button
             href="#planos"
             variant="primary"
@@ -181,7 +203,7 @@ export const Header: React.FC = () => {
             onClick={closeMenu}
             icon={<ArrowRight size={18} />}
           >
-            VER PLANOS E ASSINAR
+            ASSINAR AGORA
           </Button>
         </div>
       </div>

@@ -60,34 +60,31 @@ export const App: React.FC = () => {
 
       {/* Main Page Flow */}
       <main id="main-content">
-        {/* 1. Hero Section (First Fold 100vh) */}
+        {/* 1. Hero Cinematográfico */}
         <Hero />
 
-        {/* 2. Feature Strip */}
-        <FeatureStrip />
-
-        {/* 3. Catalog Experience Carousel */}
+        {/* 2. Em alta na BoraFlix (Catálogo & Categorias) */}
         <PosterCarousel />
 
-        {/* 4. Step Timeline (How It Works) */}
+        {/* 3. Do Primeiro Clique ao Play (Como funciona) */}
         <StepTimeline />
 
-        {/* 5. Bento Grid Benefits */}
+        {/* 4. Tudo Pensado Para Você Aproveitar Mais (Bento Grid) */}
         <BentoBenefits />
 
-        {/* 6. Value Comparison (Fragmented vs Unified) */}
+        {/* 5. Comparativo de Valor */}
         <ValueComparison />
 
-        {/* 7. Pricing & Subscription Plans */}
+        {/* 6. Planos de Assinatura */}
         <Pricing />
 
-        {/* 7. Social Proof & Real Experiences */}
+        {/* 7. Experiências Reais (Prova Social) */}
         <TestimonialCarousel />
 
         {/* 8. FAQ Accordion */}
         <FAQ />
 
-        {/* 9. Final High-Impact CTA */}
+        {/* 9. CTA Final */}
         <FinalCTA />
       </main>
 

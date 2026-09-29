@@ -1,111 +1,68 @@
 import React from 'react';
-import { ArrowRight, Play, Tv, ShieldCheck, Zap, MessageCircle } from 'lucide-react';
+import { ArrowRight, Play, ShieldCheck, Zap, Tv } from 'lucide-react';
 import { Button } from './Button';
 
 export const FinalCTA: React.FC = () => {
-  const WHATSAPP_NUMBER = '558594480239';
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Gostaria de tirar algumas dúvidas e assinar a BoraFlix.')}`;
-
   return (
-    <section className="final-cta-cinema-section" id="comece-agora">
-      {/* Background Cinematic Portal Backdrop */}
-      <div className="final-cta-backdrop-wrap" aria-hidden="true">
-        <img
-          src="/assets/generated/final-cta-art.jpg"
-          alt=""
-          className="final-cta-backdrop-art"
-        />
-        <div className="final-cta-backdrop-overlay" />
+    <section className="section-wrap final-cta-streaming-section" id="comece-agora">
+      {/* Deep Dark Cinematic Ambient Backdrop */}
+      <div className="final-cta-backdrop-glow" aria-hidden="true">
+        <div className="final-glow-cyan" />
+        <div className="final-glow-magenta" />
       </div>
-
-      {/* Floating 3D BoraFlix Ribbon Logo Monument Accent */}
-      <div className="final-cta-monument-wrap" aria-hidden="true">
-        <img
-          src="/assets/logos/boraflix-icon.png"
-          alt="BoraFlix Monumental"
-          className="final-cta-monument-symbol"
-        />
-      </div>
-
-      {/* Ambient Lighting Halos */}
-      <div
-        className="ambient-glow ambient-cyan"
-        style={{ top: '35%', left: '20%', width: '600px', height: '600px', opacity: 0.28 }}
-      />
-      <div
-        className="ambient-glow ambient-magenta"
-        style={{ top: '35%', right: '20%', width: '650px', height: '650px', opacity: 0.3 }}
-      />
 
       <div className="container relative z-10">
-        <div className="final-cta-card-shell">
-          {/* Top Cinema Specular Line */}
-          <div className="final-cta-top-glow-line" />
+        <div className="final-cta-card-cinematic">
+          {/* Subtle Top Specular Light */}
+          <div className="final-specular-line" />
 
-          {/* Cinema Header Badge */}
+          {/* Badge */}
           <div className="final-cta-badge">
-            <span className="final-cta-pulse-beacon" />
-            <Play size={11} className="fill-current text-cyan-400" />
-            <span>EXPERIÊNCIA CINEMATOGRÁFICA DEFINITIVA</span>
+            <span className="final-dot-live" />
+            <span>ACESSO LIBERADO EM SEGUNDOS</span>
           </div>
 
-          {/* Monumental Headline */}
-          <h2 className="final-cta-giant-headline font-display">
-            A próxima sessão <br />
+          {/* Headline requested:
+              Sua próxima sessão
+              começa aqui.
+          */}
+          <h2 className="final-cta-title font-display">
+            Sua próxima sessão <br />
             <span className="text-gradient">começa aqui.</span>
           </h2>
 
-          <p className="final-cta-lead-text">
-            Mais de <strong>60.000 filmes, séries e canais ao vivo</strong> esperando por você.
-            Transforme sua Smart TV, smartphone ou TV Box na central definitiva de entretenimento com qualidade 4K HDR.
+          {/* Text requested:
+              Escolha seu plano e comece a aproveitar a BoraFlix.
+          */}
+          <p className="final-cta-subtitle">
+            Escolha seu plano e comece a aproveitar a BoraFlix.
           </p>
 
-          {/* Premium Value Chips Row */}
-          <div className="final-cta-features-strip">
-            <div className="cta-feature-chip">
-              <Tv size={16} className="text-cyan-400" />
-              <span>Smart TV, Celular, PC e TV Box</span>
-            </div>
-            <div className="cta-feature-chip">
-              <ShieldCheck size={16} className="text-emerald-400" />
-              <span>Garantia de 7 Dias • Risco Zero</span>
-            </div>
-            <div className="cta-feature-chip">
-              <Zap size={16} className="text-amber-400" />
-              <span>Ativação Imediata no WhatsApp</span>
-            </div>
-          </div>
-
-          {/* Action CTAs */}
-          <div className="final-cta-buttons-group">
-            <Button
-              href="#planos"
-              variant="primary"
-              size="lg"
-              className="btn-glow-master final-cta-primary-btn"
-              icon={<ArrowRight size={22} />}
-            >
-              ESCOLHER MEU PLANO AGORA
-            </Button>
-
+          {/* Big CTA Button: COMEÇAR AGORA */}
+          <div className="final-cta-action-wrap">
             <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="final-cta-whatsapp-btn"
+              href="#planos"
+              className="final-cta-main-btn"
             >
-              <MessageCircle size={18} className="text-emerald-400" />
-              <span>Tirar Dúvidas no WhatsApp</span>
+              <Play size={20} className="fill-current" />
+              <span>COMEÇAR AGORA</span>
             </a>
           </div>
 
-          {/* Security & Reassurance Micro Footer */}
-          <div className="final-cta-reassurance-row">
-            <span className="reassurance-item">✦ PIX & Cartão em até 12x</span>
-            <span className="reassurance-dot">•</span>
-            <span className="reassurance-item">✦ Sem contratos ou fidelidade</span>
-            <span className="reassurance-dot">•</span>
-            <span className="reassurance-item">✦ Suporte humanizado 24h</span>
+          {/* Micro Trust Strip */}
+          <div className="final-cta-trust-strip">
+            <div className="final-trust-chip">
+              <Tv size={14} className="text-cyan-400" />
+              <span>Smart TV, Celular, PC e TV Box</span>
+            </div>
+            <div className="final-trust-chip">
+              <ShieldCheck size={14} className="text-emerald-400" />
+              <span>Garantia de 7 Dias Incondicional</span>
+            </div>
+            <div className="final-trust-chip">
+              <Zap size={14} className="text-amber-400" />
+              <span>Ativação Automática Instantânea</span>
+            </div>
           </div>
         </div>
       </div>

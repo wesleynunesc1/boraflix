@@ -1,158 +1,153 @@
 import React from 'react';
-import { ArrowDown, CheckCircle2, XCircle, ArrowRight, Layers, Flame, DollarSign, Sparkles } from 'lucide-react';
+import { CheckCircle2, XCircle, ArrowRight, DollarSign, Sparkles } from 'lucide-react';
 import { Button } from './Button';
 
 export const ValueComparison: React.FC = () => {
   const fragmentedServices = [
-    { name: 'Streamings de Filmes & Séries', desc: 'Várias mensalidades acumuladas' },
-    { name: 'Pacotes de Futebol & Lutas', desc: 'Assinaturas pay-per-view extras' },
-    { name: 'Canais Abertos & Fechados', desc: 'Mensalidades de TV a cabo tradicional' },
-    { name: 'Conteúdo Infantil & Desenhos', desc: 'Plataformas separadas para crianças' }
+    { name: 'Múltiplos streamings de filmes & séries', desc: 'Várias faturas separadas todo mês' },
+    { name: 'Pacotes esportivos & pay-per-view', desc: 'Assinaturas extras para acompanhar futebol e lutas' },
+    { name: 'Canais abertos e por assinatura', desc: 'Mensalidades elevadas de operadoras tradicionais' },
+    { name: 'Conteúdo infantil e desenhos', desc: 'Cobranças adicionais por perfil ou plataforma' }
   ];
 
   const unifiedPerks = [
-    'Mais de 60.000 títulos reunidos em 1 único app',
+    'Mais de 60.000 títulos reunidos em um só aplicativo',
     'Todos os campeonatos e jogos ao vivo em 60 FPS',
-    'Canais em Full HD e 4K HDR sem travamento',
-    'Até 4 telas simultâneas para toda a família',
-    'A partir de R$ 15,00/mês equivalente no Anual'
+    'Transmissão estável em Full HD e 4K HDR sem travamento',
+    'Até 4 telas simultâneas para toda a família curtir junto',
+    'A partir de R$ 15,00/mês equivalente no Plano Anual'
   ];
 
   return (
-    <section className="value-comparison-section" id="comparativo">
-      {/* Dynamic Ambient Background Lights */}
-      <div className="ambient-glow ambient-cyan" style={{ top: '20%', left: '10%', width: '550px', height: '550px' }} />
-      <div className="ambient-glow ambient-magenta" style={{ bottom: '15%', right: '10%', width: '600px', height: '600px' }} />
-
-      <div className="container">
+    <section className="section-wrap comparison-section-wrap" id="comparativo">
+      <div className="container relative z-10">
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
-            <DollarSign size={14} />
-            <span>Comparativo de Valor Real</span>
+            <DollarSign size={13} className="text-cyan-400" />
+            <span>ECONOMIA INTELIGENTE</span>
           </div>
-          <h2 className="section-title">
+          <h2 className="section-title font-display">
             Quanto custa ter <br />
             <span className="text-gradient">entretenimento de verdade?</span>
           </h2>
           <p className="section-subtitle">
-            Separadamente, a conta pode ficar bem maior. Assinar múltiplos serviços isolados
-            gera dezenas de faturas e custos desnecessários todo mês.
+            Separadamente, a conta do entretenimento familiar pode se tornar muito pesada.
+            Veja o comparativo visual entre manter dezenas de assinaturas dispersas e unificar tudo na BoraFlix.
           </p>
         </div>
 
-        {/* Transformation Comparison Architecture */}
+        {/* Comparison Board Layout */}
         <div className="comparison-board">
-          {/* Left Side: The Old Fragmented Reality */}
-          <div className="comparison-side old-way group">
-            <div className="comparison-side-badge badge-warning">
-              <XCircle size={14} />
-              <span>Assinaturas Separadas</span>
+          {/* Left Side: Dispersed subscriptions */}
+          <div className="comparison-card side-dispersed group">
+            <div className="comparison-card-top">
+              <div className="comparison-badge badge-dispersed">
+                <XCircle size={14} />
+                <span>Serviços Separados</span>
+              </div>
+              <span className="comparison-caption-tag font-mono">MODELO TRADICIONAL</span>
             </div>
 
-            <h3 className="font-display text-2xl font-bold text-slate-200 mb-2">
-              Vários serviços. Várias cobranças.
+            <h3 className="comparison-side-title font-display">
+              Várias assinaturas. Múltiplas faturas.
             </h3>
-            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-              Para ter acesso aos filmes do momento, séries premiadas, jogos do seu time e canais ao vivo,
-              você precisaria contratar 5 a 7 planos diferentes.
+            <p className="comparison-side-desc">
+              Para ter filmes novos, séries premiadas, jogos do seu time e canais ao vivo, você precisa contratar diversos planos isolados.
             </p>
 
-            <div className="comparison-list">
+            <div className="comparison-items-list">
               {fragmentedServices.map((item, idx) => (
-                <div key={idx} className="comparison-item old-item">
-                  <div className="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0" />
-                  <div className="flex-1">
-                    <span className="text-sm font-semibold text-slate-200 block">{item.name}</span>
-                    <span className="text-xs text-slate-400">{item.desc}</span>
+                <div key={idx} className="comparison-row row-negative">
+                  <div className="status-indicator-dot red" />
+                  <div className="comparison-row-info">
+                    <span className="row-title">{item.name}</span>
+                    <span className="row-sub">{item.desc}</span>
                   </div>
-                  <span className="text-xs font-mono text-rose-400 font-bold">Cobrança extra</span>
+                  <span className="row-tag-expense font-mono">Fatura extra</span>
                 </div>
               ))}
             </div>
 
-            <div className="comparison-footer-tag tag-expensive">
-              <span className="text-xs text-slate-400">Total mensal estimado no mercado:</span>
-              <span className="font-display text-xl font-bold text-rose-400 line-through">
+            <div className="comparison-summary-box box-negative">
+              <span className="summary-label">Média estimada no mercado:</span>
+              <span className="summary-price-strike font-display">
                 R$ 300 a R$ 500+ /mês
               </span>
+              <span className="summary-note">* Estimativa ilustrativa ao contratar múltiplos serviços individuais.</span>
             </div>
           </div>
 
-          {/* Central Convergence Hub with BoraFlix 3D Symbol */}
-          <div className="comparison-bridge">
-            <div className="bridge-line" />
-            <div className="bridge-logo-orb">
+          {/* Central Convergence Orb */}
+          <div className="comparison-bridge-center hidden lg:flex">
+            <div className="bridge-vertical-line" />
+            <div className="bridge-icon-halo">
               <img
                 src="/assets/logos/boraflix-icon.png"
-                alt="Símbolo BoraFlix"
-                className="w-11 h-11 object-contain"
+                alt="BoraFlix"
+                className="bridge-logo-img"
               />
-              <span className="bridge-text">TUDO UNIFICADO</span>
+              <span className="bridge-label font-mono">TUDO EM 1</span>
             </div>
-            <div className="bridge-line" />
+            <div className="bridge-vertical-line" />
           </div>
 
-          {/* Right Side: The BoraFlix Unified Solution */}
-          <div className="comparison-side new-way group">
-            <div className="comparison-side-badge badge-success">
-              <CheckCircle2 size={14} className="text-cyan-400" />
-              <span>Solução BoraFlix</span>
+          {/* Right Side: BoraFlix Solution */}
+          <div className="comparison-card side-boraflix group">
+            <div className="comparison-card-top">
+              <div className="comparison-badge badge-boraflix">
+                <CheckCircle2 size={14} className="text-cyan-400" />
+                <span>Solução BoraFlix</span>
+              </div>
+              <span className="comparison-caption-tag font-mono text-cyan-400">TUDO UNIFICADO</span>
             </div>
 
-            <h3 className="font-display text-2xl font-bold text-white mb-2">
+            <h3 className="comparison-side-title font-display text-white">
               Uma escolha muito mais simples e inteligente.
             </h3>
-            <p className="text-sm text-slate-300 mb-6 leading-relaxed">
-              Tudo o que você mais gosta de assistir centralizado em um só lugar,
-              com acesso imediato, 4 telas e qualidade de cinema até 4K UHD.
+            <p className="comparison-side-desc text-slate-300">
+              Tudo o que sua casa mais gosta centralizado em uma experiência única, sem multas, sem cabos e com 4 telas inclusas.
             </p>
 
-            <div className="comparison-list">
+            <div className="comparison-items-list">
               {unifiedPerks.map((perk, idx) => (
-                <div key={idx} className="comparison-item new-item">
+                <div key={idx} className="comparison-row row-positive">
                   <CheckCircle2 size={16} className="text-cyan-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-medium text-slate-200">{perk}</span>
+                  <span className="row-title-positive">{perk}</span>
                 </div>
               ))}
             </div>
 
-            <div className="comparison-footer-tag tag-savings">
+            <div className="comparison-summary-box box-positive">
               <div>
-                <span className="text-xs text-cyan-300 uppercase tracking-wider font-mono font-bold block">
-                  A partir de apenas:
-                </span>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-xs font-bold text-white">R$</span>
-                  <span className="font-display text-3xl font-extrabold text-gradient">15,00</span>
-                  <span className="text-xs text-slate-400 font-semibold">/mês equivalente</span>
+                <span className="summary-label text-cyan-300 font-mono">A partir de apenas:</span>
+                <div className="flex items-baseline gap-1 mt-0.5">
+                  <span className="price-curr text-white font-bold">R$</span>
+                  <span className="price-val font-display text-gradient text-3xl font-extrabold">15,00</span>
+                  <span className="price-period text-slate-400 text-xs font-semibold">/mês equivalente</span>
                 </div>
               </div>
 
-              <span className="badge-pill-save">
-                Até R$ 180 de economia
-              </span>
+              <div className="economy-pill">
+                <Sparkles size={12} className="text-amber-400" />
+                <span>Até 50% de economia</span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Transformation Value Conclusion Banner */}
-        <div className="comparison-cta-card">
-          <div className="comparison-cta-content">
-            <div className="comparison-cta-badge">
-              <Sparkles size={14} className="text-cyan-400" />
-              <span>Economia Real Comprovada</span>
-            </div>
-            <h3 className="comparison-cta-title">
-              Economize mais de 70% todos os meses
-            </h3>
-            <p className="comparison-cta-desc">
-              Tenha acesso ilimitado a mais de 60.000 títulos e canais em 4K HDR.
-              Sem contratos de fidelidade, sem burocracia e sem taxas de cancelamento.
+        {/* Bottom Banner */}
+        <div className="comparison-banner-action">
+          <div className="banner-text-block">
+            <h4 className="banner-heading font-display">
+              Pronto para simplificar seu entretenimento?
+            </h4>
+            <p className="banner-subheading">
+              Comece agora sem burocracia. Acesso liberado em menos de 3 minutos com suporte humano no WhatsApp.
             </p>
           </div>
 
-          <div className="comparison-cta-actions">
+          <div className="banner-btn-wrap">
             <Button
               href="#planos"
               variant="primary"
@@ -160,11 +155,8 @@ export const ValueComparison: React.FC = () => {
               className="btn-glow-master"
               icon={<ArrowRight size={18} />}
             >
-              ESCOLHER MEU PLANO
+              VER TODOS OS PLANOS
             </Button>
-            <span className="comparison-cta-micro">
-              ⚡ Ativação imediata • 🔒 7 dias de garantia
-            </span>
           </div>
         </div>
       </div>

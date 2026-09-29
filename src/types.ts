@@ -2,7 +2,7 @@ export interface PosterItem {
   id: string;
   title: string;
   image: string;
-  category: 'cinema' | 'series' | 'kids' | 'action' | 'trending';
+  category: 'filmes' | 'series' | 'animes' | 'esportes' | 'infantil' | string;
   categoryLabel: string;
   rating: string;
   year: string;
